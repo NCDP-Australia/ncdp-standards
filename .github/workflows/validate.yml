@@ -1,0 +1,21 @@
+name: validate
+on: [push, pull_request]
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: CSV and JSON schema agree
+        run: |
+          python - <<'EOF'
+          import csv, json
+          rows = list(csv.DictReader(open('schema/ncdp-metadata-schema-v3.csv')))
+          data = json.load(open('schema/ncdp-metadata-schema-v3.json'))
+          assert len(rows) == data['header_count'], 'row count mismatch'
+          assert [r['header'] for r in rows] == [f['header'] for f in data['fields']], 'header order mismatch'
+          tpl = next(csv.reader(open('templates/L0_metadata_template.csv')))
+          assert tpl == [r['header'] for r in rows], 'template headers do not match schema'
+          print(f"{len(rows)} fields consistent across csv, json and template")
+          EOF

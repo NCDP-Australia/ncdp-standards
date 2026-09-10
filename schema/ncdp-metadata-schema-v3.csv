@@ -1,0 +1,118 @@
+order,header,form_key,provenance,required,carry_forward
+1,Project Identifier,project_identifier,manual,no,no
+2,Date,acquisition_date,manual,yes,no
+3,Location,site_name,manual,yes,no
+4,Region,region,manual,yes,no
+5,north-east boundary latitude,,derived,no,no
+6,north-east boundary longitude,,derived,no,no
+7,north-west boundary latitude,,derived,no,no
+8,north-west boundary longitude,,derived,no,no
+9,south-east boundary latitude,,derived,no,no
+10,south-east boundary longitude,,derived,no,no
+11,south-west boundary latitude,,derived,no,no
+12,south-west boundary longitude,,derived,no,no
+13,Purpose,purpose,carried,no,yes
+14,Description,description,manual,no,no
+15,Tags,tags,manual,no,no
+16,"Access Level (Open, Sensitive, Embargoed, Restricted, Metadata-Only)",access_level,manual,yes,no
+17,License,license,carried,no,yes
+18,Airframe,,derived,no,no
+19,Airframe Type,,derived,no,no
+20,Flight Path File,,derived,no,no
+21,airframe serial number,,exif,no,no
+22,airframe serial number alternate,,exif,no,no
+23,Sensor 1 Model,,exif,no,no
+24,Sensor 1 Serial Number/Identifier,,exif,no,no
+25,Sensor 1 Data Collection Type,,exif,no,no
+26,Sensor 1 Resolution (MP),,exif,no,no
+27,Sensor 1 FOV,,exif,no,no
+28,Sensor 1 Focal Length,,exif,no,no
+29,Sensor 1 Image Height,,exif,no,no
+30,Sensor 1 Image Width,,exif,no,no
+31,Sensor 1 Calibration,,exif,no,no
+32,Sensor 1 Calibration Data (in raw-acquisition-calibration),,exif,no,no
+33,Flying Height (m),,exif,no,no
+34,Vertical Height Offset,,derived,no,no
+35,Organisation,organisation,carried,no,yes
+36,DOI/ROR,,derived,no,no
+37,Attribution (Credit Statement),,derived,no,no
+38,Attribution RAID,,derived,no,no
+39,Project Funding,,derived,no,no
+40,Point of Contact,point_of_contact,carried,yes,yes
+41,Point of Contact ORCID/DOI,point_of_contact_orcid,carried,no,yes
+42,Pilot in Command,pilot_in_command,manual,no,no
+43,Flight Crew,flight_crew,manual,no,no
+44,Length of location mapped (km),,derived,no,no
+45,Area of location mapped (km2),,derived,no,no
+46,Mission Planning Software,,derived,no,no
+47,Flight Plan,,derived,no,no
+48,Image Overlap,,report,no,no
+49,Image Sidelap,,report,no,no
+50,Estimated Image Resolution,,report,no,no
+51,Start Time Local,,exif,no,no
+52,End Time Local,,exif,no,no
+53,UTC to Local Difference,,derived,no,no
+54,Start Time UTC,,exif,no,no
+55,End Time UTC,,exif,no,no
+56,Predominant cloud type,predominant_cloud_type,manual,no,no
+57,Cloud Cover (OKTA),cloud_cover_okta,manual,no,no
+58,Wind Speed (knots in selectable brackets),wind_speed_knots,manual,no,no
+59,Wind Direction,wind_direction,manual,no,no
+60,Total Number of RGB Images,total_rgb_images,report,no,no
+61,Total Number of Flights,,derived,no,no
+62,Image Horizontal Coordinate System,coordinate_system,report,no,no
+63,Image Vertical Coordinate System,,report,no,no
+64,Sensor Angle,,derived,no,no
+65,Were GCPs Used?,gcps_used,manual,no,no
+66,Type of Ground Control Points (GCPs),gcp_type,manual,no,no
+67,Number of GCPs,number_of_gcps,manual,no,no
+68,GCPs Horizontal Coordinate System,gcp_h_crs,report,no,no
+69,GCPs Horizontal Coordinate EPSG,,report,no,no
+70,GCPs Vertical Coordinate System,gcp_v_crs,report,no,no
+71,GCPs Vertical Coordinate EPSG,,report,no,no
+72,Data Processing Platform and version,data_processing_platform,report,no,no
+73,Data processing person and/or institution,data_processing_person,carried,no,yes
+74,Data processing person and/or institution ID,,derived,no,no
+75,Data processing date,data_processing_date,manual,no,no
+76,Data processing area (km2),,derived,no,no
+77,Data QA/QC,,derived,no,no
+78,Processing x rmse (m),processing_x_rmse_m,report,no,no
+79,Processing y rmse (m),processing_y_rmse_m,report,no,no
+80,Processing z rmse (m),processing_z_rmse_m,report,no,no
+81,Processing overall rmse (m),processing_overall_rmse_m,report,no,no
+82,Were ICPs Used?,icps_used,manual,no,no
+83,Number of ICPs,number_of_icps,manual,no,no
+84,ICPs Horizontal Coordinate System,icp_h_crs,report,no,no
+85,ICPs Horizontal Coordinate EPSG,,report,no,no
+86,ICPs Vertical Coordinate System,icp_v_crs,report,no,no
+87,ICPs Vertical Coordinate EPSG,,report,no,no
+88,ICP x rmse (m),,report,no,no
+89,ICP y rmse (m),,report,no,no
+90,ICP z rmse (m),,report,no,no
+91,ICP overall rmse (m),,report,no,no
+92,Orthomosaic File Name,,derived,no,no
+93,Orthomosaic File Type,,derived,no,no
+94,Orthomosaic Folder Level,,derived,no,no
+95,Orthomosaic Ground Sample Distance (m),,report,no,no
+96,Orthomosaic horizontal coordinate system,,report,no,no
+97,Orthomosaic horizontal coordinate EPSG,,report,no,no
+98,DSM File Name,,derived,no,no
+99,DSM File Type,,derived,no,no
+100,DSM Folder Level,,derived,no,no
+101,DSM Ground Sample Distance (m),,report,no,no
+102,DSM horizontal coordinate system,,report,no,no
+103,DSM horizontal coordinate EPSG,,report,no,no
+104,DSM vertical coordinate system,,report,no,no
+105,DSM vertical coordinate EPSG,,report,no,no
+106,Point Cloud File Name,,derived,no,no
+107,Point Cloud File Type,,derived,no,no
+108,Point Cloud Folder Level,,derived,no,no
+109,Point Cloud number of points,,derived,no,no
+110,Point Cloud horizontal coordinate system,,report,no,no
+111,Point Cloud horizontal coordinate EPSG,,report,no,no
+112,Point Cloud vertical coordinate system,,report,no,no
+113,Point Cloud vertical coordinate EPSG,,report,no,no
+114,Comments,comments,manual,no,no
+115,Associated ancillary data or images (in L0Ancillary folder),ancillary_data,manual,no,no
+116,Did Coastal Management Works Occur Between the Previous Survey and This Survey?,coastal_works,manual,no,no
+117,Description of Coastal Management Works,coastal_works_desc,manual,no,no

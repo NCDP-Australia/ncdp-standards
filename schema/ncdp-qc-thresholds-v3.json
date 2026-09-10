@@ -1,0 +1,17 @@
+{
+  "_comment": "Hard numeric thresholds from NCDP_Processing_QC (Thresholds sheet). Edit values here only — qc.py reads them at submission time.",
+  "min_source_images": 100,
+  "max_poor_quality_images": 5,
+  "max_fair_quality_images_pct": 15,
+  "max_unaligned_images": 0,
+  "bundle_adj_total_error_max_m": 0.5,
+  "bundle_adj_z_error_max_m": 0.3,
+  "bundle_adj_xy_error_max_m": 0.3,
+  "gcp_rms_total_error_max_m": 0.5,
+  "gcp_max_individual_error_m": 0.3,
+  "gcp_dem_total_error_max_m": 0.5,
+  "gcp_dem_max_point_diff_m": 0.5,
+  "max_dsm_nodata_voids_pct": 5,
+  "target_gsd_max_cm": 5,
+  "min_point_cloud_density_ppm2": 50
+}
