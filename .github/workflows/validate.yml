@@ -19,3 +19,20 @@ jobs:
           assert tpl == [r['header'] for r in rows], 'template headers do not match schema'
           print(f"{len(rows)} fields consistent across csv, json and template")
           EOF
+      - name: resources.json is valid
+        run: |
+          python - <<'EOF'
+          import json, re
+          d = json.load(open('resources.json'))
+          rs = d['resources']
+          assert isinstance(rs, list) and rs, 'no resources'
+          for r in rs:
+              assert r.get('category') and r.get('title'), f'incomplete: {r}'
+              if r.get('doi'):
+                  doi = r['doi'].replace('https://doi.org/', '')
+                  assert re.fullmatch(r'10\.[0-9]{4,9}/[-._;()/:A-Za-z0-9]+', doi), f'bad doi: {doi}'
+              if r.get('url'):
+                  assert r['url'].startswith(('http://', 'https://')), f"bad url: {r['url']}"
+          print(f'{len(rs)} resources valid')
+          EOF
+

@@ -1,0 +1,119 @@
+{
+  "resources": [
+    {
+      "category": "Data standards",
+      "title": "NCDP data structure and processing levels",
+      "repo": "ncdp-standards",
+      "path": "docs/data-structure.md",
+      "description": "Archive hierarchy, L0-L4 levels, and the L0Ancillary submission record."
+    },
+    {
+      "category": "Data standards",
+      "title": "File and directory naming convention",
+      "repo": "ncdp-standards",
+      "path": "docs/naming-convention.md",
+      "description": "Survey directories, product filenames, and the L3 datum token."
+    },
+    {
+      "category": "Data standards",
+      "title": "Metadata schema v3.0 (117 attributes)",
+      "repo": "ncdp-standards",
+      "path": "docs/metadata-schema.md",
+      "description": "Every field, who fills it, and which five are required."
+    },
+    {
+      "category": "Data standards",
+      "title": "QA/QC protocol",
+      "repo": "ncdp-standards",
+      "path": "docs/qaqc-protocol.md",
+      "description": "What is checked at intake and at NCI, what blocks, and what only flags."
+    },
+    {
+      "category": "Guides and templates",
+      "title": "How to submit a survey",
+      "repo": "ncdp-standards",
+      "path": "docs/submitting-data.md",
+      "description": "Registration, the three upload buckets, and what happens after upload."
+    },
+    {
+      "category": "Guides and templates",
+      "title": "L0 metadata CSV template",
+      "repo": "ncdp-standards",
+      "path": "templates/L0_metadata_template.csv",
+      "raw": true,
+      "description": "Empty CSV carrying the exact canonical headers."
+    },
+    {
+      "category": "Guides and templates",
+      "title": "Metadata schema \u2014 machine readable (JSON)",
+      "repo": "ncdp-standards",
+      "path": "schema/ncdp-metadata-schema-v3.json",
+      "raw": true,
+      "description": "Schema with provenance and required flags, for scripting."
+    },
+    {
+      "category": "Guides and templates",
+      "title": "Metadata schema \u2014 CSV",
+      "repo": "ncdp-standards",
+      "path": "schema/ncdp-metadata-schema-v3.csv",
+      "raw": true,
+      "description": "The same schema as a table."
+    },
+    {
+      "category": "Guides and templates",
+      "title": "QA/QC numeric thresholds",
+      "repo": "ncdp-standards",
+      "path": "schema/ncdp-qc-thresholds-v3.json",
+      "raw": true,
+      "description": "Limits for GSD, RMSE, GCP error, DSM voids and point density."
+    },
+    {
+      "category": "Method references",
+      "title": "Design and application of coastal erosion indicators using satellite and drone data for a regional monitoring program",
+      "doi": "10.1016/j.ocecoaman.2024.107146",
+      "description": "McCarroll, Kennedy, Liu, Allan & Ierodiaconou (2024), Ocean & Coastal Management 253. Basis for the NCDP erosion warning (D1) and hotspot detection (D2) indicators."
+    },
+    {
+      "category": "Method references",
+      "title": "Citizen science for monitoring seasonal-scale beach erosion and behaviour with aerial drones",
+      "doi": "10.1038/s41598-021-83477-6",
+      "description": "Pucino, Kennedy, Carvalho, Allan & Ierodiaconou (2021), Scientific Reports 11, 3935. Method behind the sand/active beach mask (P2)."
+    },
+    {
+      "category": "Links",
+      "title": "NCDP-Australia on GitHub",
+      "url": "https://github.com/NCDP-Australia",
+      "description": "All programme repositories, including the data standards."
+    },
+    {
+      "category": "Links",
+      "title": "AuScope",
+      "url": "https://www.auscope.org.au",
+      "description": "NCRIS capability funding the programme."
+    },
+    {
+      "category": "Links",
+      "title": "National Computational Infrastructure (NCI)",
+      "url": "https://nci.org.au",
+      "description": "Where NCDP data is archived, under project mm91."
+    },
+    {
+      "category": "Method references",
+      "title": "Design and application of coastal erosion indicators using satellite and drone data for a regional monitoring program",
+      "doi": "10.1016/j.ocecoaman.2024.107146",
+      "description": "McCarroll, Kennedy, Liu, Allan & Ierodiaconou (2024), Ocean & Coastal Management 253. Basis for the NCDP erosion warning (D1) and hotspot detection (D2) indicators."
+    },
+    {
+      "category": "Method references",
+      "title": "Citizen science for monitoring seasonal-scale beach erosion and behaviour with aerial drones",
+      "doi": "10.1038/s41598-021-83477-6",
+      "description": "Pucino, Kennedy, Carvalho, Allan & Ierodiaconou (2021), Scientific Reports 11, 3935. Method behind the sand/active beach mask (P2)."
+    },
+    {
+      "category": "Journal articles using NCDP data",
+      "title": "Coastal monitoring with UAV-derived shoreline and volume indicators",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0378383926000724",
+      "description": "Coastal Engineering (2026). Uses NCDP survey data."
+    }
+  ]
+}
