@@ -118,12 +118,11 @@
     {
       "category": "Field manual",
       "title": "NCDP Field Manual v1.0",
-      "repo": "ncdp-field-manual",
-      "path": "field-manual.md",
-      "description": "Equipment, site setup, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys."
+      "url": "https://github.com/NCDP-Australia/ncdp-field-manual/raw/main/NCDP_Field_Manual_v1.0.pdf",
+      "description": "Equipment, site selection, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys. PDF, 61 pages."
     },
     {
-      "category": "Field manual",
+      "category": "Method references",
       "title": "Citizen science unoccupied aerial vehicles",
       "url": "https://doi.org/10.1016/j.csr.2022.104800",
       "doi": "10.1016/j.csr.2022.104800",
