@@ -45,7 +45,7 @@
     },
     {
       "category": "Guides and templates",
-      "title": "Metadata schema \u2014 machine readable (JSON)",
+      "title": "Metadata schema — machine readable (JSON)",
       "repo": "ncdp-standards",
       "path": "schema/ncdp-metadata-schema-v3.json",
       "raw": true,
@@ -53,7 +53,7 @@
     },
     {
       "category": "Guides and templates",
-      "title": "Metadata schema \u2014 CSV",
+      "title": "Metadata schema — CSV",
       "repo": "ncdp-standards",
       "path": "schema/ncdp-metadata-schema-v3.csv",
       "raw": true,
@@ -114,6 +114,20 @@
       "title": "Coastal monitoring with UAV-derived shoreline and volume indicators",
       "url": "https://www.sciencedirect.com/science/article/pii/S0378383926000724",
       "description": "Coastal Engineering (2026). Uses NCDP survey data."
+    },
+    {
+      "category": "Field manual",
+      "title": "NCDP Field Manual v1.0",
+      "repo": "ncdp-field-manual",
+      "path": "field-manual.md",
+      "description": "Equipment, site setup, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys."
+    },
+    {
+      "category": "Field manual",
+      "title": "Citizen science unoccupied aerial vehicles",
+      "url": "https://doi.org/10.1016/j.csr.2022.104800",
+      "doi": "10.1016/j.csr.2022.104800",
+      "description": "Ierodiaconou et al. (2022), Continental Shelf Research 244:104800 — the published account of the NCDP citizen science UAV approach."
     }
   ]
 }
