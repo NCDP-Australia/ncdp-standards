@@ -1,6 +1,6 @@
 {
-  "schema_version": "3.0",
-  "header_count": 117,
+  "schema_version": "3.1",
+  "header_count": 119,
   "critical_form_keys": [
     "site_name",
     "acquisition_date",
@@ -278,7 +278,8 @@
     {
       "order": 33,
       "header": "Flying Height (m)",
-      "form_key": "",
+      "form_key": "flying_height_m",
+      "notes": "Entered in the wizard for raw-only submissions; otherwise read from EXIF.",
       "provenance": "exif",
       "required": "no",
       "carry_forward": "no"
@@ -398,7 +399,8 @@
     {
       "order": 48,
       "header": "Image Overlap",
-      "form_key": "",
+      "form_key": "image_overlap",
+      "notes": "Entered in the wizard for raw-only submissions; otherwise parsed from the processing report.",
       "provenance": "report",
       "required": "no",
       "carry_forward": "no"
@@ -406,7 +408,8 @@
     {
       "order": 49,
       "header": "Image Sidelap",
-      "form_key": "",
+      "form_key": "image_sidelap",
+      "notes": "Entered in the wizard for raw-only submissions; otherwise parsed from the processing report.",
       "provenance": "report",
       "required": "no",
       "carry_forward": "no"
@@ -954,6 +957,28 @@
       "provenance": "manual",
       "required": "no",
       "carry_forward": "no"
+    },
+    {
+      "order": 118,
+      "header": "Submission Type",
+      "form_key": "submission_type",
+      "provenance": "manual",
+      "required": "no",
+      "carry_forward": "no",
+      "allowed_values": ["processed", "raw-only"],
+      "default": "processed",
+      "notes": "What the contributor delivered. Fixed at submission and never changed. Absent (pre-3.1 records) means processed. raw-only is by arrangement with the NCDP team."
+    },
+    {
+      "order": 119,
+      "header": "Processing State",
+      "form_key": "processing_state",
+      "provenance": "derived",
+      "required": "no",
+      "carry_forward": "no",
+      "allowed_values": ["processed", "awaiting-processing", "archived-only"],
+      "default": "processed",
+      "notes": "Where the survey is now. Starts as awaiting-processing for raw-only and becomes processed when the programme's products are attached; processed for everything else."
     }
   ]
 }

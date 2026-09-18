@@ -43,6 +43,47 @@ three buckets report complete.
 For historical backlogs of multiple terabytes, don't use the web portal —
 contact the team about an SFTP delivery.
 
+## Raw imagery only
+
+If you have flown a survey but not processed it, the programme can process it
+for you. This is **by arrangement**: email
+[ncdp@deakin.edu.au](mailto:ncdp@deakin.edu.au) first. Once the team has
+enabled it for your account, the wizard shows a choice at the top: *I have
+processed this survey* or *Raw imagery only*.
+
+Choose *Raw imagery only* and the wizard drops the report and products steps.
+What to upload:
+
+| What | Why |
+|---|---|
+| **The full image set** (required) | It is the whole delivery. A raw-only submission with no imagery is held. |
+| **Flight / GNSS logs** — `.MRK`, `.obs`, `.nav`, `.rtk` | Allow PPK positioning. Imagery alone can be processed; with logs it can be processed *well*. |
+| **GCP coordinates** — a CSV with `GCP` in the filename | Needed if you laid ground control. Without the file the programme cannot use it. |
+
+And three fields that matter more than usual, because there is no report to
+read them from: flying height, forward overlap and side overlap. Approximate
+values are fine.
+
+The five required fields are the same as for any submission.
+
+### What happens to a raw-only survey
+
+1. QA/QC checks the imagery itself: that it is there, that there is enough of
+   it, that the frames carry GPS positions and that the capture date matches
+   the one you entered.
+2. It is archived at NCI as a survey in its own right, and appears in the
+   catalogue as **awaiting processing**, drawn as a dashed *flight area*
+   derived from the camera positions. Nothing is downloadable yet, but anyone
+   browsing can see that imagery exists for that site and date.
+3. When the programme has processed it, the orthomosaic, DSM and point cloud
+   are added to **the same survey** — not a new one. It then appears like any
+   other processed survey.
+
+The record keeps both contributions: the imagery is yours (recorded as the
+producer), the products are the programme's (recorded as the processor).
+`Submission Type` stays `raw-only` permanently so that distinction is never
+lost; `Processing State` records where the survey is now.
+
 ## What happens next
 
 1. Automated QA/QC runs immediately; you get an email with the outcome.
@@ -54,7 +95,8 @@ contact the team about an SFTP delivery.
 ## If your submission is held
 
 Only five things block: missing critical metadata, an invalid contact email,
-executable files, unrecognised file types, or a truncated transfer. Everything
+executable files, unrecognised file types, or a truncated transfer. For a
+raw-only submission a sixth also blocks: no raw imagery. Everything
 else — a missing okta reading, a threshold slightly out — flags for review and
 still proceeds.
 
