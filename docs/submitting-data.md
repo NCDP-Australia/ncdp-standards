@@ -58,11 +58,17 @@ What to upload:
 |---|---|
 | **The full image set** (required) | It is the whole delivery. A raw-only submission with no imagery is held. |
 | **Flight / GNSS logs** — `.MRK`, `.obs`, `.nav`, `.rtk` | Allow PPK positioning. Imagery alone can be processed; with logs it can be processed *well*. |
-| **GCP coordinates** — a CSV with `GCP` in the filename | Needed if you laid ground control. Without the file the programme cannot use it. |
+| **GCP coordinates** — a CSV or TXT with a point name and three coordinates per row | Needed if you laid ground control. The filename does not matter. Without the file the programme cannot use your control points. |
 
 And three fields that matter more than usual, because there is no report to
 read them from: flying height, forward overlap and side overlap. Approximate
 values are fine.
+
+The wizard reads the first image as soon as you choose the folder, and fills in
+the **acquisition date** (and flying height, when the imagery records it) from
+the frames themselves. If what it finds disagrees with what you typed, it says
+so and offers the date from the imagery — worth taking, unless you know the
+camera clock is wrong.
 
 The five required fields are the same as for any submission.
 
@@ -70,14 +76,14 @@ The five required fields are the same as for any submission.
 
 1. QA/QC checks the imagery itself: that it is there, that there is enough of
    it, that the frames carry GPS positions and that the capture date matches
-   the one you entered.
-2. It is archived at NCI as a survey in its own right, and appears in the
-   catalogue as **awaiting processing**, drawn as a dashed *flight area*
-   derived from the camera positions. Nothing is downloadable yet, but anyone
-   browsing can see that imagery exists for that site and date.
+   the one on the form.
+2. It is archived at NCI as a survey in its own right. It is **not published**
+   in the public catalogue while it is awaiting processing: an entry with
+   nothing downloadable helps nobody. The NCDP team can see it, and you can ask
+   us about it by quoting your submission reference.
 3. When the programme has processed it, the orthomosaic, DSM and point cloud
-   are added to **the same survey** — not a new one. It then appears like any
-   other processed survey.
+   are added to **the same survey** — not a new one — and it then appears in
+   the catalogue like any other processed survey.
 
 The record keeps both contributions: the imagery is yours (recorded as the
 producer), the products are the programme's (recorded as the processor).
