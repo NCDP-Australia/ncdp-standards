@@ -16,7 +16,7 @@
     },
     {
       "category": "Data standards",
-      "title": "Metadata schema v3.0 (117 attributes)",
+      "title": "Metadata schema v3.1 (119 attributes)",
       "repo": "ncdp-standards",
       "path": "docs/metadata-schema.md",
       "description": "Every field, who fills it, and which five are required."
@@ -98,18 +98,6 @@
       "description": "Where NCDP data is archived, under project mm91."
     },
     {
-      "category": "Method references",
-      "title": "Design and application of coastal erosion indicators using satellite and drone data for a regional monitoring program",
-      "doi": "10.1016/j.ocecoaman.2024.107146",
-      "description": "McCarroll, Kennedy, Liu, Allan & Ierodiaconou (2024), Ocean & Coastal Management 253. Basis for the NCDP erosion warning (D1) and hotspot detection (D2) indicators."
-    },
-    {
-      "category": "Method references",
-      "title": "Citizen science for monitoring seasonal-scale beach erosion and behaviour with aerial drones",
-      "doi": "10.1038/s41598-021-83477-6",
-      "description": "Pucino, Kennedy, Carvalho, Allan & Ierodiaconou (2021), Scientific Reports 11, 3935. Method behind the sand/active beach mask (P2)."
-    },
-    {
       "category": "Journal articles using NCDP data",
       "title": "Coastal monitoring with UAV-derived shoreline and volume indicators",
       "url": "https://www.sciencedirect.com/science/article/pii/S0378383926000724",
@@ -117,9 +105,9 @@
     },
     {
       "category": "Field manual",
-      "title": "NCDP Field Manual v1.0",
-      "url": "https://github.com/NCDP-Australia/ncdp-field-manual/raw/main/NCDP_Field_Manual_v1.0.pdf",
-      "description": "Equipment, site selection, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys. PDF, 61 pages."
+      "title": "NCDP Field Manual",
+      "doi": "10.5281/zenodo.22867526",
+      "description": "Equipment, site selection, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys. PDF, 61 pages, CC-BY 4.0. The DOI always resolves to the latest edition (currently v1.0)."
     },
     {
       "category": "Method references",
