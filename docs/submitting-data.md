@@ -90,6 +90,25 @@ producer), the products are the programme's (recorded as the processor).
 `Submission Type` stays `raw-only` permanently so that distinction is never
 lost; `Processing State` records where the survey is now.
 
+## Access level
+
+Every survey is either **Open** or **Restricted**.
+
+- **Open** — everything is published: orthomosaic, DSM, point cloud and the
+  map preview.
+- **Restricted** — for places covered by an agreement with a Traditional
+  Owner group. The survey is archived in full, but only the **DSM** and an
+  **uncoloured point cloud** are published; the orthomosaic, the raw imagery
+  and any preview made from them are not. Export the point cloud without
+  colour: at drone densities a coloured point cloud shows almost as much as
+  the orthomosaic.
+
+The portal checks each survey's location against the areas covered by these
+agreements. If you submit a survey from such an area as Open, you'll see a
+warning, and until the NCDP team has reviewed the access level with you, it
+is published as Restricted. Nothing is lost either way: everything you upload
+is archived, and the access level can be changed after review.
+
 ## What happens next
 
 1. Automated QA/QC runs immediately; you get an email with the outcome.
