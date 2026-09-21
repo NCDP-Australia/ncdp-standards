@@ -31,7 +31,7 @@ order,header,form_key,provenance,required,carry_forward
 30,Sensor 1 Image Width,,exif,no,no
 31,Sensor 1 Calibration,,exif,no,no
 32,Sensor 1 Calibration Data (in raw-acquisition-calibration),,exif,no,no
-33,Flying Height (m),,exif,no,no
+33,Flying Height (m),flying_height_m,exif,no,no
 34,Vertical Height Offset,,derived,no,no
 35,Organisation,organisation,carried,no,yes
 36,DOI/ROR,,derived,no,no
@@ -46,8 +46,8 @@ order,header,form_key,provenance,required,carry_forward
 45,Area of location mapped (km2),,derived,no,no
 46,Mission Planning Software,,derived,no,no
 47,Flight Plan,,derived,no,no
-48,Image Overlap,,report,no,no
-49,Image Sidelap,,report,no,no
+48,Image Overlap,image_overlap,report,no,no
+49,Image Sidelap,image_sidelap,report,no,no
 50,Estimated Image Resolution,,report,no,no
 51,Start Time Local,,exif,no,no
 52,End Time Local,,exif,no,no
@@ -116,3 +116,5 @@ order,header,form_key,provenance,required,carry_forward
 115,Associated ancillary data or images (in L0Ancillary folder),ancillary_data,manual,no,no
 116,Did Coastal Management Works Occur Between the Previous Survey and This Survey?,coastal_works,manual,no,no
 117,Description of Coastal Management Works,coastal_works_desc,manual,no,no
+118,Submission Type,submission_type,manual,no,no
+119,Processing State,processing_state,derived,no,no

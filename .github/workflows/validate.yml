@@ -2,10 +2,13 @@ name: validate
 on: [push, pull_request]
 jobs:
   schema:
-    runs-on: ubuntu-latest
+    # Pinned rather than ubuntu-latest, which moves to Ubuntu 26 from
+    # 2026-10-19: the validation environment changes only when we choose.
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      # Node 24 majors; v4 / v5 targeted the deprecated Node 20 runtime.
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.11' }
       - name: CSV and JSON schema agree
         run: |
