@@ -18,11 +18,24 @@ survey — L4 in particular is produced only where there is a derived product.
 
 | Level | Contents | Produced by |
 |---|---|---|
-| **L0** | Raw acquisition and everything describing it | Contributor |
-| **L1** | Reserved | — |
-| **L2** | Analysed products in the **source** CRS | Contributor's processing software |
-| **L3** | Cleaned and reprojected to **GDA2020** | Gadi pipeline |
-| **L4** | Derived/decision-ready products | Analysis |
+| **L0** | Raw, unprocessed data (images, flight logs) and everything describing it | Contributor |
+| **L1** | Intermediate processing steps (e.g. thermal or multispectral calibration). Empty for most surveys | Contributor |
+| **L2** | Uncleaned processed data (DSM, orthomosaic, point cloud) exactly as the processing software produced it, in the **source** CRS | Contributor's processing software |
+| **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD** as Cloud-Optimised GeoTIFF | Contributor, or the Gadi pipeline from L2 |
+| **L4** | Model outputs derived from the data (results, indicators) | Analysis |
+
+Contributors say which level their processed data is by uploading it into the
+matching step of the submission wizard. At least one of L2 or L3 is required
+for a processed survey.
+
+**How L3 is produced:**
+
+- **Only L2 supplied** — the Gadi pipeline reprojects it to GDA2020 + AHD and
+  writes Cloud-Optimised GeoTIFFs into L3.
+- **Cleaned data supplied** — that is the survey's L3. If it is already in
+  GDA2020 / MGA with AHD heights, the pipeline only converts it to COG and adds
+  the datum token to the file name. Otherwise it is archived as delivered and
+  held for the NCDP team to reproject before publication.
 
 ### L0 sub-folders
 
@@ -30,7 +43,7 @@ survey — L4 in particular is produced only where there is a derived product.
 |---|---|
 | `L0Raw` | Raw imagery as captured |
 | `L0Planning` | Mission plans, flight path files |
-| `L0GCPs` | Ground control point coordinates and observations |
+| `L0GCPs` | Ground control and check-point coordinates (CSV/TXT), including every AeroPoints export for Propeller surveys |
 | `L0FlightLogs` | Flight logs, RTK/PPK observation files |
 | `L0Ancillary` | Metadata CSV, processing report, QC record |
 
@@ -50,9 +63,10 @@ archive, not scaffolding:
 
 ## Coordinate reference systems
 
-**Keep the source CRS in L2. Reproject to GDA2020 in L3.** The original is never
-overwritten, so a reprojection can always be re-derived or audited. L3 filenames
-carry the datum token (see the naming convention).
+**Keep the source CRS in L2. L3 is GDA2020 horizontally and AHD vertically,
+as Cloud-Optimised GeoTIFF.** The original is never overwritten, so a
+reprojection can always be re-derived or audited. L3 filenames carry the datum
+token (see the naming convention).
 
 Vertical CRS is recorded separately from horizontal — an orthomosaic in
 GDA2020 / MGA Zone 54 and a DSM on AHD is a normal combination and both must be

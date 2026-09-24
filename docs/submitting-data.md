@@ -14,17 +14,24 @@ years later.
 
 ## What to prepare
 
-Three things, uploaded as three buckets:
+| Step | Contents | Archived in |
+|---|---|---|
+| **Processing report** | From Propeller, Pix4D or Agisoft, as PDF | `L0Ancillary` |
+| **Raw imagery** | As captured, folder or zip, with flight and GNSS logs | `L0` |
+| **Ground control files** | GCP (and check-point) coordinates as CSV/TXT. For Propeller, every AeroPoints export. Required unless no GCPs were used | `L0GCPs` |
+| **Processed data** | Upload into the level that matches what you have — at least one of L2 or L3: | |
+| · L1 Intermediate | In-between processing steps, e.g. thermal or multispectral calibration. Most surveys have none | `L1` |
+| · L2 Original | DSM, orthomosaic, point cloud exactly as the software produced them | `L2` |
+| · L3 Cleaned | The same after your own manual editing (cropped, noise or water removed). State its coordinate system; GDA2020 / MGA with AHD heights is ready to publish | `L3` |
 
-| Bucket | Contents |
-|---|---|
-| **Raw** | Raw imagery as captured, folder or zip |
-| **Report** | Processing report from Propeller, Pix4D or Agisoft, as PDF |
-| **Products** | Orthomosaic, DSM, point cloud |
+If you upload only L2, NCDP produces the L3 copy (GDA2020, AHD heights,
+cloud-optimised) for you.
 
 Upload the report **first**. The wizard parses it and pre-fills roughly a third
-of the metadata, which is the difference between a five-minute submission and a
-half-hour one.
+of the metadata, including the processing software and the number of GCPs,
+which is the difference between a five-minute submission and a half-hour one.
+GCP files are read in your browser as well: AeroPoints exports fill in the GCP
+count and coordinate systems.
 
 ## What you type
 
@@ -37,8 +44,8 @@ contact and access level.
 ## Upload behaviour
 
 Uploads are resumable. A dropped connection mid-transfer resumes rather than
-restarting, which matters at 10–20 GB per survey. Leave the tab open until all
-three buckets report complete.
+restarting, which matters at 10–20 GB per survey. Leave the tab open until every
+upload step reports complete.
 
 For historical backlogs of multiple terabytes, don't use the web portal —
 contact the team about an SFTP delivery.
@@ -46,13 +53,12 @@ contact the team about an SFTP delivery.
 ## Raw imagery only
 
 If you have flown a survey but not processed it, the programme can process it
-for you. This is **by arrangement**: email
-[ncdp@deakin.edu.au](mailto:ncdp@deakin.edu.au) first. Once the team has
-enabled it for your account, the wizard shows a choice at the top: *I have
-processed this survey* or *Raw imagery only*.
+for you, as capacity allows. The wizard asks at the top: *I have processed
+this survey* or *Raw imagery only*. For a large or urgent job, email
+[ncdp@deakin.edu.au](mailto:ncdp@deakin.edu.au) first.
 
-Choose *Raw imagery only* and the wizard drops the report and products steps.
-What to upload:
+Choose *Raw imagery only* and the wizard drops the report and processed-data
+steps. What to upload:
 
 | What | Why |
 |---|---|
@@ -96,8 +102,8 @@ Every survey is either **Open** or **Restricted**.
 
 - **Open** — everything is published: orthomosaic, DSM, point cloud and the
   map preview.
-- **Restricted** — for places covered by an agreement with a Traditional
-  Owner group. The survey is archived in full, but only the **DSM** and an
+- **Restricted** — for places covered by a prior data agreement. The
+  survey is archived in full, but only the **DSM** and an
   **uncoloured point cloud** are published; the orthomosaic, the raw imagery
   and any preview made from them are not. Export the point cloud without
   colour: at drone densities a coloured point cloud shows almost as much as
