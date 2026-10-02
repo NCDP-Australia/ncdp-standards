@@ -32,6 +32,9 @@ details are read from the files. For a processed survey the steps are
 | · L3 Cleaned | The same after your own manual editing (cropped, noise or water removed). State its coordinate system; GDA2020 / MGA with AHD heights is ready to publish | `L3` |
 | **Crop polygon** | Optional: a crop / area-of-interest polygon (`.kml`, `.dxf`, `.geojson`, shapefile), uploaded with the processed data | with the products |
 
+Upload each product once, at its native resolution. Resampled copies (e.g. a
+1 m DSM beside the full-resolution one) are not archived.
+
 If you upload only L2, NCDP produces the L3 copy (GDA2020, AHD heights,
 cloud-optimised) for you.
 
@@ -149,8 +152,8 @@ is archived, and the access level can be changed after review.
 3. The Gadi pipeline verifies integrity, restructures into L0–L3, checks the
    pixels against the report, and generates catalogue and STAC records.
 4. Your survey appears on the public map. Open surveys are published from
-   `/g/data/mm91/NCDP`; Restricted ones are kept in `/g/data/mm91/admin` and
-   published in part (see Access level).
+   `/g/data/mm91/NCDP`; for Restricted surveys only part is published (see
+   Access level).
 5. A weekly audit keeps checking every archived survey's structure, names,
    metadata and data; if it finds a problem with yours, the team may contact
    you.

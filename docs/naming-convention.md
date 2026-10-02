@@ -48,7 +48,7 @@ Worth knowing when you:
 ## Product files
 
 ```
-<YYYYMMDD>_<SiteName>_<Product>[-<CRS>][_<resolution>].<ext>
+<YYYYMMDD>_<SiteName>_<Product>[-<CRS>].<ext>
 ```
 
 `<Product>` is one of `Orthomosaic`, `DSM`, `PointCloud`.
@@ -59,14 +59,17 @@ Worth knowing when you:
 20240115_PortFairy_PointCloud.las
 ```
 
-When the delivered file name states the coordinate system or a ground
-resolution, both are kept, so that two versions of a product stay
-distinguishable:
+When the delivered file name states the coordinate system, it is kept as a
+token after the product type:
 
 ```
-20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned_1m.tif  ->  20240115_PortFairy_DSM-GDA94Z54_1m.tif
-20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned.tif     ->  20240115_PortFairy_DSM-GDA94Z54.tif
+20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned.tif  ->  20240115_PortFairy_DSM-GDA94Z54.tif
 ```
+
+**One file per product, at its native resolution.** A resampled copy of a
+product delivered beside it (VCMP's `..._cleaned_1m` next to `..._cleaned`) is
+not archived; only the native-resolution file is kept. A product delivered at
+one resolution only is kept, and no resolution goes into its name.
 
 The product type is recognised from the name: `ortho` (or Propeller's
 `GeoTIFF` export) is the orthomosaic, `DSM`/`DSN`/`DEM` the DSM, `.las`/`.laz`

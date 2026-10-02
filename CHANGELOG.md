@@ -1,29 +1,34 @@
 # Changelog
 
-## 2026-10 — archive record format, layout and audit
+## Schema v4.0 — 2026-10: archive record format, layout and audit
 
-No schema attribute is renamed, removed or reordered, so schema v3.1 stands.
+v4.0 is the archive's record format. Every v3.1 attribute keeps its name and
+provenance; the column order is the archive's, so this is a major version.
 
-- **Archive record format.** New `templates/ancillary_template.csv`: the
-  archive's per-survey metadata file (`<YYYYMMDD-Location>_ancillary.csv`),
-  302 columns. It holds every v3.1 attribute under the same name, plus the
-  archive's per-flight (`Flight 1…20 …`), sensor, ground-control EPSG and
-  product-detail columns and `End Date`. From 2026-10-02 the portal writes new
-  submissions in this format, so new surveys and archived ones share one header;
-  the per-flight columns are filled from the imagery. The 119-column
-  `L0_metadata_template.csv` is kept for existing tools.
-- **Two archive roots.** Open surveys are published from `/g/data/mm91/NCDP`;
-  everything else stays in `/g/data/mm91/admin`.
+- **Archive record format.** `schema/ncdp-metadata-schema-v4.csv/.json` and
+  `templates/ancillary_template.csv`: the archive's per-survey metadata file
+  (`<YYYYMMDD-Location>_ancillary.csv`), 302 columns. Added to v3.1: the
+  per-flight columns `Flight 1…20` (local and UTC start/end, images,
+  dewarping, speed, sensor angle, height), `Airframe 1`, `Airframe 2` and
+  `End Date`. The 28 `Record …` columns that Gadi generates after them are
+  documented in the JSON (`generated_fields`). From 2026-10-02 the portal
+  writes new submissions in this format, with the per-flight columns filled
+  from the imagery; the archived surveys are brought to the same columns.
+  v3.1 files are kept for existing tools.
+- **Published archive** at `/g/data/mm91/NCDP/<State>/<Location>/<YYYYMMDD-Location>/`.
 - **Raw imagery** sits in `L0/L0Raw/L0RGB/<flight folder>`; a contributor's
   crop polygon is the survey's area of interest (L4).
-- **Product names** keep a coordinate system or ground resolution stated in
-  the delivered name (`_DSM-GDA94Z54_1m`); Propeller's GeoTIFF export is
-  recognised as the orthomosaic.
+- **Product names** keep a coordinate system stated in the delivered name
+  (`_DSM-GDA94Z54`); Propeller's GeoTIFF export is recognised as the
+  orthomosaic.
+- **One file per product, at its native resolution.** Resampled copies (e.g.
+  `_cleaned_1m` beside `_cleaned`) are not archived; new warning
+  `resampled_copy`.
 - **Site names** come from the NCDP site list (`sites.csv`).
 - **SFTP deliveries** are arranged into the archive layout on Gadi
   (`sftp_restructure.py`), and promoted only when they pass the audit.
 - **Weekly archive audit** (`archive_audit.py`) of structure, names, metadata
-  and data across both roots.
+  and data across the archive; `archive_fix.py` for fixes to existing surveys.
 - **Intake QC:** `.dxf` accepted (crop polygons); RINEX and other GNSS logs
   recognised; new warning `l2_looks_cleaned`.
 - **Portal wizard:** files first, survey details last; date, site, state,

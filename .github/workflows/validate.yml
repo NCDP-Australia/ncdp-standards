@@ -22,17 +22,23 @@ jobs:
           assert tpl == [r['header'] for r in rows], 'template headers do not match schema'
           print(f"{len(rows)} fields consistent across csv, json and template")
           EOF
-      - name: Archive template contains every schema attribute
+      - name: Schema v4.0 (archive record format) is consistent
         run: |
           python - <<'EOF'
-          import csv
-          schema = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v3.csv'))]
-          arch = next(csv.reader(open('templates/ancillary_template.csv')))
-          missing = [h for h in schema if h not in arch]
-          assert not missing, f'archive template lacks schema attributes: {missing}'
-          assert len(arch) == len(set(arch)), 'duplicate columns in the archive template'
-          assert arch[0] == 'Project Identifier', 'archive template must start with Project Identifier'
-          print(f"archive template: {len(arch)} columns, all {len(schema)} schema attributes present")
+          import csv, json
+          rows = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v4.csv'))]
+          data = json.load(open('schema/ncdp-metadata-schema-v4.json'))
+          tpl = next(csv.reader(open('templates/ancillary_template.csv')))
+          v3 = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v3.csv'))]
+          assert len(rows) == data['header_count'], 'v4 row count mismatch'
+          assert rows == [f['header'] for f in data['fields']], 'v4 csv and json differ'
+          assert rows == tpl, 'ancillary_template.csv does not match schema v4'
+          assert len(rows) == len(set(rows)), 'duplicate columns in v4'
+          missing = [h for h in v3 if h not in rows]
+          assert not missing, f'v4 lacks v3.1 attributes: {missing}'
+          gen = [g['header'] for g in data['generated_fields']]
+          assert all(h.startswith('Record ') for h in gen) and not set(gen) & set(rows), 'generated fields'
+          print(f"v4.0: {len(rows)} columns + {len(gen)} generated; all {len(v3)} v3.1 attributes present")
           EOF
       - name: resources.json is valid
         run: |

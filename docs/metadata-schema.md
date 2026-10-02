@@ -1,9 +1,37 @@
-# Metadata schema v3.0
+# Metadata schema v4.0
 
-117 attributes describing a survey. This is the single vocabulary shared
-by the submission wizard, `metadata.json`, the QA/QC engines, the archived CSV
-and the STAC records — so that no translation layer is needed anywhere between
-them.
+The attributes describing a survey: the single vocabulary shared by the
+submission wizard, `metadata.json`, the QA/QC engines, the archived CSV and the
+STAC records — so that no translation layer is needed anywhere between them.
+
+**v4.0 is the archive's record format:** every survey's
+`<YYYYMMDD-Location>_ancillary.csv` has these **302 columns** in this order
+(`schema/ncdp-metadata-schema-v4.csv` / `.json`,
+`templates/ancillary_template.csv`), followed by **28 `Record …` columns**
+generated on Gadi. v4.0 keeps every v3.1 attribute under the same name and
+adds 183 columns; it is a major version because the column order is the
+archive's, not v3's.
+
+| Columns | Count | Provenance |
+|---|---|---|
+| The v3.1 attributes (described below) | 119 | as listed below |
+| `Flight 1` … `Flight 20`, each with `Start Time Local`, `End Time Local`, `Images`, `Dewarping`, `Speed`, `Sensor Angle`, `Height` | 140 | `exif`: read from the imagery (the wizard's flight table) |
+| `Flight 1` … `Flight 20`, each with `Start Time UTC`, `End Time UTC` | 40 | `derived`: recalculated on Gadi from local time and the state's time zone |
+| `Airframe 1`, `Airframe 2` | 2 | `manual`: when more than one airframe flew the survey |
+| `End Date` | 1 | `derived`: last day of a survey flown over more than one day; blank otherwise |
+
+The 28 generated columns (`schema/ncdp-metadata-schema-v4.json`,
+`generated_fields`) are written by `generate_record_columns.py` on Gadi, from
+the columns above and the NCDP registries (sites, states, organisations,
+programmes, vocabularies). They hold the values the published records use:
+site name, survey period, UTC times, bounding box, camera, products, GSD,
+formats, licence, processor and software, georeferencing, funders (with each
+organisation's name as it was on the survey date), and the lineage blocks.
+Contributors never fill them, and they are not in the template.
+
+The sections below describe the 119 v3.1 attributes.
+
+## v3.1 attributes
 
 Generated from `portal/schema.py`. The header strings are exact: the archive's
 CSVs and the STAC generator key on them character for character, so treat any

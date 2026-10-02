@@ -2,11 +2,11 @@
 
 ## Directory hierarchy
 
-Surveys are archived at NCI under project `mm91`, in one of two roots:
+Surveys are archived at NCI under project `mm91`. Published (Open) surveys are
+at:
 
 ```
-/g/data/mm91/NCDP/<State>/<Location>/<YYYYMMDD-Location>/    published (Open) surveys, served through THREDDS
-/g/data/mm91/admin/<State>/<Location>/<YYYYMMDD-Location>/   everything not public: Restricted, or not yet released
+/g/data/mm91/NCDP/<State>/<Location>/<YYYYMMDD-Location>/
 ```
 
 `<State>` is the full name (`Victoria`, not `VIC`). `<Location>` is the site's
@@ -28,8 +28,8 @@ survey — L4 in particular is produced only where there is a derived product.
 |---|---|---|
 | **L0** | Raw, unprocessed data (images, flight logs) and everything describing it | Contributor |
 | **L1** | Intermediate processing steps (e.g. thermal or multispectral calibration). Empty for most surveys | Contributor |
-| **L2** | Uncleaned processed data (DSM, orthomosaic, point cloud) exactly as the processing software produced it, in the **source** CRS | Contributor's processing software |
-| **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD** as Cloud-Optimised GeoTIFF | Contributor, or the Gadi pipeline from L2 |
+| **L2** | Uncleaned processed data (DSM, orthomosaic, point cloud) exactly as the processing software produced it, in the **source** CRS. One file per product, at its native resolution | Contributor's processing software |
+| **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD** as Cloud-Optimised GeoTIFF. One file per product, at its native resolution | Contributor, or the Gadi pipeline from L2 |
 | **L4** | Model outputs derived from the data (results, indicators), and the survey's area of interest (AoI), including a contributor's crop polygon | Analysis |
 
 Contributors say which level their processed data is by uploading it into the
@@ -110,9 +110,10 @@ from there:
   builds this layout, names the products and keeps the partner's original CSV
   beside the archive one. Surveys move into the archive only when they pass
   the audit.
-- **A weekly audit** (`archive_audit.py`) checks every survey in both roots:
-  folder names and places, this layout, the metadata record (one row; its
-  Project Identifier, Date, Location, Region and Access Level agree with where
-  the survey sits), raw imagery, orthomosaic and DSM, product names, duplicate
-  ids, site records and the catalogue. It changes nothing; its report lists
-  what needs fixing.
+- **A weekly audit** (`archive_audit.py`) checks every archived survey:
+  folder names and places, this layout, the metadata record (one row, the
+  archive's full set of columns; its Project Identifier, Date, Location,
+  Region and Access Level agree with where the survey sits), raw imagery,
+  orthomosaic and DSM, product names, resampled copies, duplicate ids, site
+  records and the catalogue. It changes nothing; its report lists what needs
+  fixing.

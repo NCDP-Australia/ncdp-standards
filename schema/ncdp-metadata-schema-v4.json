@@ -1,0 +1,2626 @@
+{
+ "schema_version": "4.0",
+ "header_count": 302,
+ "critical_form_keys": [
+  "site_name",
+  "acquisition_date",
+  "region",
+  "access_level",
+  "point_of_contact"
+ ],
+ "carry_forward_form_keys": [
+  "airframe",
+  "airframe_type",
+  "data_processing_person",
+  "license",
+  "organisation",
+  "point_of_contact",
+  "point_of_contact_orcid",
+  "purpose"
+ ],
+ "fields": [
+  {
+   "order": 1,
+   "header": "Project Identifier",
+   "form_key": "project_identifier",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 2,
+   "header": "Date",
+   "form_key": "acquisition_date",
+   "provenance": "manual",
+   "required": "yes",
+   "carry_forward": "no"
+  },
+  {
+   "order": 3,
+   "header": "Location",
+   "form_key": "site_name",
+   "provenance": "manual",
+   "required": "yes",
+   "carry_forward": "no"
+  },
+  {
+   "order": 4,
+   "header": "Region",
+   "form_key": "region",
+   "provenance": "manual",
+   "required": "yes",
+   "carry_forward": "no"
+  },
+  {
+   "order": 5,
+   "header": "north-east boundary latitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 6,
+   "header": "north-east boundary longitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 7,
+   "header": "north-west boundary latitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 8,
+   "header": "north-west boundary longitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 9,
+   "header": "south-east boundary latitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 10,
+   "header": "south-east boundary longitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 11,
+   "header": "south-west boundary latitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 12,
+   "header": "south-west boundary longitude",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 13,
+   "header": "Purpose",
+   "form_key": "purpose",
+   "provenance": "carried",
+   "required": "no",
+   "carry_forward": "yes"
+  },
+  {
+   "order": 14,
+   "header": "Description",
+   "form_key": "description",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 15,
+   "header": "Tags",
+   "form_key": "tags",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 16,
+   "header": "Access Level (Open, Sensitive, Embargoed, Restricted, Metadata-Only)",
+   "form_key": "access_level",
+   "provenance": "manual",
+   "required": "yes",
+   "carry_forward": "no"
+  },
+  {
+   "order": 17,
+   "header": "License",
+   "form_key": "license",
+   "provenance": "carried",
+   "required": "no",
+   "carry_forward": "yes"
+  },
+  {
+   "order": 18,
+   "header": "Airframe",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 19,
+   "header": "Airframe Type",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 20,
+   "header": "Flight Path File",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 21,
+   "header": "airframe serial number",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 22,
+   "header": "airframe serial number alternate",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 23,
+   "header": "Sensor 1 Model",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 24,
+   "header": "Sensor 1 Serial Number/Identifier",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 25,
+   "header": "Sensor 1 Data Collection Type",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 26,
+   "header": "Sensor 1 Resolution (MP)",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 27,
+   "header": "Sensor 1 FOV",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 28,
+   "header": "Sensor 1 Focal Length",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 29,
+   "header": "Sensor 1 Image Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 30,
+   "header": "Sensor 1 Image Width",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 31,
+   "header": "Sensor 1 Calibration",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 32,
+   "header": "Sensor 1 Calibration Data (in raw-acquisition-calibration)",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 33,
+   "header": "Flying Height (m)",
+   "form_key": "flying_height_m",
+   "notes": "Entered in the wizard for raw-only submissions; otherwise read from EXIF.",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 34,
+   "header": "Vertical Height Offset",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 35,
+   "header": "Organisation",
+   "form_key": "organisation",
+   "provenance": "carried",
+   "required": "no",
+   "carry_forward": "yes"
+  },
+  {
+   "order": 36,
+   "header": "DOI/ROR",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 37,
+   "header": "Attribution (Credit Statement)",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 38,
+   "header": "Attribution RAID",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 39,
+   "header": "Project Funding",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 40,
+   "header": "Point of Contact",
+   "form_key": "point_of_contact",
+   "provenance": "carried",
+   "required": "yes",
+   "carry_forward": "yes"
+  },
+  {
+   "order": 41,
+   "header": "Point of Contact ORCID/DOI",
+   "form_key": "point_of_contact_orcid",
+   "provenance": "carried",
+   "required": "no",
+   "carry_forward": "yes"
+  },
+  {
+   "order": 42,
+   "header": "Pilot in Command",
+   "form_key": "pilot_in_command",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 43,
+   "header": "Flight Crew",
+   "form_key": "flight_crew",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 44,
+   "header": "Length of location mapped (km)",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 45,
+   "header": "Area of location mapped (km2)",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 46,
+   "header": "Mission Planning Software",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 47,
+   "header": "Flight Plan",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 48,
+   "header": "Image Overlap",
+   "form_key": "image_overlap",
+   "notes": "Entered in the wizard for raw-only submissions; otherwise parsed from the processing report.",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 49,
+   "header": "Image Sidelap",
+   "form_key": "image_sidelap",
+   "notes": "Entered in the wizard for raw-only submissions; otherwise parsed from the processing report.",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 50,
+   "header": "Estimated Image Resolution",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 51,
+   "header": "Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 52,
+   "header": "End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 53,
+   "header": "UTC to Local Difference",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 54,
+   "header": "Start Time UTC",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 55,
+   "header": "End Time UTC",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 56,
+   "header": "Predominant cloud type",
+   "form_key": "predominant_cloud_type",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 57,
+   "header": "Cloud Cover (OKTA)",
+   "form_key": "cloud_cover_okta",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 58,
+   "header": "Wind Speed (knots in selectable brackets)",
+   "form_key": "wind_speed_knots",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 59,
+   "header": "Wind Direction",
+   "form_key": "wind_direction",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 60,
+   "header": "Total Number of RGB Images",
+   "form_key": "total_rgb_images",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 61,
+   "header": "Total Number of Flights",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 62,
+   "header": "Image Horizontal Coordinate System",
+   "form_key": "coordinate_system",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 63,
+   "header": "Image Vertical Coordinate System",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 64,
+   "header": "Sensor Angle",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 65,
+   "header": "Flight 1 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 66,
+   "header": "Flight 1 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 67,
+   "header": "Flight 1 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 68,
+   "header": "Flight 1 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 69,
+   "header": "Flight 1 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 70,
+   "header": "Flight 1 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 71,
+   "header": "Flight 1 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 72,
+   "header": "Flight 1 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 73,
+   "header": "Flight 1 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 74,
+   "header": "Flight 2 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 75,
+   "header": "Flight 2 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 76,
+   "header": "Flight 2 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 77,
+   "header": "Flight 2 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 78,
+   "header": "Flight 2 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 79,
+   "header": "Flight 2 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 80,
+   "header": "Flight 2 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 81,
+   "header": "Flight 2 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 82,
+   "header": "Flight 2 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 83,
+   "header": "Flight 3 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 84,
+   "header": "Flight 3 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 85,
+   "header": "Flight 3 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 86,
+   "header": "Flight 3 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 87,
+   "header": "Flight 3 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 88,
+   "header": "Flight 3 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 89,
+   "header": "Flight 3 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 90,
+   "header": "Flight 3 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 91,
+   "header": "Flight 3 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 92,
+   "header": "Flight 4 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 93,
+   "header": "Flight 4 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 94,
+   "header": "Flight 4 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 95,
+   "header": "Flight 4 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 96,
+   "header": "Flight 4 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 97,
+   "header": "Flight 4 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 98,
+   "header": "Flight 4 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 99,
+   "header": "Flight 4 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 100,
+   "header": "Flight 4 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 101,
+   "header": "Flight 5 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 102,
+   "header": "Flight 5 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 103,
+   "header": "Flight 5 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 104,
+   "header": "Flight 5 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 105,
+   "header": "Flight 5 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 106,
+   "header": "Flight 5 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 107,
+   "header": "Flight 5 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 108,
+   "header": "Flight 5 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 109,
+   "header": "Flight 5 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 110,
+   "header": "Flight 6 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 111,
+   "header": "Flight 6 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 112,
+   "header": "Flight 6 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 113,
+   "header": "Flight 6 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 114,
+   "header": "Flight 6 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 115,
+   "header": "Flight 6 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 116,
+   "header": "Flight 6 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 117,
+   "header": "Flight 6 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 118,
+   "header": "Flight 6 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 119,
+   "header": "Flight 7 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 120,
+   "header": "Flight 7 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 121,
+   "header": "Flight 7 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 122,
+   "header": "Flight 7 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 123,
+   "header": "Flight 7 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 124,
+   "header": "Flight 7 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 125,
+   "header": "Flight 7 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 126,
+   "header": "Flight 7 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 127,
+   "header": "Flight 7 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 128,
+   "header": "Flight 8 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 129,
+   "header": "Flight 8 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 130,
+   "header": "Flight 8 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 131,
+   "header": "Flight 8 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 132,
+   "header": "Flight 8 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 133,
+   "header": "Flight 8 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 134,
+   "header": "Flight 8 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 135,
+   "header": "Flight 8 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 136,
+   "header": "Flight 8 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 137,
+   "header": "Flight 9 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 138,
+   "header": "Flight 9 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 139,
+   "header": "Flight 9 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 140,
+   "header": "Flight 9 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 141,
+   "header": "Flight 9 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 142,
+   "header": "Flight 9 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 143,
+   "header": "Flight 9 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 144,
+   "header": "Flight 9 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 145,
+   "header": "Flight 9 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 146,
+   "header": "Flight 10 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 147,
+   "header": "Flight 10 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 148,
+   "header": "Flight 10 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 149,
+   "header": "Flight 10 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 150,
+   "header": "Flight 10 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 151,
+   "header": "Flight 10 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 152,
+   "header": "Flight 10 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 153,
+   "header": "Flight 10 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 154,
+   "header": "Flight 10 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 155,
+   "header": "Flight 11 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 156,
+   "header": "Flight 11 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 157,
+   "header": "Flight 11 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 158,
+   "header": "Flight 11 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 159,
+   "header": "Flight 11 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 160,
+   "header": "Flight 11 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 161,
+   "header": "Flight 11 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 162,
+   "header": "Flight 11 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 163,
+   "header": "Flight 11 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 164,
+   "header": "Flight 12 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 165,
+   "header": "Flight 12 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 166,
+   "header": "Flight 12 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 167,
+   "header": "Flight 12 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 168,
+   "header": "Flight 12 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 169,
+   "header": "Flight 12 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 170,
+   "header": "Flight 12 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 171,
+   "header": "Flight 12 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 172,
+   "header": "Flight 12 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 173,
+   "header": "Flight 13 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 174,
+   "header": "Flight 13 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 175,
+   "header": "Flight 13 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 176,
+   "header": "Flight 13 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 177,
+   "header": "Flight 13 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 178,
+   "header": "Flight 13 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 179,
+   "header": "Flight 13 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 180,
+   "header": "Flight 13 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 181,
+   "header": "Flight 13 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 182,
+   "header": "Flight 14 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 183,
+   "header": "Flight 14 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 184,
+   "header": "Flight 14 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 185,
+   "header": "Flight 14 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 186,
+   "header": "Flight 14 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 187,
+   "header": "Flight 14 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 188,
+   "header": "Flight 14 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 189,
+   "header": "Flight 14 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 190,
+   "header": "Flight 14 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 191,
+   "header": "Flight 15 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 192,
+   "header": "Flight 15 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 193,
+   "header": "Flight 15 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 194,
+   "header": "Flight 15 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 195,
+   "header": "Flight 15 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 196,
+   "header": "Flight 15 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 197,
+   "header": "Flight 15 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 198,
+   "header": "Flight 15 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 199,
+   "header": "Flight 15 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 200,
+   "header": "Flight 16 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 201,
+   "header": "Flight 16 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 202,
+   "header": "Flight 16 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 203,
+   "header": "Flight 16 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 204,
+   "header": "Flight 16 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 205,
+   "header": "Flight 16 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 206,
+   "header": "Flight 16 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 207,
+   "header": "Flight 16 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 208,
+   "header": "Flight 16 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 209,
+   "header": "Flight 17 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 210,
+   "header": "Flight 17 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 211,
+   "header": "Flight 17 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 212,
+   "header": "Flight 17 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 213,
+   "header": "Flight 17 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 214,
+   "header": "Flight 17 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 215,
+   "header": "Flight 17 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 216,
+   "header": "Flight 17 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 217,
+   "header": "Flight 17 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 218,
+   "header": "Flight 18 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 219,
+   "header": "Flight 18 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 220,
+   "header": "Flight 18 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 221,
+   "header": "Flight 18 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 222,
+   "header": "Flight 18 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 223,
+   "header": "Flight 18 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 224,
+   "header": "Flight 18 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 225,
+   "header": "Flight 18 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 226,
+   "header": "Flight 18 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 227,
+   "header": "Flight 19 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 228,
+   "header": "Flight 19 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 229,
+   "header": "Flight 19 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 230,
+   "header": "Flight 19 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 231,
+   "header": "Flight 19 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 232,
+   "header": "Flight 19 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 233,
+   "header": "Flight 19 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 234,
+   "header": "Flight 19 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 235,
+   "header": "Flight 19 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 236,
+   "header": "Flight 20 Start Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 237,
+   "header": "Flight 20 End Time Local",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 238,
+   "header": "Flight 20 Start Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 239,
+   "header": "Flight 20 End Time UTC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 240,
+   "header": "Flight 20 Images",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 241,
+   "header": "Flight 20 Dewarping",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 242,
+   "header": "Flight 20 Speed",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 243,
+   "header": "Flight 20 Sensor Angle",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 244,
+   "header": "Flight 20 Height",
+   "form_key": "",
+   "provenance": "exif",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 245,
+   "header": "Were GCPs Used?",
+   "form_key": "gcps_used",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 246,
+   "header": "Type of Ground Control Points (GCPs)",
+   "form_key": "gcp_type",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 247,
+   "header": "Number of GCPs",
+   "form_key": "number_of_gcps",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 248,
+   "header": "GCPs Horizontal Coordinate System",
+   "form_key": "gcp_h_crs",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 249,
+   "header": "GCPs Horizontal Coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 250,
+   "header": "GCPs Vertical Coordinate System",
+   "form_key": "gcp_v_crs",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 251,
+   "header": "GCPs Vertical Coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 252,
+   "header": "Data Processing Platform and version",
+   "form_key": "data_processing_platform",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 253,
+   "header": "Data processing person and/or institution",
+   "form_key": "data_processing_person",
+   "provenance": "carried",
+   "required": "no",
+   "carry_forward": "yes"
+  },
+  {
+   "order": 254,
+   "header": "Data processing person and/or institution ID",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 255,
+   "header": "Data processing date",
+   "form_key": "data_processing_date",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 256,
+   "header": "Data processing area (km2)",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 257,
+   "header": "Data QA/QC",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 258,
+   "header": "Processing x rmse (m)",
+   "form_key": "processing_x_rmse_m",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 259,
+   "header": "Processing y rmse (m)",
+   "form_key": "processing_y_rmse_m",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 260,
+   "header": "Processing z rmse (m)",
+   "form_key": "processing_z_rmse_m",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 261,
+   "header": "Processing overall rmse (m)",
+   "form_key": "processing_overall_rmse_m",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 262,
+   "header": "Were ICPs Used?",
+   "form_key": "icps_used",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 263,
+   "header": "Number of ICPs",
+   "form_key": "number_of_icps",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 264,
+   "header": "ICPs Horizontal Coordinate System",
+   "form_key": "icp_h_crs",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 265,
+   "header": "ICPs Horizontal Coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 266,
+   "header": "ICPs Vertical Coordinate System",
+   "form_key": "icp_v_crs",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 267,
+   "header": "ICPs Vertical Coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 268,
+   "header": "ICP x rmse (m)",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 269,
+   "header": "ICP y rmse (m)",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 270,
+   "header": "ICP z rmse (m)",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 271,
+   "header": "ICP overall rmse (m)",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 272,
+   "header": "Orthomosaic File Name",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 273,
+   "header": "Orthomosaic File Type",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 274,
+   "header": "Orthomosaic Folder Level",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 275,
+   "header": "Orthomosaic Ground Sample Distance (m)",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 276,
+   "header": "Orthomosaic horizontal coordinate system",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 277,
+   "header": "Orthomosaic horizontal coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 278,
+   "header": "DSM File Name",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 279,
+   "header": "DSM File Type",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 280,
+   "header": "DSM Folder Level",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 281,
+   "header": "DSM Ground Sample Distance (m)",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 282,
+   "header": "DSM horizontal coordinate system",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 283,
+   "header": "DSM horizontal coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 284,
+   "header": "DSM vertical coordinate system",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 285,
+   "header": "DSM vertical coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 286,
+   "header": "Point Cloud File Name",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 287,
+   "header": "Point Cloud File Type",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 288,
+   "header": "Point Cloud Folder Level",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 289,
+   "header": "Point Cloud number of points",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 290,
+   "header": "Point Cloud horizontal coordinate system",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 291,
+   "header": "Point Cloud horizontal coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 292,
+   "header": "Point Cloud vertical coordinate system",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 293,
+   "header": "Point Cloud vertical coordinate EPSG",
+   "form_key": "",
+   "provenance": "report",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 294,
+   "header": "Comments",
+   "form_key": "comments",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 295,
+   "header": "Associated ancillary data or images (in L0Ancillary folder)",
+   "form_key": "ancillary_data",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 296,
+   "header": "Did Coastal Management Works Occur Between the Previous Survey and This Survey?",
+   "form_key": "coastal_works",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 297,
+   "header": "Description of Coastal Management Works",
+   "form_key": "coastal_works_desc",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 298,
+   "header": "Airframe 1",
+   "form_key": "",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 299,
+   "header": "Airframe 2",
+   "form_key": "",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 300,
+   "header": "End Date",
+   "form_key": "",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no"
+  },
+  {
+   "order": 301,
+   "header": "Submission Type",
+   "form_key": "submission_type",
+   "provenance": "manual",
+   "required": "no",
+   "carry_forward": "no",
+   "allowed_values": [
+    "processed",
+    "raw-only"
+   ],
+   "default": "processed",
+   "notes": "What the contributor delivered. Fixed at submission and never changed. Absent (pre-3.1 records) means processed. raw-only is by arrangement with the NCDP team."
+  },
+  {
+   "order": 302,
+   "header": "Processing State",
+   "form_key": "processing_state",
+   "provenance": "derived",
+   "required": "no",
+   "carry_forward": "no",
+   "allowed_values": [
+    "processed",
+    "awaiting-processing",
+    "archived-only"
+   ],
+   "default": "processed",
+   "notes": "Where the survey is now. Starts as awaiting-processing for raw-only and becomes processed when the programme's products are attached; processed for everything else."
+  }
+ ],
+ "generated_fields_note": "Appended after the fields above in every archived <id>_ancillary.csv by generate_record_columns.py on Gadi, from the fields and the metadata registries. Never filled by contributors; not in the template.",
+ "generated_fields": [
+  {
+   "order": 303,
+   "header": "Record Site Name",
+   "provenance": "generated",
+   "description": "Site display name, from sites.csv"
+  },
+  {
+   "order": 304,
+   "header": "Record Survey Period",
+   "provenance": "generated",
+   "description": "Survey period, ISO 8601 (start/end date for multi-day surveys)"
+  },
+  {
+   "order": 305,
+   "header": "Record Survey Period Text",
+   "provenance": "generated",
+   "description": "Survey period in words"
+  },
+  {
+   "order": 306,
+   "header": "Record Begin Time UTC",
+   "provenance": "generated",
+   "description": "Survey start in UTC, recalculated from local time and the state's time zone"
+  },
+  {
+   "order": 307,
+   "header": "Record End Time UTC",
+   "provenance": "generated",
+   "description": "Survey end in UTC, recalculated from local time and the state's time zone"
+  },
+  {
+   "order": 308,
+   "header": "Record West Longitude",
+   "provenance": "generated",
+   "description": "Bounding box, west"
+  },
+  {
+   "order": 309,
+   "header": "Record East Longitude",
+   "provenance": "generated",
+   "description": "Bounding box, east"
+  },
+  {
+   "order": 310,
+   "header": "Record South Latitude",
+   "provenance": "generated",
+   "description": "Bounding box, south"
+  },
+  {
+   "order": 311,
+   "header": "Record North Latitude",
+   "provenance": "generated",
+   "description": "Bounding box, north"
+  },
+  {
+   "order": 312,
+   "header": "Record Flying Height (m)",
+   "provenance": "generated",
+   "description": "Flying height, rounded"
+  },
+  {
+   "order": 313,
+   "header": "Record Camera",
+   "provenance": "generated",
+   "description": "Camera name, from the vocabularies"
+  },
+  {
+   "order": 314,
+   "header": "Record Airframe Type",
+   "provenance": "generated",
+   "description": "Airframe type, from the vocabularies"
+  },
+  {
+   "order": 315,
+   "header": "Record Products",
+   "provenance": "generated",
+   "description": "Products present (orthomosaic, DSM, point cloud)"
+  },
+  {
+   "order": 316,
+   "header": "Record GSD (cm)",
+   "provenance": "generated",
+   "description": "Ground sample distance in cm"
+  },
+  {
+   "order": 317,
+   "header": "Record Formats",
+   "provenance": "generated",
+   "description": "File formats of the products"
+  },
+  {
+   "order": 318,
+   "header": "Record Formats Text",
+   "provenance": "generated",
+   "description": "File formats in words"
+  },
+  {
+   "order": 319,
+   "header": "Record Licence",
+   "provenance": "generated",
+   "description": "Licence name and link"
+  },
+  {
+   "order": 320,
+   "header": "Record Processor",
+   "provenance": "generated",
+   "description": "Who processed the data"
+  },
+  {
+   "order": 321,
+   "header": "Record Processing Software",
+   "provenance": "generated",
+   "description": "Processing software and version"
+  },
+  {
+   "order": 322,
+   "header": "Record Georeferencing",
+   "provenance": "generated",
+   "description": "How the survey was georeferenced (GCPs, RTK/PPK, check points)"
+  },
+  {
+   "order": 323,
+   "header": "Record Funders",
+   "provenance": "generated",
+   "description": "Funders, with the organisation names valid on the survey date"
+  },
+  {
+   "order": 324,
+   "header": "Record Funded Programmes",
+   "provenance": "generated",
+   "description": "Funded programmes the survey belongs to"
+  },
+  {
+   "order": 325,
+   "header": "Record Survey Details",
+   "provenance": "generated",
+   "description": "Lineage block: survey details, plus every other recorded value as 'Column: value'"
+  },
+  {
+   "order": 326,
+   "header": "Record Flight Details",
+   "provenance": "generated",
+   "description": "Lineage block: per-flight times (UTC recalculated), images and heights"
+  },
+  {
+   "order": 327,
+   "header": "Record Camera Details",
+   "provenance": "generated",
+   "description": "Lineage block: camera and sensor details"
+  },
+  {
+   "order": 328,
+   "header": "Record Product Details",
+   "provenance": "generated",
+   "description": "Lineage block: products, resolution and coordinate systems"
+  },
+  {
+   "order": 329,
+   "header": "Record Survey Team",
+   "provenance": "generated",
+   "description": "Lineage block: pilot, crew, processor and contact"
+  },
+  {
+   "order": 330,
+   "header": "Record Keywords",
+   "provenance": "generated",
+   "description": "Keywords for discovery records"
+  }
+ ]
+}
