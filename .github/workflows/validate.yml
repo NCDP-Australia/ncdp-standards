@@ -22,6 +22,18 @@ jobs:
           assert tpl == [r['header'] for r in rows], 'template headers do not match schema'
           print(f"{len(rows)} fields consistent across csv, json and template")
           EOF
+      - name: Archive template contains every schema attribute
+        run: |
+          python - <<'EOF'
+          import csv
+          schema = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v3.csv'))]
+          arch = next(csv.reader(open('templates/ancillary_template.csv')))
+          missing = [h for h in schema if h not in arch]
+          assert not missing, f'archive template lacks schema attributes: {missing}'
+          assert len(arch) == len(set(arch)), 'duplicate columns in the archive template'
+          assert arch[0] == 'Project Identifier', 'archive template must start with Project Identifier'
+          print(f"archive template: {len(arch)} columns, all {len(schema)} schema attributes present")
+          EOF
       - name: resources.json is valid
         run: |
           python - <<'EOF'

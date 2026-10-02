@@ -4,7 +4,8 @@
 
 Anyone with UAV coastal survey data over the Australian coastline. Register at
 [ncdp.auscope.org.au/register](https://ncdp.auscope.org.au/register); the NCDP
-team approves accounts before upload is enabled.
+team approves accounts before upload is enabled. Browsing and downloading data
+needs no account.
 
 Sign-in is by one-time emailed link — there is no password to manage or lose.
 
@@ -14,24 +15,39 @@ years later.
 
 ## What to prepare
 
+The wizard asks for the files first and the survey details last, because most
+details are read from the files. For a processed survey the steps are
+**1 processing report → 2 upload data → 3 survey details**; for raw imagery only,
+**1 upload → 2 survey details**.
+
 | Step | Contents | Archived in |
 |---|---|---|
-| **Processing report** | From Propeller, Pix4D or Agisoft, as PDF | `L0Ancillary` |
-| **Raw imagery** | As captured, folder or zip, with flight and GNSS logs | `L0` |
-| **Ground control files** | GCP (and check-point) coordinates as CSV/TXT. For Propeller, every AeroPoints export. Required unless no GCPs were used | `L0GCPs` |
-| **Processed data** | Upload into the level that matches what you have — at least one of L2 or L3: | |
+| **Processing report** | From Propeller, Pix4D or Agisoft, as PDF | `L0/L0Ancillary` |
+| **Raw imagery** | As captured, one folder per flight, with the drone's MRK/PPK files | `L0/L0Raw/L0RGB/<flight>` |
+| **Ground control files** | GCP and check-point coordinates as CSV/TXT, PPK image positions. For Propeller, every AeroPoints export. Required unless no GCPs were used | `L0/L0GCPs` |
+| **GNSS logs** | Base-station RINEX (`.obs`, `.26o`, `.rnx`, `.crx`), `.ubx`, `.sbf`, Trimble `.t02/.t04`, `.rtcm` | `L0/L0FlightLogs` |
+| **Processed data** | Upload into the level that matches what you have — at least one of L2 or L3, and say which coordinate system it is in (datum, grid zone, heights; filled from the report or the file names where they say it): | |
 | · L1 Intermediate | In-between processing steps, e.g. thermal or multispectral calibration. Most surveys have none | `L1` |
 | · L2 Original | DSM, orthomosaic, point cloud exactly as the software produced them | `L2` |
 | · L3 Cleaned | The same after your own manual editing (cropped, noise or water removed). State its coordinate system; GDA2020 / MGA with AHD heights is ready to publish | `L3` |
+| **Crop polygon** | Optional: a crop / area-of-interest polygon (`.kml`, `.dxf`, `.geojson`, shapefile), uploaded with the processed data | with the products |
 
 If you upload only L2, NCDP produces the L3 copy (GDA2020, AHD heights,
 cloud-optimised) for you.
 
 Upload the report **first**. The wizard parses it and pre-fills roughly a third
-of the metadata, including the processing software and the number of GCPs,
-which is the difference between a five-minute submission and a half-hour one.
-GCP files are read in your browser as well: AeroPoints exports fill in the GCP
-count and coordinate systems.
+of the metadata, including the processing software, the coordinate system and
+the number of GCPs. Your files are read in your browser as well:
+
+- **Imagery:** acquisition date, the nearest existing NCDP site (within 5 km),
+  state, airframe, flying height above take-off, camera angle and forward/side
+  overlap, with a table of the individual flights.
+- **Ground control files:** GCP and check-point counts, check points recognised
+  by their labels, and the coordinate systems (AeroPoints exports).
+- **Product file names:** the coordinate system, when the name states it.
+
+Values you type are never overwritten by what the files say; when the two
+disagree, the wizard tells you and offers the value from the files.
 
 ## What you type
 
@@ -44,11 +60,22 @@ contact and access level.
 ## Upload behaviour
 
 Uploads are resumable. A dropped connection mid-transfer resumes rather than
-restarting, which matters at 10–20 GB per survey. Leave the tab open until every
-upload step reports complete.
+restarting, which matters at 10–20 GB per survey.
 
-For historical backlogs of multiple terabytes, don't use the web portal —
-contact the team about an SFTP delivery.
+When you press **Submit for QA/QC**, the submission box turns **amber** while
+the last files are handed over to the server: keep the tab open. It turns
+**green** once the server has everything. You can then close the page: the
+checks run on the server, and the result arrives by email and under *My
+submissions*.
+
+## Large deliveries and backlogs (SFTP)
+
+For historical backlogs or many surveys at once, don't use the web portal:
+contact the team about an SFTP account. You upload one folder per survey, each
+with its metadata CSV (`templates/ancillary_template.csv`), in agreed batches.
+NCDP's tools then arrange every survey into the archive structure and name the
+files, so you don't need to. The NCDP SFTP guide covers the set-up on Mac,
+Windows and Ubuntu.
 
 ## Raw imagery only
 
@@ -117,11 +144,16 @@ is archived, and the access level can be changed after review.
 
 ## What happens next
 
-1. Automated QA/QC runs immediately; you get an email with the outcome.
+1. Automated QA/QC runs on the server; you get an email with the outcome.
 2. The data is virus-scanned and transferred to NCI.
 3. The Gadi pipeline verifies integrity, restructures into L0–L3, checks the
    pixels against the report, and generates catalogue and STAC records.
-4. Your survey appears on the public map.
+4. Your survey appears on the public map. Open surveys are published from
+   `/g/data/mm91/NCDP`; Restricted ones are kept in `/g/data/mm91/admin` and
+   published in part (see Access level).
+5. A weekly audit keeps checking every archived survey's structure, names,
+   metadata and data; if it finds a problem with yours, the team may contact
+   you.
 
 ## If your submission is held
 

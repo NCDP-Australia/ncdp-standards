@@ -2,14 +2,22 @@
 
 ## Directory hierarchy
 
-Surveys are archived at NCI under project `mm91`:
+Surveys are archived at NCI under project `mm91`, in one of two roots:
 
 ```
-/g/data/mm91/admin/<State>/<Location>/<YYYYMMDD-SiteName>/
+/g/data/mm91/NCDP/<State>/<Location>/<YYYYMMDD-Location>/    published (Open) surveys, served through THREDDS
+/g/data/mm91/admin/<State>/<Location>/<YYYYMMDD-Location>/   everything not public: Restricted, or not yet released
 ```
 
-`<State>` is the full name (`Victoria`, not `VIC`). `<Location>` is the stable
-place name; `<SiteName>` within the survey directory may be more specific.
+`<State>` is the full name (`Victoria`, not `VIC`). `<Location>` is the site's
+name from the NCDP site list (`sites.csv` in the metadata registries), written
+without spaces or punctuation (`PortFairy`). The survey folder repeats it after
+the acquisition date. A new site is added to the site list before its first
+survey is archived.
+
+Folders whose name contains `_superseded_` are earlier intakes of a survey that
+was later replaced. They are kept for the record but never checked, catalogued
+or published.
 
 ## Processing levels
 
@@ -22,7 +30,7 @@ survey — L4 in particular is produced only where there is a derived product.
 | **L1** | Intermediate processing steps (e.g. thermal or multispectral calibration). Empty for most surveys | Contributor |
 | **L2** | Uncleaned processed data (DSM, orthomosaic, point cloud) exactly as the processing software produced it, in the **source** CRS | Contributor's processing software |
 | **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD** as Cloud-Optimised GeoTIFF | Contributor, or the Gadi pipeline from L2 |
-| **L4** | Model outputs derived from the data (results, indicators) | Analysis |
+| **L4** | Model outputs derived from the data (results, indicators), and the survey's area of interest (AoI), including a contributor's crop polygon | Analysis |
 
 Contributors say which level their processed data is by uploading it into the
 matching step of the submission wizard. At least one of L2 or L3 is required
@@ -39,12 +47,21 @@ for a processed survey.
 
 ### L0 sub-folders
 
+```
+L0/
+  L0Raw/L0RGB/<flight folder>/   raw imagery, one folder per flight, with the drone's MRK/PPK files
+  L0GCPs/                        ground control and check points
+  L0FlightLogs/                  flight logs, base-station RINEX/PPK
+  L0Planning/                    mission plans
+  L0Ancillary/                   <YYYYMMDD-Location>_ancillary.csv and the submission record
+```
+
 | Folder | Contents |
 |---|---|
-| `L0Raw` | Raw imagery as captured |
+| `L0Raw/L0RGB/<flight>` | Raw RGB imagery as captured, one sub-folder per flight (e.g. the drone's own `DJI_..._001` folder, or `Flight_01`). Camera file names are never changed. The drone's `.MRK` and PPK files stay with their images |
 | `L0Planning` | Mission plans, flight path files |
 | `L0GCPs` | Ground control and check-point coordinates (CSV/TXT), including every AeroPoints export for Propeller surveys |
-| `L0FlightLogs` | Flight logs, RTK/PPK observation files |
+| `L0FlightLogs` | Flight logs, base-station RTK/PPK observation files (RINEX, `.obs`, `.ubx` ...) |
 | `L0Ancillary` | Metadata CSV, processing report, QC record |
 
 ### L0Ancillary — the submission record
@@ -54,7 +71,7 @@ archive, not scaffolding:
 
 | File | Contents |
 |---|---|
-| `<id>_ancillary.csv` / `L0_metadata.csv` | One row under the canonical headers |
+| `<YYYYMMDD-Location>_ancillary.csv` | The survey's metadata record: one header row and one data row in the archive format (`templates/ancillary_template.csv`). Arrives from the portal as `L0_metadata.csv` |
 | `metadata.json` | The submitted form, snake_case keys |
 | `qc_report.json` | Intake QC verdict under `overall` |
 | `report_parsed.json` | Values parsed from the processing report |
@@ -76,4 +93,26 @@ stated explicitly.
 
 Executables and scripts are rejected at intake and never enter the archive.
 Personally identifying information should not appear in imagery or metadata;
-contributors confirm this at submission.
+contributors confirm this at submission. Processing project files (`.psx`,
+`.p4d`), zip archives and other files with no place in the levels above are
+not archived.
+
+## Keeping the archive consistent
+
+These rules are written down once, in machine-readable form, in
+`gadi/archive_spec.py` in the intake repository, and the tools below read them
+from there:
+
+- **Portal submissions** are named and arranged at intake (see the naming
+  convention) and laid out on Gadi by the QA/QC pipeline.
+- **SFTP deliveries** are arranged by `sftp_restructure.py`: partners upload one
+  folder per survey with its metadata CSV, and the tool sets the survey id,
+  builds this layout, names the products and keeps the partner's original CSV
+  beside the archive one. Surveys move into the archive only when they pass
+  the audit.
+- **A weekly audit** (`archive_audit.py`) checks every survey in both roots:
+  folder names and places, this layout, the metadata record (one row; its
+  Project Identifier, Date, Location, Region and Access Level agree with where
+  the survey sits), raw imagery, orthomosaic and DSM, product names, duplicate
+  ids, site records and the catalogue. It changes nothing; its report lists
+  what needs fixing.

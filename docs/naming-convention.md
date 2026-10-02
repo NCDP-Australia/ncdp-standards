@@ -7,7 +7,11 @@
 ```
 
 `YYYYMMDD` is the **acquisition** date, not the processing or submission date.
-`SiteName` is CamelCase with no spaces, punctuation or underscores.
+`SiteName` is the site's name in the NCDP site list (`sites.csv`), CamelCase
+with no spaces, punctuation or underscores; it is also the name of the
+location folder the survey sits in. The portal suggests the nearest existing
+site from the imagery's position; a new site is added to the list before its
+first survey is archived.
 
 ```
 20240115-PortFairy
@@ -44,7 +48,7 @@ Worth knowing when you:
 ## Product files
 
 ```
-<YYYYMMDD>_<SiteName>_<Product>.<ext>
+<YYYYMMDD>_<SiteName>_<Product>[-<CRS>][_<resolution>].<ext>
 ```
 
 `<Product>` is one of `Orthomosaic`, `DSM`, `PointCloud`.
@@ -55,6 +59,20 @@ Worth knowing when you:
 20240115_PortFairy_PointCloud.las
 ```
 
+When the delivered file name states the coordinate system or a ground
+resolution, both are kept, so that two versions of a product stay
+distinguishable:
+
+```
+20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned_1m.tif  ->  20240115_PortFairy_DSM-GDA94Z54_1m.tif
+20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned.tif     ->  20240115_PortFairy_DSM-GDA94Z54.tif
+```
+
+The product type is recognised from the name: `ortho` (or Propeller's
+`GeoTIFF` export) is the orthomosaic, `DSM`/`DSN`/`DEM` the DSM, `.las`/`.laz`
+the point cloud. Sidecars (`.aux.xml`, `.ovr`, `.tfw`) are renamed with their
+product.
+
 Multi-part outputs append a part token before the extension:
 
 ```
@@ -62,10 +80,15 @@ Multi-part outputs append a part token before the extension:
 20240115_PortFairy_PointCloud_part_2.las
 ```
 
-**Products are renamed automatically at intake.** The portal standardises names
-on submission and records the mapping in `renames.json`, so naming is correct by
-construction and the Gadi pipeline does not rename again — doing so would break
-the audit trail.
+**Products are renamed automatically.** Portal submissions are renamed at
+intake, and SFTP deliveries when `sftp_restructure.py` arranges them; both
+record the mapping (`renames.json` for the portal, the batch's `plan.csv` for
+SFTP), so naming is correct by construction and the Gadi QA/QC pipeline does
+not rename again — doing so would break the audit trail.
+
+Other delivered files keep their names: crop polygons (VCMP's
+`..._crop_GDA94_Z55.DXF/.KML`) go to L4 as the area of interest, and GCP files,
+logs and reports keep the contributor's names in their L0 folders.
 
 ## L3 datum token
 
@@ -77,6 +100,16 @@ Reprojected products carry the target datum and zone:
 ```
 
 This is the only stage that alters a product filename after intake.
+
+## Metadata record
+
+```
+<YYYYMMDD>-<SiteName>_ancillary.csv      in L0/L0Ancillary/
+```
+
+Its `Project Identifier` is the survey folder name, and its `Date`, `Location`
+and `Region` match the survey folder, the location folder and the state
+folder. The weekly archive audit reports any survey where they disagree.
 
 ## Case and characters
 

@@ -69,8 +69,9 @@ gdata. Operates on the three-bucket staging layout:
 | `raw_imagery` | warn | `.jpg`/`.tif` expected in raw |
 | `image_count` | warn | Uploaded count vs report count, 2% or 2-image slack |
 | `no_empty` | warn | Zero-byte files |
+| `l2_looks_cleaned` | warn | Files named "cleaned" uploaded as L2 (original); they belong in L3. Archived as uploaded |
 | **`no_executables`** | **fail** | `.exe .dll .bat .ps1 .hta .lnk .so .iso .docm .xlsm` and others |
-| **`known_types`** | **fail** | Anything outside the allowlist — held, not discarded |
+| **`known_types`** | **fail** | Anything outside the allowlist — held, not discarded. The allowlist includes imagery, GeoTIFF/LAS/LAZ, reports, CSV/TXT, KML/KMZ, shapefiles, GeoJSON, DXF (crop polygons) and GNSS logs (RINEX `.obs`/`.26o`/`.rnx`/`.crx`, `.ubx`, `.sbf`, `.t02`/`.t04`, `.rtcm`, `.MRK`) |
 
 The type check is an **allowlist**, not a denylist. A denylist can only block
 what was thought of in advance; inverting it means an unexpected extension gets
@@ -115,11 +116,14 @@ so editing that file changes the protocol without a code deploy:
 
 ### Naming
 
-`qc.standardise_products()` renames products to `YYYYMMDD_Site_Product.ext`
-before promotion and writes `renames.json`. Naming is therefore correct by
-construction, and **Gadi must not rename again** — doing so would break the
-audit trail. Only the L2→L3 reprojection stage touches names, appending the
-datum token.
+`qc.standardise_products()` renames products to
+`YYYYMMDD_Site_Product[-CRS][_resolution].ext` before promotion and writes
+`renames.json`. A coordinate system or ground resolution stated in the
+delivered name is kept (`..._DSM_GDA94_Z54_AHD09_cleaned_1m.tif` →
+`..._DSM-GDA94Z54_1m.tif`), and Propeller's `..._GeoTIFF_...` export is
+recognised as the orthomosaic. Naming is therefore correct by construction, and
+**Gadi must not rename again** — doing so would break the audit trail. Only the
+L2→L3 reprojection stage touches names, appending the datum token.
 
 ### Routing
 
@@ -179,19 +183,49 @@ directory; derived artefacts go to `work/<id>/_derived/`.
 
 ---
 
-## The SFTP gap
+## SFTP deliveries
 
-Bulk deliveries over SFTP get Stage 2 and Stage 3 but **not Stage 1** — no
-metadata form, no bucket check, no thresholds, no renaming. This is deliberate
-for trusted institutional partners, and it carries three obligations:
+Bulk deliveries over SFTP get Stage 2 and Stage 3 but not the portal's Stage 1:
+there is no metadata form or bucket check. In its place, on Gadi:
 
-1. SFTP accounts go to institutional partners only, never citizen scientists.
-2. Every tranche arrives with an agreed metadata CSV, or Stage 6 has nothing to
-   build a catalogue row from.
-3. The Gadi pipeline must be run over the tranche explicitly. It does not fire
-   on its own.
+1. **Restructure** (`sftp_restructure.py`). Partners upload one folder per
+   survey with its metadata CSV. The tool works out each survey's id, state,
+   location (from the NCDP site list) and access level, builds the archive
+   layout, names the products as above, and sets the identity columns of the
+   metadata CSV (the partner's original is kept). A survey with an unknown site
+   or no date is **blocked** until fixed; files it cannot place stay in the
+   holding folder. Plan (dry run) → apply into staging (with undo) → promote.
+2. **Promotion is gated by the archive audit** (next section): only staged
+   surveys without errors move into the archive.
+3. The Gadi QA/QC pipeline (raster checks, reprojection) is then run over the
+   promoted surveys.
 
-See `SFTP-AND-DRAIN.md`.
+SFTP accounts still go to institutional partners only. See the NCDP SFTP guide
+and `SFTP-AND-DRAIN.md`.
+
+---
+
+## Stage 4 — Weekly archive audit (Gadi, `archive_audit.py`)
+
+Read-only, every week (`archive_audit.pbs`, queued with `qsub -a`), over both
+archive roots and the SFTP staging area. It checks, per survey: folder name and
+place; the archive layout (`L0/L0Raw/L0RGB/<flight>`,
+`L0/L0Ancillary/<id>_ancillary.csv`, L2, L3, L4); the metadata record (one row;
+Project Identifier, Date, Location, Region and Access Level agree with where the
+survey sits; same header as the rest of the archive); raw imagery, orthomosaic
+and DSM; product names. Across the archive: duplicate survey ids, site records
+that count the wrong number of surveys, and catalogue entries with no survey
+(or surveys missing from the catalogue).
+
+| Severity | Meaning | Examples |
+|---|---|---|
+| error | Breaks the catalogue, the records or publication | wrong place or name, missing or contradicting metadata, Restricted survey in the public root, duplicate id |
+| warn | Incomplete or non-standard | no raw imagery, no orthomosaic or DSM, product names, layout |
+| info | Worth knowing | Record columns not generated yet, Open survey not yet published |
+
+The report (`/g/data/mm91/admin/audit/latest/`) lists every issue with the
+survey's path, and a summary is copied to the catalogue folder the portal
+reads. It also lists SFTP holding folders still waiting to be restructured.
 
 ---
 
@@ -203,7 +237,7 @@ the submission record is part of the archive, not scaffolding:
 | Artefact | Contents |
 |---|---|
 | `metadata.json` | Wizard form dict, snake_case — all pipeline logic reads this |
-| `L0_metadata.csv` | One row under the canonical headers from `schema.py` |
+| `L0_metadata.csv` | One row in the archive format (`templates/ancillary_template.csv`); archived as `<id>_ancillary.csv` |
 | `qc_report.json` | Portal verdict under **`overall`** (not `verdict`) |
 | `report_parsed.json` | Portal's PDF parse (`values`, `text_values`) |
 | `report_extract.txt` | Raw extracted PDF text |
