@@ -46,9 +46,9 @@ keywords:
   - Australia
   - AuScope
   - NCRIS
-# After the first Zenodo release, add the concept DOI (it always resolves to
-# the latest version):
-# identifiers:
-#   - type: doi
-#     value: "10.5281/zenodo.XXXXXXX"
-#     description: "Concept DOI: all versions"
+# The concept DOI: it always resolves to the latest version (v4.0 itself is
+# 10.5281/zenodo.23127541).
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23127540"
+    description: "Concept DOI: all versions"

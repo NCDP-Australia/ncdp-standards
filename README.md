@@ -1,5 +1,7 @@
 # NCDP Data Standards
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23127540.svg)](https://doi.org/10.5281/zenodo.23127540)
+
 Data standards, metadata schema and templates for the **National Coastal Drone
 Programme** — a nationally coordinated archive of UAV coastal survey data,
 coordinated by Deakin University and funded by AuScope (NCRIS).
@@ -23,6 +25,16 @@ rather than hosting copies, so what you download is always current.
 | `schema/ncdp-qc-thresholds-v3.json` | Numeric QA/QC thresholds |
 | `templates/ancillary_template.csv` | **Use this one.** Empty metadata CSV with the v4.0 columns. One per survey, as `<YYYYMMDD-Location>_ancillary.csv` |
 | `templates/L0_metadata_template.csv` | The v3.1 attributes only, kept for existing tools |
+
+## How to cite
+
+Nuyts, S., Allan, B., Ierodiaconou, D., & National Coastal Drone Programme (NCDP). NCDP Data Standards:
+metadata schema, naming conventions and data structure for the National Coastal Drone Programme. Zenodo.
+https://doi.org/10.5281/zenodo.23127540
+
+This DOI always resolves to the latest version; each release also has its own (v4.0:
+[10.5281/zenodo.23127541](https://doi.org/10.5281/zenodo.23127541)). GitHub's "Cite this repository" button
+(from `CITATION.cff`) gives the same citation in APA and BibTeX.
 
 ## Versioning
 
