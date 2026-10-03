@@ -1,0 +1,54 @@
+# How to cite the NCDP Data Standards. GitHub shows a "Cite this repository"
+# button from this file, and Zenodo reads it when a GitHub release is archived
+# (title, authors, licence, description, keywords).
+cff-version: 1.2.0
+message: "If you use the NCDP Data Standards, please cite them as below."
+type: dataset
+title: "NCDP Data Standards: metadata schema, naming conventions and data structure for the National Coastal Drone Programme"
+version: "4.0"
+date-released: "2026-10-03"      # set to the date of the GitHub release
+license: CC-BY-4.0
+authors:
+  - family-names: Nuyts
+    given-names: Siegmund
+    orcid: "https://orcid.org/0000-0001-6450-7028"
+    affiliation: "Deakin University, Warrnambool"
+  - family-names: Allan
+    given-names: Blake
+    orcid: "https://orcid.org/0000-0003-0101-3412"
+    affiliation: "Deakin University, Warrnambool"
+  - family-names: Ierodiaconou
+    given-names: Daniel
+    orcid: "https://orcid.org/0000-0002-7832-4801"
+    affiliation: "Deakin University, Warrnambool"
+  - name: "National Coastal Drone Programme (NCDP)"
+    website: "https://ncdp.auscope.org.au"
+repository-code: "https://github.com/NCDP-Australia/ncdp-standards"
+url: "https://ncdp.auscope.org.au"
+abstract: >-
+  The data standards of the National Coastal Drone Programme (NCDP), a
+  nationally coordinated archive of UAV (drone) coastal survey data,
+  coordinated by Deakin University and funded by AuScope through the National
+  Collaborative Research Infrastructure Strategy (NCRIS). They define the
+  archive's directory structure and processing levels (L0 to L4), the file and
+  folder naming conventions, the metadata schema (version 4.0, the archive's
+  302-column survey record), the quality-assurance and quality-control
+  protocol, and the templates contributors use when submitting surveys through
+  the NCDP intake portal or by SFTP.
+keywords:
+  - coastal monitoring
+  - UAV
+  - drone
+  - photogrammetry
+  - metadata schema
+  - data standards
+  - FAIR data
+  - Australia
+  - AuScope
+  - NCRIS
+# After the first Zenodo release, add the concept DOI (it always resolves to
+# the latest version):
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.XXXXXXX"
+#     description: "Concept DOI: all versions"
