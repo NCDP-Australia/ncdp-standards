@@ -2,60 +2,66 @@
   "resources": [
     {
       "category": "Data standards",
+      "title": "NCDP Data Standards (citable release)",
+      "doi": "10.5281/zenodo.23127540",
+      "description": "The standards as a citable release on Zenodo: data structure, naming convention, metadata schema, QA/QC protocol and templates. The DOI always resolves to the latest version (currently v4.0)."
+    },
+    {
+      "category": "Data standards",
       "title": "NCDP data structure and processing levels",
       "repo": "ncdp-standards",
       "path": "docs/data-structure.md",
-      "description": "Archive hierarchy, L0-L4 levels, and the L0Ancillary submission record."
+      "description": "Archive hierarchy, the L0-L4 processing levels, and where each file of a survey goes."
     },
     {
       "category": "Data standards",
       "title": "File and directory naming convention",
       "repo": "ncdp-standards",
       "path": "docs/naming-convention.md",
-      "description": "Survey directories, product filenames, and the L3 datum token."
+      "description": "Survey folders and product filenames: date, site, product and coordinate system. One file per product, at its native resolution."
     },
     {
       "category": "Data standards",
-      "title": "Metadata schema v3.1 (119 attributes)",
+      "title": "Metadata schema v4.0 (302 columns)",
       "repo": "ncdp-standards",
       "path": "docs/metadata-schema.md",
-      "description": "Every field, who fills it, and which five are required."
+      "description": "The archive's survey record: every column in order, who fills it, and which are required."
     },
     {
       "category": "Data standards",
       "title": "QA/QC protocol",
       "repo": "ncdp-standards",
       "path": "docs/qaqc-protocol.md",
-      "description": "What is checked at intake and at NCI, what blocks, and what only flags."
+      "description": "What is checked at intake and at NCI, what blocks and what only flags, and the weekly archive audit."
     },
     {
       "category": "Guides and templates",
       "title": "How to submit a survey",
       "repo": "ncdp-standards",
       "path": "docs/submitting-data.md",
-      "description": "Registration, the three upload buckets, and what happens after upload."
+      "description": "The portal's upload wizard step by step, SFTP for large deliveries, and what happens after upload."
     },
     {
       "category": "Guides and templates",
-      "title": "L0 metadata CSV template",
+      "title": "Survey metadata template (CSV)",
       "repo": "ncdp-standards",
-      "path": "templates/L0_metadata_template.csv",
+      "path": "templates/ancillary_template.csv",
       "raw": true,
-      "description": "Empty CSV carrying the exact canonical headers."
+      "description": "Empty CSV with the 302 columns of schema v4.0, one per survey as <YYYYMMDD-Location>_ancillary.csv. Optional: the portal and the SFTP tools fill most of it from your files."
     },
     {
       "category": "Guides and templates",
-      "title": "Metadata schema — machine readable (JSON)",
+      "title": "Metadata schema v4.0 — machine readable (JSON)",
       "repo": "ncdp-standards",
-      "path": "schema/ncdp-metadata-schema-v3.json",
+      "path": "schema/ncdp-metadata-schema-v4.json",
       "raw": true,
-      "description": "Schema with provenance and required flags, for scripting."
+      "description": "The 302 columns in archive order, plus the 28 Record columns generated for NCI's catalogue, for scripting."
     },
     {
       "category": "Guides and templates",
-      "title": "Metadata schema — CSV",
+      "title": "Metadata schema v4.0 — CSV",
       "repo": "ncdp-standards",
-      "path": "schema/ncdp-metadata-schema-v3.csv",
+      "path": "schema/ncdp-metadata-schema-v4.csv",
       "raw": true,
       "description": "The same schema as a table."
     },
