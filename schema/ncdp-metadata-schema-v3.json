@@ -978,7 +978,7 @@
       "carry_forward": "no",
       "allowed_values": ["processed", "awaiting-processing", "archived-only"],
       "default": "processed",
-      "notes": "Where the survey is now. Starts as awaiting-processing for raw-only and becomes processed when the programme's products are attached; processed for everything else."
+      "notes": "Where the survey is now. Starts as awaiting-processing for raw-only and becomes processed when the program's products are attached; processed for everything else."
     }
   ]
 }

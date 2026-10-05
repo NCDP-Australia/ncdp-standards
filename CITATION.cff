@@ -4,7 +4,7 @@
 cff-version: 1.2.0
 message: "If you use the NCDP Data Standards, please cite them as below."
 type: dataset
-title: "NCDP Data Standards: metadata schema, naming conventions and data structure for the National Coastal Drone Programme"
+title: "NCDP Data Standards: metadata schema, naming conventions and data structure for the National Coastal Drone Program"
 version: "4.0"
 date-released: "2026-10-03"      # set to the date of the GitHub release
 license: CC-BY-4.0
@@ -21,12 +21,12 @@ authors:
     given-names: Daniel
     orcid: "https://orcid.org/0000-0002-7832-4801"
     affiliation: "Deakin University, Warrnambool"
-  - name: "National Coastal Drone Programme (NCDP)"
+  - name: "National Coastal Drone Program (NCDP)"
     website: "https://ncdp.auscope.org.au"
 repository-code: "https://github.com/NCDP-Australia/ncdp-standards"
 url: "https://ncdp.auscope.org.au"
 abstract: >-
-  The data standards of the National Coastal Drone Programme (NCDP), a
+  The data standards of the National Coastal Drone Program (NCDP), a
   nationally coordinated archive of UAV (drone) coastal survey data,
   coordinated by Deakin University and funded by AuScope through the National
   Collaborative Research Infrastructure Strategy (NCRIS). They define the

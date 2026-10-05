@@ -23,7 +23,7 @@ archive's, not v3's.
 The 28 generated columns (`schema/ncdp-metadata-schema-v4.json`,
 `generated_fields`) are written by `generate_record_columns.py` on Gadi, from
 the columns above and the NCDP registries (sites, states, organisations,
-programmes, vocabularies). They hold the values the published records use:
+programs, vocabularies). They hold the values the published records use:
 site name, survey period, UTC times, bounding box, camera, products, GSD,
 formats, licence, processor and software, georeferencing, funders (with each
 organisation's name as it was on the survey date), and the lineage blocks.
@@ -68,7 +68,7 @@ The contact address must also parse as an email. Everything else warns.
 ## Access levels
 
 `Open`, `Sensitive`, `Embargoed`, `Restricted`, `Metadata-Only`. Open is the
-programme default and the expectation for publicly funded survey work.
+program default and the expectation for publicly funded survey work.
 `Metadata-Only` publishes the discovery record while withholding the data.
 
 ## Carry-forward fields

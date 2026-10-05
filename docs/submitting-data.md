@@ -82,7 +82,7 @@ Windows and Ubuntu.
 
 ## Raw imagery only
 
-If you have flown a survey but not processed it, the programme can process it
+If you have flown a survey but not processed it, the program can process it
 for you, as capacity allows. The wizard asks at the top: *I have processed
 this survey* or *Raw imagery only*. For a large or urgent job, email
 [ncdp@deakin.edu.au](mailto:ncdp@deakin.edu.au) first.
@@ -94,7 +94,7 @@ steps. What to upload:
 |---|---|
 | **The full image set** (required) | It is the whole delivery. A raw-only submission with no imagery is held. |
 | **Flight / GNSS logs** — `.MRK`, `.obs`, `.nav`, `.rtk` | Allow PPK positioning. Imagery alone can be processed; with logs it can be processed *well*. |
-| **GCP coordinates** — a CSV or TXT with a point name and three coordinates per row | Needed if you laid ground control. The filename does not matter. Without the file the programme cannot use your control points. |
+| **GCP coordinates** — a CSV or TXT with a point name and three coordinates per row | Needed if you laid ground control. The filename does not matter. Without the file the program cannot use your control points. |
 
 And three fields that matter more than usual, because there is no report to
 read them from: flying height, forward overlap and side overlap. Approximate
@@ -117,12 +117,12 @@ The five required fields are the same as for any submission.
    in the public catalogue while it is awaiting processing: an entry with
    nothing downloadable helps nobody. The NCDP team can see it, and you can ask
    us about it by quoting your submission reference.
-3. When the programme has processed it, the orthomosaic, DSM and point cloud
+3. When the program has processed it, the orthomosaic, DSM and point cloud
    are added to **the same survey** — not a new one — and it then appears in
    the catalogue like any other processed survey.
 
 The record keeps both contributions: the imagery is yours (recorded as the
-producer), the products are the programme's (recorded as the processor).
+producer), the products are the program's (recorded as the processor).
 `Submission Type` stays `raw-only` permanently so that distinction is never
 lost; `Processing State` records where the survey is now.
 
@@ -171,5 +171,5 @@ submissions and will follow up.
 
 ## Licensing
 
-CC BY 4.0 is the programme default under the NCOF framework. Other licences are
+CC BY 4.0 is the program default under the NCOF framework. Other licences are
 supported; record yours in the `License` field.

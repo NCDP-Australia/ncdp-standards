@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23127540.svg)](https://doi.org/10.5281/zenodo.23127540)
 
 Data standards, metadata schema and templates for the **National Coastal Drone
-Programme** — a nationally coordinated archive of UAV coastal survey data,
+Program** — a nationally coordinated archive of UAV coastal survey data,
 coordinated by Deakin University and funded by AuScope (NCRIS).
 
 Everything here is the authoritative version. The intake portal at
@@ -28,8 +28,8 @@ rather than hosting copies, so what you download is always current.
 
 ## How to cite
 
-Nuyts, S., Allan, B., Ierodiaconou, D., & National Coastal Drone Programme (NCDP). NCDP Data Standards:
-metadata schema, naming conventions and data structure for the National Coastal Drone Programme. Zenodo.
+Nuyts, S., Allan, B., Ierodiaconou, D., & National Coastal Drone Program (NCDP). NCDP Data Standards:
+metadata schema, naming conventions and data structure for the National Coastal Drone Program. Zenodo.
 https://doi.org/10.5281/zenodo.23127540
 
 This DOI always resolves to the latest version; each release also has its own (v4.0:
@@ -65,4 +65,4 @@ per-survey; see each record's `License` field.
 
 ## Contact
 
-National Coastal Drone Programme — ncdp@deakin.edu.au
+National Coastal Drone Program — ncdp@deakin.edu.au

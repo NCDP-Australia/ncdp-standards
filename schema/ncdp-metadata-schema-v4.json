@@ -2449,7 +2449,7 @@
     "archived-only"
    ],
    "default": "processed",
-   "notes": "Where the survey is now. Starts as awaiting-processing for raw-only and becomes processed when the programme's products are attached; processed for everything else."
+   "notes": "Where the survey is now. Starts as awaiting-processing for raw-only and becomes processed when the program's products are attached; processed for everything else."
   }
  ],
  "generated_fields_note": "Appended after the fields above in every archived <id>_ancillary.csv by generate_record_columns.py on Gadi, from the fields and the metadata registries. Never filled by contributors; not in the template.",
