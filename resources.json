@@ -95,7 +95,7 @@
       "category": "Links",
       "title": "AuScope",
       "url": "https://www.auscope.org.au",
-      "description": "NCRIS capability funding the programme."
+      "description": "NCRIS capability funding the program."
     },
     {
       "category": "Links",
@@ -111,14 +111,29 @@
     },
     {
       "category": "Field manual",
-      "title": "NCDP Field Manual",
+      "title": "NCDP Field Manual (citable edition)",
       "doi": "10.5281/zenodo.22867526",
-      "description": "Equipment, site selection, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys. PDF, 61 pages, CC-BY 4.0. The DOI always resolves to the latest edition (currently v1.0)."
+      "description": "Equipment, site selection, mission planning, flight operations, safety and data upload for volunteer RTK drone surveys. PDF, 61 pages, CC-BY 4.0. The DOI always resolves to the latest edition on Zenodo (currently v1.0)."
+    },
+    {
+      "category": "Field manual",
+      "title": "NCDP Field Manual — current PDF (GitHub)",
+      "repo": "ncdp-field-manual",
+      "path": "NCDP_Field_Manual.pdf",
+      "raw": true,
+      "description": "The manual as it is in the repository now, including corrections made since the last Zenodo edition. For citing, use the DOI above."
+    },
+    {
+      "category": "Field manual",
+      "title": "NCDP Field Manual — Word version (GitHub)",
+      "repo": "ncdp-field-manual",
+      "path": "NCDP_Field_Manual.docx",
+      "raw": true,
+      "description": "The same manual as a .docx, for organisations adapting it to their own operations (CC-BY 4.0: credit the NCDP Field Manual)."
     },
     {
       "category": "Method references",
       "title": "Citizen science unoccupied aerial vehicles",
-      "url": "https://doi.org/10.1016/j.csr.2022.104800",
       "doi": "10.1016/j.csr.2022.104800",
       "description": "Ierodiaconou et al. (2022), Continental Shelf Research 244:104800 — the published account of the NCDP citizen science UAV approach."
     }
