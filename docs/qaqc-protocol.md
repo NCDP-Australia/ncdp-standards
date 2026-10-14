@@ -215,7 +215,8 @@ Read-only, every week (`archive_audit.pbs`, queued with `qsub -a`), over the
 whole archive and the SFTP staging area. It checks, per survey: folder name and
 place; the archive layout (`L0/L0Raw/L0RGB/<flight>`,
 `L0/L0Ancillary/<id>_ancillary.csv`, L2, L3, L4); the metadata record (one row,
-with the archive's full set of columns (schema v4.0); Project Identifier, Date,
+with the archive's full set of columns (schema v5.0; files still in the
+v4.0 per-flight layout are flagged `metadata_flights_wide`); Project Identifier, Date,
 Location, Region and Access Level agree with where the survey sits); raw
 imagery, orthomosaic and DSM; product names and resampled copies. Across the
 archive: duplicate survey ids, site records that count the wrong number of

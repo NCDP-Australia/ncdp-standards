@@ -1,5 +1,22 @@
 # Changelog
 
+## Schema v5.0 — 2026-10-14: per-flight values packed
+
+- **Per-flight columns packed.** The 180 columns `Flight 1…20` × nine fields
+  (local and UTC start/end, images, dewarping, speed, sensor angle, height)
+  are now nine columns, `Flight <field>`, each holding one value per flight in
+  flight order, separated by `; ` (`Flight Images` = `412; 398; 405`). The
+  record goes from 302 to 131 columns (159 with the generated `Record …`
+  columns), and the 20-flight limit is gone. Nothing else changed: every
+  other column keeps its name, provenance and order.
+- In the Victorian archive about three quarters of the old per-flight cells
+  were empty (surveys average four to seven flights), and one survey already
+  used all 20 slots.
+- `schema/ncdp-metadata-schema-v5.csv/.json` and
+  `templates/ancillary_template.csv` updated; v4.0 files kept. The archive's
+  CSVs were converted on Gadi (`pack_flights.py`); the NCDP tools read both
+  layouts.
+
 ## Schema v4.0 — 2026-10: archive record format, layout and audit
 
 v4.0 is the archive's record format. Every v3.1 attribute keeps its name and

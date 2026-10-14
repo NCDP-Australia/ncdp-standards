@@ -4,7 +4,7 @@
       "category": "Data standards",
       "title": "NCDP Data Standards (citable release)",
       "doi": "10.5281/zenodo.23127540",
-      "description": "The standards as a citable release on Zenodo: data structure, naming convention, metadata schema, QA/QC protocol and templates. The DOI always resolves to the latest version (currently v4.0)."
+      "description": "The standards as a citable release on Zenodo: data structure, naming convention, metadata schema, QA/QC protocol and templates. The DOI always resolves to the latest version (currently v5.0)."
     },
     {
       "category": "Data standards",
@@ -22,7 +22,7 @@
     },
     {
       "category": "Data standards",
-      "title": "Metadata schema v4.0 (302 columns)",
+      "title": "Metadata schema v5.0 (131 columns)",
       "repo": "ncdp-standards",
       "path": "docs/metadata-schema.md",
       "description": "The archive's survey record: every column in order, who fills it, and which are required."
@@ -47,21 +47,21 @@
       "repo": "ncdp-standards",
       "path": "templates/ancillary_template.csv",
       "raw": true,
-      "description": "Empty CSV with the 302 columns of schema v4.0, one per survey as <YYYYMMDD-Location>_ancillary.csv. Optional: the portal and the SFTP tools fill most of it from your files."
+      "description": "Empty CSV with the 131 columns of schema v5.0, one per survey as <YYYYMMDD-Location>_ancillary.csv. Optional: the portal and the SFTP tools fill most of it from your files."
     },
     {
       "category": "Guides and templates",
-      "title": "Metadata schema v4.0 — machine readable (JSON)",
+      "title": "Metadata schema v5.0 — machine readable (JSON)",
       "repo": "ncdp-standards",
-      "path": "schema/ncdp-metadata-schema-v4.json",
+      "path": "schema/ncdp-metadata-schema-v5.json",
       "raw": true,
-      "description": "The 302 columns in archive order, plus the 28 Record columns generated for NCI's catalogue, for scripting."
+      "description": "The 131 columns in archive order, plus the 28 Record columns generated for NCI's catalogue, for scripting."
     },
     {
       "category": "Guides and templates",
-      "title": "Metadata schema v4.0 — CSV",
+      "title": "Metadata schema v5.0 — CSV",
       "repo": "ncdp-standards",
-      "path": "schema/ncdp-metadata-schema-v4.csv",
+      "path": "schema/ncdp-metadata-schema-v5.csv",
       "raw": true,
       "description": "The same schema as a table."
     },

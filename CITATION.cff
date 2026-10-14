@@ -5,8 +5,8 @@ cff-version: 1.2.0
 message: "If you use the NCDP Data Standards, please cite them as below."
 type: dataset
 title: "NCDP Data Standards: metadata schema, naming conventions and data structure for the National Coastal Drone Program"
-version: "4.0"
-date-released: "2026-10-03"      # set to the date of the GitHub release
+version: "5.0"
+date-released: "2026-10-14"      # set to the date of the GitHub release
 license: CC-BY-4.0
 authors:
   - family-names: Nuyts
@@ -31,8 +31,8 @@ abstract: >-
   coordinated by Deakin University and funded by AuScope through the National
   Collaborative Research Infrastructure Strategy (NCRIS). They define the
   archive's directory structure and processing levels (L0 to L4), the file and
-  folder naming conventions, the metadata schema (version 4.0, the archive's
-  302-column survey record), the quality-assurance and quality-control
+  folder naming conventions, the metadata schema (version 5.0, the archive's
+  131-column survey record), the quality-assurance and quality-control
   protocol, and the templates contributors use when submitting surveys through
   the NCDP intake portal or by SFTP.
 keywords:

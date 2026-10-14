@@ -1,26 +1,45 @@
-# Metadata schema v4.0
+# Metadata schema v5.0
 
 The attributes describing a survey: the single vocabulary shared by the
 submission wizard, `metadata.json`, the QA/QC engines, the archived CSV and the
 STAC records — so that no translation layer is needed anywhere between them.
 
-**v4.0 is the archive's record format:** every survey's
-`<YYYYMMDD-Location>_ancillary.csv` has these **302 columns** in this order
-(`schema/ncdp-metadata-schema-v4.csv` / `.json`,
+**v5.0 is the archive's record format:** every survey's
+`<YYYYMMDD-Location>_ancillary.csv` has these **131 columns** in this order
+(`schema/ncdp-metadata-schema-v5.csv` / `.json`,
 `templates/ancillary_template.csv`), followed by **28 `Record …` columns**
-generated on Gadi. v4.0 keeps every v3.1 attribute under the same name and
-adds 183 columns; it is a major version because the column order is the
-archive's, not v3's.
+generated on Gadi. v5.0 keeps every v3.1 attribute under the same name.
 
 | Columns | Count | Provenance |
 |---|---|---|
 | The v3.1 attributes (described below) | 119 | as listed below |
-| `Flight 1` … `Flight 20`, each with `Start Time Local`, `End Time Local`, `Images`, `Dewarping`, `Speed`, `Sensor Angle`, `Height` | 140 | `exif`: read from the imagery (the wizard's flight table) |
-| `Flight 1` … `Flight 20`, each with `Start Time UTC`, `End Time UTC` | 40 | `derived`: recalculated on Gadi from local time and the state's time zone |
+| `Flight Start Time Local`, `Flight End Time Local`, `Flight Images`, `Flight Dewarping`, `Flight Speed`, `Flight Sensor Angle`, `Flight Height` | 7 | `exif`: read from the imagery (the wizard's flight table), one value per flight |
+| `Flight Start Time UTC`, `Flight End Time UTC` | 2 | `derived`: recalculated on Gadi from local time and the state's time zone, one value per flight |
 | `Airframe 1`, `Airframe 2` | 2 | `manual`: when more than one airframe flew the survey |
 | `End Date` | 1 | `derived`: last day of a survey flown over more than one day; blank otherwise |
 
-The 28 generated columns (`schema/ncdp-metadata-schema-v4.json`,
+**Per-flight columns.** Each holds one value per flight, in flight order,
+separated by `; ` — the separator `Tags` already uses:
+
+```
+Flight Start Time Local = 09:12:04; 10:01:33; 10:48:10
+Flight Images           = 412; 398; 405
+Flight Height           = 80; ; 75
+```
+
+An empty position keeps its place (above, flight 2 has no height); trailing
+empty positions are dropped, and a field no flight has is left blank. A `;`
+inside a value is written as `,`. There is no limit on the number of flights;
+the number of values matches `Total Number of Flights`.
+
+**From v4.0.** v4.0 held the same values in 180 columns, `Flight 1` …
+`Flight 20` × the nine fields (`Flight 3 Images`), mostly empty and capped at
+20 flights. v5.0 packs them into the nine columns above, in the same place in
+the header; nothing else changed. It is a major version because columns were
+removed. The archive was converted on Gadi with `pack_flights.py`; the NCDP
+tools still read v4.0 files.
+
+The 28 generated columns (`schema/ncdp-metadata-schema-v5.json`,
 `generated_fields`) are written by `generate_record_columns.py` on Gadi, from
 the columns above and the NCDP registries (sites, states, organisations,
 programs, vocabularies). They hold the values the published records use:

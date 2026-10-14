@@ -32,13 +32,35 @@ jobs:
           v3 = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v3.csv'))]
           assert len(rows) == data['header_count'], 'v4 row count mismatch'
           assert rows == [f['header'] for f in data['fields']], 'v4 csv and json differ'
-          assert rows == tpl, 'ancillary_template.csv does not match schema v4'
           assert len(rows) == len(set(rows)), 'duplicate columns in v4'
           missing = [h for h in v3 if h not in rows]
           assert not missing, f'v4 lacks v3.1 attributes: {missing}'
           gen = [g['header'] for g in data['generated_fields']]
           assert all(h.startswith('Record ') for h in gen) and not set(gen) & set(rows), 'generated fields'
           print(f"v4.0: {len(rows)} columns + {len(gen)} generated; all {len(v3)} v3.1 attributes present")
+          EOF
+      - name: Schema v5.0 (current archive record format) is consistent
+        run: |
+          python - <<'EOF'
+          import csv, json, re
+          rows = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v5.csv'))]
+          data = json.load(open('schema/ncdp-metadata-schema-v5.json'))
+          tpl = next(csv.reader(open('templates/ancillary_template.csv')))
+          v3 = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v3.csv'))]
+          v4 = [r['header'] for r in csv.DictReader(open('schema/ncdp-metadata-schema-v4.csv'))]
+          assert data['schema_version'] == '5.0' and len(rows) == data['header_count'], 'v5 row count mismatch'
+          assert rows == [f['header'] for f in data['fields']], 'v5 csv and json differ'
+          assert rows == tpl, 'ancillary_template.csv does not match schema v5'
+          assert len(rows) == len(set(rows)), 'duplicate columns in v5'
+          assert not [h for h in v3 if h not in rows], 'v5 lacks v3.1 attributes'
+          assert not [h for h in rows if re.match(r'^Flight \d+ ', h)], 'v5 has Flight N columns'
+          packed = [h for h in rows if h not in v4]
+          fields = sorted({re.sub(r'^Flight \d+ ', '', h) for h in v4 if re.match(r'^Flight \d+ ', h)})
+          assert sorted(h[len('Flight '):] for h in packed) == fields, f'packed columns: {packed}'
+          assert [h for h in v4 if not re.match(r'^Flight \d+ ', h)] == [h for h in rows if h not in packed], 'other columns changed'
+          gen = [g['header'] for g in data['generated_fields']]
+          assert all(h.startswith('Record ') for h in gen) and not set(gen) & set(rows), 'generated fields'
+          print(f"v5.0: {len(rows)} columns ({len(packed)} packed per-flight) + {len(gen)} generated")
           EOF
       - name: resources.json is valid
         run: |
