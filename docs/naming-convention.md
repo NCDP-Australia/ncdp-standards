@@ -48,7 +48,7 @@ Worth knowing when you:
 ## Product files
 
 ```
-<YYYYMMDD>_<SiteName>_<Product>[-<CRS>].<ext>
+<YYYYMMDD>_<SiteName>_<Product>[-<CRS>][-<Height>][-cleaned].<ext>
 ```
 
 `<Product>` is one of `Orthomosaic`, `DSM`, `PointCloud`.
@@ -59,12 +59,25 @@ Worth knowing when you:
 20240115_PortFairy_PointCloud.las
 ```
 
-When the delivered file name states the coordinate system, it is kept as a
-token after the product type:
+When the delivered file name states the coordinate system, it is kept as
+tokens after the product type, and so is a cleaned DSM's `cleaned`:
 
 ```
-20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned.tif  ->  20240115_PortFairy_DSM-GDA94Z54.tif
+20240115 _Port-Fairy_DSM_GDA94_Z54_AHD09_cleaned.tif  ->  20240115_PortFairy_DSM-GDA94Z54-AHD09-cleaned.tif
 ```
+
+| Token | Meaning |
+|---|---|
+| `GDA94Z54`, `GDA94Z55`, ... | GDA94 / MGA zone (EPSG:28354, 28355, ...) |
+| `GDA2020Z50`, `GDA2020Z55`, ... | GDA2020 / MGA zone (EPSG:7850, 7855, ...) |
+| `WGS84Z54`, ... | WGS 84 / UTM zone, southern hemisphere (EPSG:32754, ...) |
+| `AHD09` | heights in AHD, derived with AUSGeoid09 (as delivered) |
+| `AHD` | heights in AHD, derived with AUSGeoid2020 |
+| `cleaned` | the contributor's cleaned DSM, archived beside the uncleaned one |
+
+The name must agree with the file: the zone in the name with the CRS the
+raster is tagged with, and `Orthomosaic` / `DSM` with what the file holds
+(`gadi/product_types.py` reports any file where they differ).
 
 **One file per product, at its native resolution.** A resampled copy of a
 product delivered beside it (VCMP's `..._cleaned_1m` next to `..._cleaned`) is
@@ -93,14 +106,28 @@ Other delivered files keep their names: crop polygons (VCMP's
 `..._crop_GDA94_Z55.DXF/.KML`) go to L4 as the area of interest, and GCP files,
 logs and reports keep the contributor's names in their L0 folders.
 
-## L3 datum token
+## L3 products
 
-Reprojected products carry the target datum and zone:
+L3 is the analysis-ready level: **GDA2020 / MGA, heights in AHD (AUSGeoid2020),
+Cloud-Optimised GeoTIFF, cleaned, cropped to the survey boundary.** Names carry
+the target datum and zone, and every DSM carries `AHD`:
 
 ```
 20240115_PortFairy_Orthomosaic-GDA2020Z54.tif
-20240115_PortFairy_DSM-GDA2020Z54.tif
+20240115_PortFairy_DSM-GDA2020Z54-AHD.tif
+20240115_PortFairy_DSM-GDA2020Z54-AHD-cleaned.tif
 ```
+
+On the way from L2 to L3 a GDA94 or WGS 84 product is shifted to GDA2020, and a
+DSM whose heights were derived with AUSGeoid09 (`AHD09`) gets the vertical
+correction to AUSGeoid2020: the change in ellipsoidal height from the GDA94 to
+GDA2020 transformation minus the change in geoid undulation between the two
+models (Δh − ΔN), taken at the grid point nearest the survey's centre
+(per-site table first, else the national ~1′ grid; typically −0.12 to +0.21 m
+along the coast). A product delivered in GDA2020 with AUSGeoid2020 heights is
+copied as is, and its DSM gains the `AHD` token. So `AHD09` never appears in
+L3; existing L3 DSMs named `-AHD09` were renamed to `-AHD` on 18 October 2026
+(their heights had already been corrected; only the names changed).
 
 This is the only stage that alters a product filename after intake.
 
