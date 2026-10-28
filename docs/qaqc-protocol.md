@@ -23,15 +23,18 @@ turns the QA gate into an obstacle that operators route around, and routed-aroun
 gates protect nothing. The cost of a permissive gate is a review queue; the cost
 of a strict one is partners who stop submitting.
 
-Concretely, five things block at intake:
+Concretely, four things block at intake (five for raw-only submissions):
 
 | Blocks | Why |
 |---|---|
 | Missing critical metadata | The survey can't be found, attributed or licensed |
 | Invalid contact email | Nobody to resolve a later problem with |
 | Executable/script files | Security — never enters the archive |
-| Unrecognised file types | Unknown content shouldn't be archived blind |
 | Truncated transfer (Gadi) | The data is simply not there |
+| No raw imagery (raw-only) | There is nothing to process |
+
+Unrecognised (non-executable) file types no longer block (revision 5.01): they travel with the survey
+and the team accepts or removes them.
 
 Everything else — thresholds, missing products, empty buckets, resolution
 disagreements, missing overviews — is a warning.
@@ -72,11 +75,12 @@ gdata. Operates on the three-bucket staging layout:
 | `l2_looks_cleaned` | warn | Files named "cleaned" uploaded as L2 (original); they belong in L3. Archived as uploaded |
 | `resampled_copy` | warn | A resampled copy beside the native-resolution product (e.g. `_1m`): not archived, only the native file is kept |
 | **`no_executables`** | **fail** | `.exe .dll .bat .ps1 .hta .lnk .so .iso .docm .xlsm` and others |
-| **`known_types`** | **fail** | Anything outside the allowlist — held, not discarded. The allowlist includes imagery, GeoTIFF/LAS/LAZ, reports, CSV/TXT, KML/KMZ, shapefiles, GeoJSON, DXF (crop polygons) and GNSS logs (RINEX `.obs`/`.26o`/`.rnx`/`.crx`, `.ubx`, `.sbf`, `.t02`/`.t04`, `.rtcm`, `.MRK`) |
+| `known_types` | warn | Anything outside the allowlist travels with the survey; the team accepts it or removes it before archiving (was a hold before revision 5.01). The allowlist includes imagery, GeoTIFF/LAS/LAZ, reports, CSV/TXT, KML/KMZ, shapefiles, GeoJSON, DXF (crop polygons) and GNSS logs (RINEX `.obs`/`.26o`/`.rnx`/`.crx`, `.ubx`, `.sbf`, `.t02`/`.t04`, `.rtcm`, `.MRK`) |
 
 The type check is an **allowlist**, not a denylist. A denylist can only block
 what was thought of in advance; inverting it means an unexpected extension gets
-a human look rather than a free pass. Extensionless files pass, since raw flight
+a human look rather than a free pass. The look happens without holding the survey:
+executables and scripts are the only file types that block. Extensionless files pass, since raw flight
 logs commonly have none.
 
 ### Metadata checks
@@ -127,6 +131,27 @@ per product: a resampled copy delivered beside the native-resolution product
 Naming is therefore correct by construction, and **Gadi must not rename
 again** — doing so would break the audit trail. Only the L2→L3 reprojection
 stage touches names, appending the datum token.
+
+### Who acts on a finding
+
+Every `fail` or `warn` is assigned to whoever can resolve it (`qc.triage()`), and the
+contributor's email lists only their part:
+
+| Group | Checks | Contributor's email | Effect |
+|---|---|---|---|
+| **Fix** (contributor) | `meta_critical`, `meta_email`, `no_executables`, `raw_imagery` / `bucket_raw` (raw-only) | "on hold until the following are fixed" | Held |
+| **Check** (contributor) | `bucket_products`, `bucket_report`, `report_empty`, `prod_ortho`, `prod_dsm` | "please check the following" | Archived |
+| **Information** | `meta_duplicate` (treated as a corrected resupply), `agreement_area` | "for your information" | Archived |
+| **Team** | everything else: empty or extra files, naming, unrecognised types, thresholds, optional files | one line: minor items are tidied up by the team | Archived |
+
+`report_empty` (revision 5.01): a processing report that is only empty files counts as missing.
+A held survey whose only reasons are team matters is told it is being checked and that nothing is
+needed from the contributor. The team receives a separate email with every finding, grouped as above.
+
+In the portal, **Admin → Intake → Actions** lists every finding of recent submissions with who it is
+for and what is needed, and offers per finding **Accept** (archive as supplied) or **Ask the
+contributor** (an email with that finding and the team's note). Decisions are recorded with who made
+them and when (tabs: To do, Waiting for contributor, Done).
 
 ### Routing
 
@@ -258,8 +283,8 @@ what feeds the QA audit-log sheet in the NCDP QC workbook.
 
 ## Operator procedures
 
-**Daily.** Check the review queue at `/review`. Each item shows its failed
-checks, metadata and file list.
+**Daily.** Work through Admin → Intake → Actions (To do), then the review queue at
+`/review` for held items. Each finding shows who it is for and what is needed.
 
 **Releasing an item.** Only after the underlying issue is understood. Release
 puts it back through the AV scan, so a release is never a security decision —

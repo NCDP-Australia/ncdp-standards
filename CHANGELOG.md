@@ -1,5 +1,34 @@
 # Changelog
 
+Every revision of the NCDP Data Standards and Procedures, newest first. From revision 5.01 the
+documents are versioned as one set (`MAJOR.YYx`, see README); earlier entries are the metadata schema
+releases, whose major number the set continues.
+
+## Unreleased
+
+(Add changes here; rename to the revision when it is released.)
+
+## Revision 5.01 — 2026-10-28: published wiki, intake triage, indicator methods
+
+**Minor revision** (procedures changed; schema unchanged at v5.0).
+
+- **Versioning and publication.** The documents are versioned as one set (`5.01`), published as a
+  locked revision on the GitHub Wiki with a PDF of every page, and released on Zenodo with a DOI per
+  revision (`publish.yaml`, `Scripts/publish_to_wiki.py`, `.github/workflows/release.yml`).
+- **QA/QC: who acts on a finding** (`qaqc-protocol.md`, `submitting-data.md`). Findings are grouped
+  as *fix* (contributor; held), *check* (contributor; archived), *information* and *team*. The
+  contributor's email lists only their part; the team gets every finding. Admin → Intake → Actions
+  lets the team accept a finding or ask the contributor about it.
+- **QA/QC: unrecognised file types no longer block.** `known_types` is a warning for the team; they
+  travel with the survey unless removed. Executables and scripts still block.
+- **QA/QC: new check `report_empty`.** A processing report that is only empty files counts as missing
+  (contributor to check).
+- **New page: coastal change indicators** (`indicators.md`, provisional): P1/P2/S4 basis, S1/S2/S5/S6,
+  C1/C2/C4/C5, the **reference stretch** for record-wide values (core transects valid on ≥ 60 % of
+  dates, runs ≥ 100 m, dates covering ≥ 80 %), the D1 erosion warning, D2 hotspots with the ends-and-gaps
+  rule (90 m window ≥ 75 % filled, ≥ 90 m from ends and gaps) and per-location **set-aside stretches**
+  (river mouths), and the site reports.
+
 ## Schema v5.0 — 2026-10-14: per-flight values packed
 
 - **Per-flight columns packed.** The 180 columns `Flight 1…20` × nine fields

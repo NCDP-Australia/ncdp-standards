@@ -1,0 +1,7 @@
+@page { size: A4; margin: 18mm 16mm 20mm; @bottom-right { content: "Page " counter(page) " of " counter(pages); font-size: 8pt; color: #666; } }
+body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 10pt; line-height: 1.45; color: #1d1d2b; }
+h1 { color: #181860; font-size: 18pt; } h2 { color: #181860; font-size: 13pt; margin-top: 1.4em; } h3 { font-size: 11pt; }
+blockquote { border-left: 3px solid #54B49C; margin: .8em 0; padding: .3em .8em; background: #eef7f4; color: #333; }
+table { border-collapse: collapse; width: 100%; font-size: 8.5pt; margin: .6em 0; } th, td { border-bottom: 1px solid #ddd; padding: 3px 5px; text-align: left; vertical-align: top; }
+th { border-bottom: 2px solid #54B49C; } code { font-size: 8.5pt; background: #f4f4f6; padding: 0 2px; }
+pre { background: #f4f4f6; padding: 6px; font-size: 8pt; white-space: pre-wrap; } a { color: #1a6b58; }

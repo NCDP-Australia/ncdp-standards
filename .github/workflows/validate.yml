@@ -78,4 +78,7 @@ jobs:
                   assert r['url'].startswith(('http://', 'https://')), f"bad url: {r['url']}"
           print(f'{len(rs)} resources valid')
           EOF
-
+      - name: publish.yaml is consistent (pages exist, revision format, status)
+        run: |
+          pip install --quiet pyyaml
+          python Scripts/publish_to_wiki.py --check

@@ -160,14 +160,19 @@ is archived, and the access level can be changed after review.
 
 ## If your submission is held
 
-Only five things block: missing critical metadata, an invalid contact email,
-executable files, unrecognised file types, or a truncated transfer. For a
-raw-only submission a sixth also blocks: no raw imagery. Everything
-else — a missing okta reading, a threshold slightly out — flags for review and
-still proceeds.
+Only four things block: missing critical metadata, an invalid contact email,
+executable files, or a truncated transfer. For a raw-only submission a fifth
+also blocks: no raw imagery. Everything else — a missing okta reading, a
+threshold slightly out, an unfamiliar file type — is noted and still proceeds.
 
-If held, the email lists exactly which checks failed. The team reviews held
-submissions and will follow up.
+The email after your upload lists only what needs you: what to **fix** (the
+survey is held until then), what to **check** or supply (a missing DSM or
+processing report; the survey carries on), and notices **for your
+information** (for example, that the same site and date are already archived
+and your upload will be treated as a corrected resupply). Minor things the
+NCDP team or the pipeline deals with — file names, extra or empty files — are
+not listed; one line says they will be tidied up. You can correct a submission
+from *My submissions*, or reply to the email.
 
 ## Licensing
 

@@ -3,3 +3,6 @@
 __pycache__/
 *.pyc
 .venv/
+# PDF snapshots are attached to each GitHub release (and Zenodo), not committed
+releases/
+release-notes.md

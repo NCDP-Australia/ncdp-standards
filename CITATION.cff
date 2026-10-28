@@ -2,11 +2,11 @@
 # button from this file, and Zenodo reads it when a GitHub release is archived
 # (title, authors, licence, description, keywords).
 cff-version: 1.2.0
-message: "If you use the NCDP Data Standards, please cite them as below."
+message: "If you use the NCDP Data Standards and Procedures, please cite the revision you followed as below."
 type: dataset
-title: "NCDP Data Standards: metadata schema, naming conventions and data structure for the National Coastal Drone Program"
-version: "5.0"
-date-released: "2026-10-14"      # set to the date of the GitHub release
+title: "NCDP Data Standards and Procedures: metadata schema, naming conventions, data structure, QA/QC and coastal change indicators for the National Coastal Drone Program"
+version: "5.01"   # the revision (publish.yaml); metadata schema v5.0
+date-released: "2026-10-28"      # set to the date of the GitHub release
 license: CC-BY-4.0
 authors:
   - family-names: Nuyts
@@ -33,8 +33,11 @@ abstract: >-
   archive's directory structure and processing levels (L0 to L4), the file and
   folder naming conventions, the metadata schema (version 5.0, the archive's
   131-column survey record), the quality-assurance and quality-control
-  protocol, and the templates contributors use when submitting surveys through
-  the NCDP intake portal or by SFTP.
+  protocol and who acts on each finding, the templates contributors use when
+  submitting surveys through the NCDP intake portal or by SFTP, and the methods
+  of the coastal change indicators (shoreline and backshore position and trends,
+  elevation and volume change, behavioural regime, erosion warning and hotspots)
+  and site reports.
 keywords:
   - coastal monitoring
   - UAV
@@ -45,6 +48,8 @@ keywords:
   - FAIR data
   - Australia
   - AuScope
+  - coastal erosion indicators
+  - shoreline change
   - NCRIS
 # The concept DOI: it always resolves to the latest version (v4.0 itself is
 # 10.5281/zenodo.23127541).
