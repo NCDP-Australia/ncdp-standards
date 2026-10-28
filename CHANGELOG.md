@@ -8,6 +8,18 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.01b — 2026-10-28: one source for the website
+
+**Patch revision** (nothing anyone does changes).
+
+- Each release carries `manifest.json` (groups, pages, status and the machine-readable files, linked at
+  the release tag). The website's Contribute → Guides is built from it: one tab per group, nothing
+  listed twice.
+- `publish.yaml` gains `category_slugs` (the website's tab addresses) and `files` (the metadata
+  template, the schema in JSON and CSV, the QA/QC thresholds), checked by CI.
+- `resources.json` no longer lists the standards, guides or Field Manual; it keeps publications,
+  method references and links for the website's News → Publications.
+
 ## Revision 5.01a — 2026-10-28: one home for the Field Manual
 
 **Patch revision** (nothing anyone does changes).

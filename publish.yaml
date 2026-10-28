@@ -5,20 +5,47 @@
 # the whole set (see README "Versioning"): MAJOR.YYx, e.g. 5.01, 5.01a, 5.02.
 # The release tag is "v" + revision (v5.01); every GitHub release is archived by
 # Zenodo under the concept DOI below and gets its own version DOI.
-revision: "5.01a"
+revision: "5.01b"
 revision_date: "2026-10-28"
 schema_version: "5.0"            # the metadata record format; changes only with a schema change
 concept_doi: "10.5281/zenodo.23127540"
 repository: "NCDP-Australia/ncdp-standards"
 home_intro: docs/home.md         # the opening of the wiki Home page
 
-# Wiki groups, in this order.
+# Wiki groups, in this order. The website (Contribute -> Guides) shows one tab per group,
+# at the address /contribute/guides/<slug>.
 categories:
   - Field procedures
   - Data standards
   - Contributing data
   - Quality assurance
   - Indicators and reports
+category_slugs:
+  Field procedures: field-manual
+  Data standards: standards
+  Contributing data: contributing
+  Quality assurance: quality
+  Indicators and reports: indicators
+
+# Machine-readable files and templates, listed with their group on the website and linked at
+# the release tag (so a link always gives the file as released in that revision).
+files:
+  - path: templates/ancillary_template.csv
+    title: Survey metadata template (CSV)
+    category: Contributing data
+    description: "Empty CSV with the 131 columns of schema v5.0, one per survey as <YYYYMMDD-Location>_ancillary.csv. Optional: the portal and the SFTP tools fill most of it from your files."
+  - path: schema/ncdp-metadata-schema-v5.json
+    title: Metadata schema v5.0 (JSON)
+    category: Data standards
+    description: The 131 columns in archive order, plus the 28 Record columns generated for NCI's catalogue, for scripting.
+  - path: schema/ncdp-metadata-schema-v5.csv
+    title: Metadata schema v5.0 (CSV)
+    category: Data standards
+    description: The same schema as a table.
+  - path: schema/ncdp-qc-thresholds-v3.json
+    title: QA/QC numeric thresholds (JSON)
+    category: Quality assurance
+    description: Limits for GSD, RMSE, GCP error, DSM voids and point density.
 
 # status: adopted | provisional | stub
 #   adopted     reviewed and locked for this revision

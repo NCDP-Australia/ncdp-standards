@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import filecmp
+import json
 import re
 import shutil
 import subprocess
@@ -73,6 +74,17 @@ def check(man: dict) -> list[str]:
             errs.append(f"{p.get('source')}: last_revised {lr!r} invalid or later than revision {rev}")
     if man.get("home_intro") and not (ROOT / man["home_intro"]).is_file():
         errs.append(f"home_intro {man['home_intro']} not found")
+    slugs = man.get("category_slugs") or {}
+    for c in slugs:
+        if c not in cats:
+            errs.append(f"category_slugs: {c!r} not in categories")
+    if len(set(slugs.values())) != len(slugs):
+        errs.append("category_slugs: slugs must be unique")
+    for f in man.get("files") or []:
+        if not (ROOT / f.get("path", "")).is_file():
+            errs.append(f"files: {f.get('path')} not found")
+        if f.get("category") not in cats:
+            errs.append(f"files: {f.get('path')}: category {f.get('category')!r} not in categories")
     return errs
 
 
@@ -197,6 +209,27 @@ def build(man: dict, dest: Path) -> list[str]:
     return written
 
 
+def slug_for(man: dict, cat: str) -> str:
+    return (man.get("category_slugs") or {}).get(cat) or re.sub(r"[^a-z0-9]+", "-", cat.lower()).strip("-")
+
+
+def release_manifest(man: dict) -> dict:
+    """What the website needs to list this revision (attached to the release as manifest.json):
+    groups in order, with their pages (wiki page, title, status) and files (linked at the tag)."""
+    tag = "v" + man["revision"]
+    raw = f"https://raw.githubusercontent.com/{man['repository']}/{tag}/"
+    cats = []
+    for cat in man["categories"]:
+        pages = [{"wiki_page": p["wiki_page"], "title": p["title"], "status": p["status"],
+                  "last_revised": p["last_revised"], "note": p.get("note")} for p in man["pages"] if p["category"] == cat]
+        files = [{"title": f["title"], "description": f.get("description", ""), "url": raw + f["path"]}
+                 for f in man.get("files") or [] if f["category"] == cat]
+        if pages or files:
+            cats.append({"name": cat, "slug": slug_for(man, cat), "pages": pages, "files": files})
+    return {"revision": man["revision"], "revision_date": man["revision_date"], "schema_version": man.get("schema_version"),
+            "concept_doi": man["concept_doi"], "repository": man["repository"], "tag": tag, "categories": cats}
+
+
 def make_pdfs(man: dict, built: Path) -> Path:
     out = ROOT / "releases" / f"Rev{man['revision']}"
     out.mkdir(parents=True, exist_ok=True)
@@ -211,6 +244,8 @@ def make_pdfs(man: dict, built: Path) -> Path:
         # run in the built wiki folder so media/<page>/... resolves for pandoc and weasyprint
         subprocess.run(cmd, check=True, cwd=str(built))
         print(f"pdf  {pdf.relative_to(ROOT)}")
+    (out / "manifest.json").write_text(json.dumps(release_manifest(man), indent=1, ensure_ascii=False), encoding="utf-8")
+    print(f"json {(out / 'manifest.json').relative_to(ROOT)}")
     return out
 
 

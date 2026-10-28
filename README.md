@@ -36,8 +36,8 @@ its own DOI and PDF snapshots of every page.
 | `schema/ncdp-qc-thresholds-v3.json` | Numeric QA/QC thresholds |
 | `templates/ancillary_template.csv` | **Use this one.** Empty v5.0 metadata CSV, one per survey: `<YYYYMMDD-Location>_ancillary.csv` |
 | `templates/L0_metadata_template.csv` | The v3.1 attributes only, kept for existing tools |
-| `resources.json`, `news.json` | Feed the portal's Publications and News pages (see CONTRIBUTING.md) |
-| `publish.yaml` | Release manifest: revision, pages, status |
+| `resources.json`, `news.json` | Feed the portal's News › Publications and News pages (see CONTRIBUTING.md). The standards themselves are listed on the website from each release's `manifest.json`, not from here |
+| `publish.yaml` | Release manifest: revision, groups and their website tabs (`category_slugs`), pages and status, machine-readable `files` |
 | `Scripts/` | `publish_to_wiki.py` (wiki, status, PDFs), `docx_to_markdown.py` (Word → draft page) |
 
 ## Versioning
