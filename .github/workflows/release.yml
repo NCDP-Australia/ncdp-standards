@@ -55,5 +55,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" releases/Rev${REV}/*.pdf \
+          # the Field Manual's Word original, for adapting (CC BY 4.0)
+          if [ -f source/NCDP_Field_Manual.docx ]; then cp source/NCDP_Field_Manual.docx "releases/Rev${REV}/NCDP_Field-Manual_Rev${REV}.docx"; fi
+          gh release create "${GITHUB_REF_NAME}" releases/Rev${REV}/* \
             --title "Revision ${REV}" --notes-file release-notes.md

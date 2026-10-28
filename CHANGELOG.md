@@ -8,6 +8,18 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.01a — 2026-10-28: one home for the Field Manual
+
+**Patch revision** (nothing anyone does changes).
+
+- The Field Manual's Word original is kept in the repository (`source/NCDP_Field_Manual.docx`); the
+  wiki page and PDF are generated from it with `Scripts/docx_to_markdown.py`. Each release also
+  carries the Word version (`NCDP_Field-Manual_Rev<revision>.docx`) for organisations adapting the
+  manual under CC BY 4.0.
+- The standalone `ncdp-field-manual` repository is retired and archived. Its edition v1.0 keeps its
+  DOI ([10.5281/zenodo.22867527](https://doi.org/10.5281/zenodo.22867527)) for citing that edition; the
+  manual continues here, with a DOI per revision of this set.
+
 ## Revision 5.01 — 2026-10-28: published wiki, intake triage, indicator methods
 
 **Minor revision** (procedures changed; schema unchanged at v5.0).

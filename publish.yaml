@@ -5,7 +5,7 @@
 # the whole set (see README "Versioning"): MAJOR.YYx, e.g. 5.01, 5.01a, 5.02.
 # The release tag is "v" + revision (v5.01); every GitHub release is archived by
 # Zenodo under the concept DOI below and gets its own version DOI.
-revision: "5.01"
+revision: "5.01a"
 revision_date: "2026-10-28"
 schema_version: "5.0"            # the metadata record format; changes only with a schema change
 concept_doi: "10.5281/zenodo.23127540"

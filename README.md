@@ -22,7 +22,8 @@ its own DOI and PDF snapshots of every page.
 
 | Path | What it is |
 |---|---|
-| `docs/field-manual.md` | The NCDP Field Manual: equipment, mission planning, flying a survey, upload, checklists and forms (images in `docs/field-manual_media/`) |
+| `docs/field-manual.md` | The NCDP Field Manual: equipment, mission planning, flying a survey, upload, checklists and forms (images in `docs/field-manual_media/`), generated from the Word original |
+| `source/NCDP_Field_Manual.docx` | The Field Manual's Word original: edit this, then regenerate the page (below). Each release carries a copy for adapting |
 | `docs/data-structure.md` | Archive hierarchy and the L0–L4 processing levels |
 | `docs/naming-convention.md` | File and directory naming rules |
 | `docs/metadata-schema.md` | The metadata schema: the archive's record format (v5.0) and each attribute |
@@ -87,7 +88,7 @@ To start a page from a Word document (e.g. the Field Manual):
 
 ```bash
 # needs pandoc and Pillow (LibreOffice optional, converts EMF drawings)
-python Scripts/docx_to_markdown.py "NCDP_Field_Manual.docx" docs/field-manual.md --title "NCDP Field Manual"
+python Scripts/docx_to_markdown.py source/NCDP_Field_Manual.docx docs/field-manual.md --title "NCDP Field Manual"
 ```
 then check the result and add it to `publish.yaml` (`status: stub` or `provisional` until reviewed).
 When the Word original is updated, rerun the same command and commit the changes; the diff shows exactly
@@ -114,6 +115,12 @@ To publish by hand instead (e.g. a first time): clone the wiki next to this repo
 (`git clone https://github.com/NCDP-Australia/ncdp-standards.wiki.git ../ncdp-standards.wiki`), run
 `python Scripts/publish_to_wiki.py` (add `--pdf` for PDFs into `releases/`, needs pandoc and
 weasyprint), review the diff in the wiki checkout, commit and push there, then create the release.
+
+## Field Manual history
+
+The Field Manual was first published on its own (`NCDP-Australia/ncdp-field-manual`, edition v1.0,
+[10.5281/zenodo.22867527](https://doi.org/10.5281/zenodo.22867527)). From revision 5.01 it is part of this
+set; that repository is archived and v1.0 stays citable as the first edition.
 
 ## How to cite
 
