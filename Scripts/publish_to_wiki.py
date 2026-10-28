@@ -100,7 +100,10 @@ def rewrite_links(text: str, src: Path, man: dict, pages: dict, media_dir: str |
         if relp in pages:
             return f"[{label}]({pages[relp]}{'#' + frag if frag else ''})"
         return f"{bang}[{label}]({blob}{relp}{'#' + frag if frag else ''}{title})"
-    return LINK_RE.sub(sub, text)
+    text = LINK_RE.sub(sub, text)
+    if media_dir:                         # HTML images (pandoc writes these for sized pictures)
+        text = re.sub(r'(<img[^>]*?\ssrc=")[^"]*?_media/([^"/]+)"', rf'\1media/{media_dir}/\2"', text)
+    return text
 
 
 def banner(man: dict, p: dict) -> str:
@@ -201,11 +204,12 @@ def make_pdfs(man: dict, built: Path) -> Path:
     for p in man["pages"]:
         md = built / f"{p['wiki_page']}.md"
         pdf = out / f"NCDP_{p['wiki_page']}_Rev{man['revision']}.pdf"
-        cmd = ["pandoc", str(md), "-o", str(pdf), "--pdf-engine=weasyprint", "--resource-path", str(built),
+        cmd = ["pandoc", md.name, "-o", str(pdf), "--pdf-engine=weasyprint",
                "--metadata", f"pagetitle=NCDP — {p['title']}"]
         if css.is_file():
             cmd += ["--css", str(css)]
-        subprocess.run(cmd, check=True)
+        # run in the built wiki folder so media/<page>/... resolves for pandoc and weasyprint
+        subprocess.run(cmd, check=True, cwd=str(built))
         print(f"pdf  {pdf.relative_to(ROOT)}")
     return out
 

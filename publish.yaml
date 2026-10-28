@@ -14,6 +14,7 @@ home_intro: docs/home.md         # the opening of the wiki Home page
 
 # Wiki groups, in this order.
 categories:
+  - Field procedures
   - Data standards
   - Contributing data
   - Quality assurance
@@ -25,6 +26,12 @@ categories:
 #   stub        being written
 # last_revised: the revision in which the page last changed (not the current revision)
 pages:
+  - source: docs/field-manual.md
+    wiki_page: Field-Manual
+    title: NCDP Field Manual
+    category: Field procedures
+    status: adopted
+    last_revised: "5.01"
   - source: docs/data-structure.md
     wiki_page: Data-Structure
     title: Data structure and processing levels

@@ -22,6 +22,7 @@ its own DOI and PDF snapshots of every page.
 
 | Path | What it is |
 |---|---|
+| `docs/field-manual.md` | The NCDP Field Manual: equipment, mission planning, flying a survey, upload, checklists and forms (images in `docs/field-manual_media/`) |
 | `docs/data-structure.md` | Archive hierarchy and the L0–L4 processing levels |
 | `docs/naming-convention.md` | File and directory naming rules |
 | `docs/metadata-schema.md` | The metadata schema: the archive's record format (v5.0) and each attribute |
@@ -85,10 +86,12 @@ To add a publication or a news item for the portal, see `CONTRIBUTING.md`.
 To start a page from a Word document (e.g. the Field Manual):
 
 ```bash
-pip install mammoth
-python Scripts/docx_to_markdown.py "NCDP Field Manual.docx" docs/field-manual.md
+# needs pandoc and Pillow (LibreOffice optional, converts EMF drawings)
+python Scripts/docx_to_markdown.py "NCDP_Field_Manual.docx" docs/field-manual.md --title "NCDP Field Manual"
 ```
-then add it to `publish.yaml` with `status: stub` or `provisional` until reviewed.
+then check the result and add it to `publish.yaml` (`status: stub` or `provisional` until reviewed).
+When the Word original is updated, rerun the same command and commit the changes; the diff shows exactly
+what changed in the manual.
 
 ## Releasing a revision
 

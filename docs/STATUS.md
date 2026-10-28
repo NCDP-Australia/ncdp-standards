@@ -6,6 +6,7 @@ Current revision: **5.01** (2026-10-28); metadata schema v5.0.
 
 | Page | Category | Status | Last revised | Source |
 |---|---|---|---|---|
+| NCDP Field Manual | Field procedures | Adopted | 5.01 | `docs/field-manual.md` |
 | Data structure and processing levels | Data standards | Adopted | 5.00 | `docs/data-structure.md` |
 | Naming convention | Data standards | Adopted | 5.00 | `docs/naming-convention.md` |
 | Metadata schema (v5.0) | Data standards | Adopted | 5.00 | `docs/metadata-schema.md` |

@@ -12,6 +12,10 @@ releases, whose major number the set continues.
 
 **Minor revision** (procedures changed; schema unchanged at v5.0).
 
+- **Field Manual on the wiki** (`field-manual.md`, converted from the Word original with
+  `Scripts/docx_to_markdown.py`): equipment, mission planning (grid, linear and oblique missions on the
+  DJI Matrice 4 Enterprise), conducting a survey, data upload, additional capture techniques, incident
+  reporting, the appendix checklists, logs, risk assessment and the quick reference sheet.
 - **Versioning and publication.** The documents are versioned as one set (`5.01`), published as a
   locked revision on the GitHub Wiki with a PDF of every page, and released on Zenodo with a DOI per
   revision (`publish.yaml`, `Scripts/publish_to_wiki.py`, `.github/workflows/release.yml`).
