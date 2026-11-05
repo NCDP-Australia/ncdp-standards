@@ -111,6 +111,14 @@ regime; the erosion warning and hotspots; and the methods and data-quality rules
 opens with the record-wide change on the reference stretch and the current erosion warning, so the
 first sentence is not one-sided.
 
+Every report credits the surveys to the organisations that flew and processed them and to the
+programs that funded them, read from each survey's metadata (`Organisation`, `Record Funded
+Programmes`): for example "contributed by Deakin University under the Victorian Coastal Monitoring
+Program (VCMP), funded by the Department of Energy, Environment and Climate Action". The National
+Coastal Drone Program coordinates, archives and analyses the surveys; it does not fly them, and a
+report never says it did. A survey with no organisation in its metadata is counted as "without
+contributor metadata" rather than credited to anyone.
+
 ## References
 
 - Bishop-Taylor, R., Nanson, R., Sagar, S., & Lymburner, L. (2021). Mapping Australia's dynamic coastline at mean sea level using three decades of Landsat imagery. *Remote Sensing of Environment*, 267, 112734. https://doi.org/10.1016/j.rse.2021.112734

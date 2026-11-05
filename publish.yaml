@@ -5,15 +5,15 @@
 # the whole set (see README "Versioning"): MAJOR.YYx, e.g. 5.01, 5.01a, 5.02.
 # The release tag is "v" + revision (v5.01); every GitHub release is archived by
 # Zenodo under the concept DOI below and gets its own version DOI.
-revision: "5.01b"
-revision_date: "2026-10-28"
+revision: "5.02"
+revision_date: "2026-11-06"
 schema_version: "5.0"            # the metadata record format; changes only with a schema change
 concept_doi: "10.5281/zenodo.23127540"
 repository: "NCDP-Australia/ncdp-standards"
 home_intro: docs/home.md         # the opening of the wiki Home page
 
-# Wiki groups, in this order. The website (Contribute -> Guides) shows one tab per group,
-# at the address /contribute/guides/<slug>.
+# Wiki groups, in this order. The website (Guides, in the top bar) shows one tab per group,
+# at the address /guides/<slug>.
 categories:
   - Field procedures
   - Data standards
@@ -64,13 +64,13 @@ pages:
     title: Data structure and processing levels
     category: Data standards
     status: adopted
-    last_revised: "5.00"
+    last_revised: "5.02"
   - source: docs/naming-convention.md
     wiki_page: Naming-Convention
     title: Naming convention
     category: Data standards
     status: adopted
-    last_revised: "5.00"
+    last_revised: "5.02"
   - source: docs/metadata-schema.md
     wiki_page: Metadata-Schema
     title: Metadata schema (v5.0)
@@ -82,7 +82,7 @@ pages:
     title: Submitting a survey
     category: Contributing data
     status: adopted
-    last_revised: "5.01"
+    last_revised: "5.02"
   - source: docs/qaqc-protocol.md
     wiki_page: QAQC-Protocol
     title: QA/QC protocol
@@ -94,5 +94,5 @@ pages:
     title: Coastal change indicators (L4) and site reports
     category: Indicators and reports
     status: provisional
-    last_revised: "5.01"
+    last_revised: "5.02"
     note: "Thresholds and the reference-stretch rules may be tuned as more locations are processed."

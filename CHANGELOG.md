@@ -8,6 +8,29 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.02 — 2026-11-06: holding a survey, release into the archive, credits
+
+**Minor revision** (procedures changed; schema unchanged at v5.0).
+
+- **Holding a survey back** (`submitting-data.md`). A contributor can ask, when submitting, for a
+  survey to be kept on the portal and not archived: part of a bigger survey still to be merged, a
+  re-flight, data for the team to look at first. The survey passes its checks, the team is told, and
+  nothing is archived or published until a person releases it.
+- **Release into the archive is a human step** (`submitting-data.md`). After the Gadi checks a survey
+  shows as *Checked at NCI*; the NCDP team promotes it from the portal (*Archived at NCI*) and it
+  appears in the catalogue at the next rebuild. The page used to read as if this happened by itself.
+- **Raw imagery to a processing partner** (`submitting-data.md`). In states with a processing
+  partner (Victoria: DEECA), the imagery of a community or council raw-only survey is passed to the
+  partner by AARNet FileSender once the survey is released; a partner's own uploads are not sent back.
+- **Crop polygon is a processing input** (`data-structure.md`, `naming-convention.md`,
+  `submitting-data.md`). It lives in `L0/L0Ancillary`, not L4, and L3 is cropped to it (the
+  7 October decision; the pages still said L4).
+- **Site reports credit the contributors** (`indicators.md`): organisations and funding programs from
+  the surveys' metadata; the program coordinates, archives and analyses, and never claims to have
+  flown the surveys.
+- Website: the guides are at `ncdp.auscope.org.au/guides` (top bar: Data · Guides · About); the old
+  Contribute › Guides addresses redirect.
+
 ## Revision 5.01b — 2026-10-28: one source for the website
 
 **Patch revision** (nothing anyone does changes).

@@ -30,7 +30,7 @@ survey — L4 in particular is produced only where there is a derived product.
 | **L1** | Intermediate processing steps (e.g. thermal or multispectral calibration). Empty for most surveys | Contributor |
 | **L2** | Uncleaned processed data (DSM, orthomosaic, point cloud) exactly as the processing software produced it, in the **source** CRS. One file per product, at its native resolution | Contributor's processing software |
 | **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD** as Cloud-Optimised GeoTIFF. One file per product, at its native resolution | Contributor, or the Gadi pipeline from L2 |
-| **L4** | Model outputs derived from the data (results, indicators), and the survey's area of interest (AoI), including a contributor's crop polygon | Analysis |
+| **L4** | Model outputs derived from the data (results, indicators). Products only: a contributor's crop polygon is a processing input and lives in `L0/L0Ancillary` | Analysis |
 
 Contributors say which level their processed data is by uploading it into the
 matching step of the submission wizard. At least one of L2 or L3 is required
@@ -53,7 +53,7 @@ L0/
   L0GCPs/                        ground control and check points
   L0FlightLogs/                  flight logs, base-station RINEX/PPK
   L0Planning/                    mission plans
-  L0Ancillary/                   <YYYYMMDD-Location>_ancillary.csv and the submission record
+  L0Ancillary/                   <YYYYMMDD-Location>_ancillary.csv, the submission record, the processing report, the crop polygon
 ```
 
 | Folder | Contents |
@@ -62,7 +62,7 @@ L0/
 | `L0Planning` | Mission plans, flight path files |
 | `L0GCPs` | Ground control and check-point coordinates (CSV/TXT), including every AeroPoints export for Propeller surveys |
 | `L0FlightLogs` | Flight logs, base-station RTK/PPK observation files (RINEX, `.obs`, `.ubx` ...) |
-| `L0Ancillary` | Metadata CSV, processing report, QC record |
+| `L0Ancillary` | Metadata CSV, processing report, QC record, the crop / area-of-interest polygon the processing used (a processing input; the pipeline crops L3 to it) |
 
 ### L0Ancillary — the submission record
 

@@ -103,8 +103,9 @@ SFTP), so naming is correct by construction and the Gadi QA/QC pipeline does
 not rename again — doing so would break the audit trail.
 
 Other delivered files keep their names: crop polygons (VCMP's
-`..._crop_GDA94_Z55.DXF/.KML`) go to L4 as the area of interest, and GCP files,
-logs and reports keep the contributor's names in their L0 folders.
+`..._crop_GDA94_Z55.DXF/.KML`) go to `L0/L0Ancillary` as a processing input,
+and GCP files, logs and reports keep the contributor's names in their L0
+folders.
 
 ## L3 products
 

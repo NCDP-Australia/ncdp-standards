@@ -30,7 +30,7 @@ details are read from the files. For a processed survey the steps are
 | · L1 Intermediate | In-between processing steps, e.g. thermal or multispectral calibration. Most surveys have none | `L1` |
 | · L2 Original | DSM, orthomosaic, point cloud exactly as the software produced them | `L2` |
 | · L3 Cleaned | The same after your own manual editing (cropped, noise or water removed). State its coordinate system; GDA2020 / MGA with AHD heights is ready to publish | `L3` |
-| **Crop polygon** | Optional: a crop / area-of-interest polygon (`.kml`, `.dxf`, `.geojson`, shapefile), uploaded with the processed data | with the products |
+| **Crop polygon** | Optional: the crop / area-of-interest polygon your processing used (`.kml`, `.dxf`, `.geojson`, shapefile), uploaded with the processed data. It is a processing input, kept with the metadata, and it is what the pipeline crops L3 to | `L0/L0Ancillary` |
 
 Upload each product once, at its native resolution. Resampled copies (e.g. a
 1 m DSM beside the full-resolution one) are not archived.
@@ -113,10 +113,15 @@ The five required fields are the same as for any submission.
 1. QA/QC checks the imagery itself: that it is there, that there is enough of
    it, that the frames carry GPS positions and that the capture date matches
    the one on the form.
-2. It is archived at NCI as a survey in its own right. It is **not published**
-   in the public catalogue while it is awaiting processing: an entry with
-   nothing downloadable helps nobody. The NCDP team can see it, and you can ask
-   us about it by quoting your submission reference.
+2. Once the team releases it, it is archived at NCI as a survey in its own
+   right. It is **not published** in the public catalogue while it is awaiting
+   processing: an entry with nothing downloadable helps nobody. The NCDP team
+   can see it, and you can ask us about it by quoting your submission
+   reference. In states with a processing partner (Victoria: the Department
+   of Energy, Environment and Climate Action, DEECA), the imagery of a
+   community or council survey is passed to that partner for processing at
+   this point, as one archive by AARNet FileSender; a partner's own uploads
+   are not sent back to it.
 3. When the program has processed it, the orthomosaic, DSM and point cloud
    are added to **the same survey** — not a new one — and it then appears in
    the catalogue like any other processed survey.
@@ -145,16 +150,32 @@ warning, and until the NCDP team has reviewed the access level with you, it
 is published as Restricted. Nothing is lost either way: everything you upload
 is archived, and the access level can be changed after review.
 
+## Holding a survey back
+
+At the bottom of the survey details, **Hold this survey** lets you ask for the
+survey to be kept on the portal and not archived yet: part of a bigger survey
+still to be merged, a re-flight to be combined with another date, or data you
+want the team to look at first. Say why, and what should happen to it. The
+survey passes its checks as usual, the team is told, and nothing is archived or
+published until a person releases it. It shows as *Held at your request* under
+*My submissions*.
+
 ## What happens next
 
 1. Automated QA/QC runs on the server; you get an email with the outcome.
 2. The data is virus-scanned and transferred to NCI.
 3. The Gadi pipeline verifies integrity, restructures into L0–L3, checks the
-   pixels against the report, and generates catalogue and STAC records.
-4. Your survey appears on the public map. Open surveys are published from
+   pixels against the report, and generates catalogue and STAC records. The
+   survey shows as *Checked at NCI*.
+4. **A person releases it into the archive.** Nothing enters the archive
+   automatically: the NCDP team looks at the checks and the metadata and
+   promotes the survey, normally within a few days. It shows as *Archived at
+   NCI*.
+5. Your survey appears on the public map at the next catalogue rebuild
+   (overnight at the latest). Open surveys are published from
    `/g/data/mm91/NCDP`; for Restricted surveys only part is published (see
    Access level).
-5. A weekly audit keeps checking every archived survey's structure, names,
+6. A weekly audit keeps checking every archived survey's structure, names,
    metadata and data; if it finds a problem with yours, the team may contact
    you.
 
