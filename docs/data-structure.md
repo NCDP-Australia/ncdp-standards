@@ -42,8 +42,12 @@ for a processed survey.
   writes Cloud-Optimised GeoTIFFs into L3.
 - **Cleaned data supplied** — that is the survey's L3. If it is already in
   GDA2020 / MGA with AHD heights, the pipeline only converts it to COG and adds
-  the datum token to the file name. Otherwise it is archived as delivered and
-  held for the NCDP team to reproject before publication.
+  the datum token to the file name. If it is in GDA94 / MGA or WGS 84 / UTM
+  with AHD heights, the pipeline reprojects it like an L2 product (the
+  delivered file is kept in L2, with `-cleaned` in its name where an uncleaned
+  original is there too) and writes the GDA2020 / AHD COG to L3. Only when
+  nothing states the heights datum, or the heights are ellipsoidal, is the
+  survey held for a person.
 
 ### L0 sub-folders
 

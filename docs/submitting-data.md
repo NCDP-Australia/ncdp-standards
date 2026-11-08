@@ -29,7 +29,7 @@ details are read from the files. For a processed survey the steps are
 | **Processed data** | Upload into the level that matches what you have — at least one of L2 or L3, and say which coordinate system it is in (datum, grid zone, heights; filled from the report or the file names where they say it): | |
 | · L1 Intermediate | In-between processing steps, e.g. thermal or multispectral calibration. Most surveys have none | `L1` |
 | · L2 Original | DSM, orthomosaic, point cloud exactly as the software produced them | `L2` |
-| · L3 Cleaned | The same after your own manual editing (cropped, noise or water removed). State its coordinate system; GDA2020 / MGA with AHD heights is ready to publish | `L3` |
+| · L3 Cleaned | The same after your own manual editing (cropped, noise or water removed). State its coordinate system. GDA2020 / MGA with AHD heights is published as is; GDA94 / MGA or WGS 84 data with AHD heights is reprojected to GDA2020 / AHD by the pipeline; only data whose heights are not stated (or are ellipsoidal) waits for a person | `L3` |
 | **Crop polygon** | Optional: the crop / area-of-interest polygon your processing used (`.kml`, `.dxf`, `.geojson`, shapefile), uploaded with the processed data. It is a processing input, kept with the metadata, and it is what the pipeline crops L3 to | `L0/L0Ancillary` |
 
 Upload each product once, at its native resolution. Resampled copies (e.g. a

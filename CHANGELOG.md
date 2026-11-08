@@ -28,6 +28,10 @@ releases, whose major number the set continues.
 - **Site reports credit the contributors** (`indicators.md`): organisations and funding programs from
   the surveys' metadata; the program coordinates, archives and analyses, and never claims to have
   flown the surveys.
+- **Cleaned data in GDA94 / WGS 84 is reprojected, not held** (`data-structure.md`,
+  `submitting-data.md`; pipeline `s05_reproject`). Contributor L3 in GDA94 / MGA or WGS 84 / UTM with AHD
+  heights goes through the same datum shift, vertical correction and COG conversion as L2. A survey is
+  held only when nothing states its heights datum, or the heights are ellipsoidal.
 - Website: the guides are at `ncdp.auscope.org.au/guides` (top bar: Data · Guides · About); the old
   Contribute › Guides addresses redirect.
 
