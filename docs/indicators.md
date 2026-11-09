@@ -29,11 +29,33 @@ every transect with that date's water masked. A transect counts on a date only w
 its envelope segment is covered by the DSM and at least half of that is not water. A point more than
 2.5 m from its own median across dates is excluded on that date.
 
+## The shoreline datum
+
+The shoreline proxy is the **mean high water springs** contour in AHD. On the open coast wave setup
+lifts the morphological shoreline above MHWS, which is why the Victorian convention of 1.0 m AHD on the
+open coast and 0.5 m AHD in Port Phillip Bay works. To keep locations comparable, the datum is one
+fixed value per **class**, decided by two physical parameters recorded for every location:
+
+| Tidal regime (spring range) | Sheltered (enclosed bay, fetch-limited) | Open coast (ocean swell) |
+|---|---|---|
+| **Microtidal** < 2 m | 0.5 m AHD | 1.0 m AHD |
+| **Mesotidal** 2–4 m | MHWS, rounded to 0.5 m | MHWS + 0.5 m setup, rounded to 0.5 m |
+| **Macrotidal** > 4 m | MHWS, rounded to 0.5 m | MHWS + 0.5 m setup, rounded to 0.5 m |
+
+Every current NCDP location is microtidal, so the datum is 0.5 or 1.0 m AHD. The Victorian classes
+follow the VCMP convention as held in DEECA's CoastKit: the Port Phillip Bay sites, Point Lonsdale and
+Cowes are sheltered; every other Victorian site is open coast. Other states default to microtidal and
+open until classed. The class, its parameters and where they came from are kept per location
+(Admin → Archive → Locations), every indicator file records the datum used, and the site report states
+it ("0.5 m AHD (microtidal, sheltered)"). A change of class recomputes the location's whole record;
+different datums are never mixed within a location. An override of the rule for one location is
+possible but must carry a reason, and the report says the datum was set for that location.
+
 ## Position, width and slope
 
 | Indicator | Definition |
 |---|---|
-| **S1 shoreline** | First crossing of **1.0 m AHD** walking seaward from the dune-toe baseline. Position in metres from the baseline. Reason codes: crossing, above (dry beach beyond the envelope edge; censored), below (whole transect under the datum), nodata; multiple crossings are counted and flagged. |
+| **S1 shoreline** | First crossing of the location's **shoreline datum** walking seaward from the dune-toe baseline (see *The shoreline datum* below). Position in metres from the baseline. Reason codes: crossing, above (dry beach beyond the envelope edge; censored), below (whole transect under the datum), nodata; multiple crossings are counted and flagged. |
 | **S2 backshore** | First crossing of **2.5 m AHD**, sampling each transect from 50 m landward of the envelope: about the dune toe or the foot of a structure. |
 | **S6 beach width** | Distance from the dune-toe baseline to the shoreline, i.e. the S1 position. |
 | **S5 beach slope** | Linear fit to the valid profile. |

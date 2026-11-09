@@ -8,6 +8,11 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+- **Shoreline datum by class** (`indicators.md`). The S1 shoreline datum is no longer 1.0 m AHD everywhere:
+  microtidal sheltered 0.5 m, microtidal open 1.0 m, meso/macrotidal MHWS-based, one fixed value per class
+  so locations stay comparable. Victoria follows the VCMP convention (CoastKit): Port Phillip Bay, Point
+  Lonsdale and Cowes at 0.5 m, the rest at 1.0 m. Each report states the datum and class.
+
 ## Revision 5.02 — 2026-11-06: holding a survey, release into the archive, credits
 
 **Minor revision** (procedures changed; schema unchanged at v5.0).
