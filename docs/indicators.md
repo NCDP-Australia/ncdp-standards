@@ -42,9 +42,11 @@ fixed value per **class**, decided by two physical parameters recorded for every
 | **Mesotidal** 2–4 m | MHWS, rounded to 0.5 m | MHWS + 0.5 m setup, rounded to 0.5 m |
 | **Macrotidal** > 4 m | MHWS, rounded to 0.5 m | MHWS + 0.5 m setup, rounded to 0.5 m |
 
-Every current NCDP location is microtidal, so the datum is 0.5 or 1.0 m AHD. The Victorian classes
-follow the VCMP convention as held in DEECA's CoastKit: the Port Phillip Bay sites, Point Lonsdale and
-Cowes are sheltered; every other Victorian site is open coast. Other states default to microtidal and
+The Victorian classes follow DEECA's own designation of every VCMP site (VCMP Sites Data Product,
+March 2024: Open Coast or Bay) with the spring tidal range from the VCMP site descriptions: the Port
+Phillip Bay and Western Port sites are sheltered (0.5 m AHD), every other Victorian site is open coast
+(1.0 m AHD). Cowes and Flinders in Western Port are mesotidal, so there the 0.5 m is recorded as an
+override of the rule, with the reason, rather than as its result. Other states default to microtidal and
 open until classed. The class, its parameters and where they came from are kept per location
 (Admin → Archive → Locations), every indicator file records the datum used, and the site report states
 it ("0.5 m AHD (microtidal, sheltered)"). A change of class recomputes the location's whole record;
