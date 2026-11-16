@@ -1,5 +1,14 @@
 # Naming convention
 
+## Names THREDDS can serve
+
+Every folder and file in the archive must be servable by NCI's THREDDS service, so names contain **no
+spaces** and none of `` & : % ; \ ? # " < > ` { } | ^ [ ] `` (nor control characters or a leading or trailing
+space). Camera file names never break this, but folder names typed by people often do (`Flight 01`,
+`100_0004 ENDED EARLY`). Contributors should avoid them; before publication the archive's hygiene check
+replaces each such character with `_` (`Flight_01`) and records the rename in the survey's
+`L0/L0Ancillary/renames.json`.
+
 ## Survey directories
 
 ```

@@ -19,6 +19,37 @@ Folders whose name contains `_superseded_` are earlier intakes of a survey that
 was later replaced. They are kept for the record but never checked, catalogued
 or published.
 
+## Access and citation
+
+The published root is served by NCI's THREDDS data service, folder for folder:
+
+```
+https://thredds.nci.org.au/thredds/catalog/mm91/NCDP/<State>/<Location>/<YYYYMMDD-Location>/catalog.html
+https://thredds.nci.org.au/thredds/fileServer/mm91/NCDP/<State>/<Location>/<YYYYMMDD-Location>/<level>/<file>
+```
+
+A survey, a site or a whole state can be downloaded with one `wget` line (NCI's recipe; the website's
+Access & download page and every survey and site page give the exact line), for example the processed
+products of one survey:
+
+```
+wget -e robots=off -nH --cut-dirs 4 -nc -r -l 10 -A '*.tif,*.tiff,*.laz,*.las' -R 'catalog*' \
+  -I /thredds/fileServer/,/thredds/catalog/ \
+  'https://thredds.nci.org.au/thredds/catalog/mm91/NCDP/Victoria/AireysInlet/20220405-AireysInlet/catalog.html'
+```
+
+Leaving out `-A …` also fetches the raw imagery and records. Only published surveys are on THREDDS, and of
+Restricted surveys only what is published (see *Submitting a survey*, Access level).
+
+NCI publishes the program's records with DOIs. Cite the record for the state of the surveys used, with
+their survey IDs; a state without its own record yet cites the Collection. Every survey will also get its
+own DOI.
+
+| Record | Citation |
+|---|---|
+| Collection | Deakin University, AuScope, & CoastRI. (2026). *National Coastal Drone Program Collection* [Collection]. National Computational Infrastructure (NCI). https://doi.org/10.25914/v67k-dd45 |
+| Victoria | Deakin University, AuScope, & CoastRI. (2026). *National Coastal Drone Program Surveys – Victoria* [Dataset]. National Computational Infrastructure (NCI). https://doi.org/10.25914/k1js-aq64 |
+
 ## Processing levels
 
 Every survey directory contains level folders. Not all levels exist for every
@@ -80,7 +111,7 @@ archive, not scaffolding:
 | `qc_report.json` | Intake QC verdict under `overall` |
 | `report_parsed.json` | Values parsed from the processing report |
 | `report_extract.txt` | Raw extracted report text |
-| `renames.json` | `{original: standardised}` filename mapping |
+| `renames.json` | `{original: standardised}` filename mapping; renames made later to keep names servable by THREDDS (see the naming convention) are appended |
 
 ## Coordinate reference systems
 

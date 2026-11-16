@@ -8,10 +8,34 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.03 — 2026-11-16: shoreline datum by class, data access and citation, two report versions
+
+**Minor revision** (procedures changed; schema unchanged at v5.0).
+
 - **Shoreline datum by class** (`indicators.md`). The S1 shoreline datum is no longer 1.0 m AHD everywhere:
   microtidal sheltered 0.5 m, microtidal open 1.0 m, meso/macrotidal MHWS-based, one fixed value per class
   so locations stay comparable. Victoria follows the VCMP convention (CoastKit): Port Phillip Bay, Point
   Lonsdale and Cowes at 0.5 m, the rest at 1.0 m. Each report states the datum and class.
+- **Indicators are recomputed every week** (`indicators.md`), not monthly.
+- **Two report versions** (`indicators.md`): the technical report, and a plain-language **Overview** for
+  community groups and the public, from the same numbers and with the erosion warning in the same words.
+- **Indicator data for download** (`indicators.md`): every location's indicators as CSV tables, shapefiles
+  and a GeoPackage with a README, in its `L4` folder and on the site's Analysis page.
+- **Access and citation** (`data-structure.md`, `submitting-data.md`): published surveys are served by NCI's
+  THREDDS service, folder for folder, and can be downloaded per survey, site or state with `wget`. NCI's
+  records have DOIs: the Collection (10.25914/v67k-dd45) and Victoria (10.25914/k1js-aq64); every survey will
+  get its own.
+- **Names THREDDS can serve** (`naming-convention.md`): no spaces or `& : % ; \ ? # " < > { } | ^ [ ]` in
+  folder or file names; before publication such characters are replaced with `_` and the rename recorded in
+  `renames.json` (`data-structure.md`).
+- **Raw imagery for processing** (`submitting-data.md`): a released raw-only survey's imagery goes to the NCDP
+  team and, in Victoria, also to DEECA (not DEECA's own uploads); the products are added to the same survey
+  through the same checks, credited to whoever processed them.
+- **QA/QC** (`qaqc-protocol.md`): a raster with less than 1 ha of valid data is held (coverage judged by area,
+  not by the share of the canvas, so curved or long, thin beaches pass); the portal's own record files are
+  bookkeeping, not holds; delivered cleaned data in lat/lon is projected, and DSMs with ellipsoidal heights are
+  converted to AHD with AUSGeoid2020, instead of being held.
+- **Field Manual**: Dr Siegmund Nuyts added as an author (Word original and page).
 
 ## Revision 5.02 — 2026-11-06: holding a survey, release into the archive, credits
 

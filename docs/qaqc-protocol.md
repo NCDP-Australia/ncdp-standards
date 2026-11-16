@@ -31,6 +31,7 @@ Concretely, four things block at intake (five for raw-only submissions):
 | Invalid contact email | Nobody to resolve a later problem with |
 | Executable/script files | Security — never enters the archive |
 | Truncated transfer (Gadi) | The data is simply not there |
+| A raster with almost no data (Gadi) | Less than 1 ha of valid data: a broken export or the wrong file |
 | No raw imagery (raw-only) | There is nothing to process |
 
 Unrecognised (non-executable) file types no longer block (revision 5.01): they travel with the survey
@@ -191,11 +192,11 @@ stopped.
 
 | Stage | Does | Blocks on |
 |---|---|---|
-| 1 `verify` | Generates the manifest the transfer lacks (sha256 for products and sidecars, size/mtime for bulk imagery); corner-read truncation test | Truncated transfer, missing bucket |
+| 1 `verify` | Generates the manifest the transfer lacks (sha256 for products and sidecars, size/mtime for bulk imagery); corner-read truncation test. The portal's own record files (`qc_report.json`, `metadata.json`, `report_extract.txt` …) are bookkeeping: an empty or rewritten one is a warning, not a hold | Truncated transfer, missing bucket |
 | 2 `scrape` | Report → `report_values.json`, reusing the portal's own parse | — |
 | 3 `structure` | Builds the L0–L3 tree by hardlink (same filesystem, so no extra quota) | Unresolvable location |
-| 4 `rasterqc` | Pixels vs report: GSD, extent, nodata voids, CRS, overviews; derives footprint | Undefined CRS |
-| 5 `reproject` | Drives `L2_to_L3.py` — GDA2020, datum token appended | — |
+| 4 `rasterqc` | Pixels vs report: GSD, extent, nodata voids, CRS, overviews; derives footprint. Coverage is judged by the **valid area**, not the share of the canvas, so a curved or long, thin beach is not held for its shape | Undefined CRS; less than 1 ha of valid data |
+| 5 `reproject` | Drives `L2_to_L3.py` — GDA2020, datum token appended. Delivered cleaned data in GDA94 / MGA or WGS 84 / UTM goes through the same route; lat/lon rasters are first projected into their own datum's zone, and DSMs with ellipsoidal heights are converted to AHD with AUSGeoid2020. The heights datum is taken from the team's answer, the DSM itself (its low ground against 0 m AHD and the geoid), the file name, the declaration or the report, in that order | Heights datum unknown, or a geoid correction that could not run |
 | — *promote* | `os.rename` into the published hierarchy: atomic, so a survey never appears half-built | — |
 | 6 `metadata` | Completes the canonical row (boundary corners, area, per-product GSD/EPSG, vertical CRS, RMSE, verdict) into `L0Ancillary/L0_metadata.csv` **and** the master catalogue CSV | — |
 | 7 `stac` | Discovery record with `ncdp:` properties | — |

@@ -117,17 +117,19 @@ The five required fields are the same as for any submission.
    right. It is **not published** in the public catalogue while it is awaiting
    processing: an entry with nothing downloadable helps nobody. The NCDP team
    can see it, and you can ask us about it by quoting your submission
-   reference. In states with a processing partner (Victoria: the Department
-   of Energy, Environment and Climate Action, DEECA), the imagery of a
-   community or council survey is passed to that partner for processing at
-   this point, as one archive by AARNet FileSender; a partner's own uploads
+   reference. At this point the imagery is sent, as one archive by AARNet
+   FileSender, to the NCDP team for processing and, in states with a
+   processing partner (Victoria: the Department of Energy, Environment and
+   Climate Action, DEECA), to that partner as well; a partner's own uploads
    are not sent back to it.
-3. When the program has processed it, the orthomosaic, DSM and point cloud
-   are added to **the same survey** — not a new one — and it then appears in
-   the catalogue like any other processed survey.
+3. When the program or its partner has processed it, the orthomosaic, DSM
+   and point cloud are added to **the same survey** — not a new one — through
+   the same checks as any submission, and it then appears in the catalogue
+   like any other processed survey.
 
 The record keeps both contributions: the imagery is yours (recorded as the
-producer), the products are the program's (recorded as the processor).
+producer), the products are whoever processed them (recorded as the processor,
+with the software and date in the lineage).
 `Submission Type` stays `raw-only` permanently so that distinction is never
 lost; `Processing State` records where the survey is now.
 
@@ -173,8 +175,9 @@ published until a person releases it. It shows as *Held at your request* under
    NCI*.
 5. Your survey appears on the public map at the next catalogue rebuild
    (overnight at the latest). Open surveys are published from
-   `/g/data/mm91/NCDP`; for Restricted surveys only part is published (see
-   Access level).
+   `/g/data/mm91/NCDP` and can be downloaded from NCI's THREDDS service, and
+   cited, as described under *Access and citation* in the archive structure
+   page; for Restricted surveys only part is published (see Access level).
 6. A weekly audit keeps checking every archived survey's structure, names,
    metadata and data; if it finds a problem with yours, the team may contact
    you.

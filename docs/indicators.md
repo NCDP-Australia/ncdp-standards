@@ -9,7 +9,7 @@ so locations can be compared. Results are shown on the Data map at
 [ncdp.auscope.org.au/data](https://ncdp.auscope.org.au/data) and in the site reports.
 
 Every run recomputes the whole record of a location from the archived surveys; nothing is updated
-incrementally. The full program is rerun on the first day of each month.
+incrementally. The full program is rerun every week (Saturday night, Australian Eastern time).
 
 ## The common basis
 
@@ -134,6 +134,37 @@ survey); width and slope; shoreline position and trends; elevation and volume ch
 regime; the erosion warning and hotspots; and the methods and data-quality rules above. Its summary
 opens with the record-wide change on the reference stretch and the current erosion warning, so the
 first sentence is not one-sided.
+
+Each report comes in two versions, chosen when it is requested:
+
+- **Technical report**: everything above, with the methods, tables and data-quality notes, for councils,
+  engineers and consultants. Sections can be chosen; the site and its surveys and the methods are always
+  included.
+- **Overview**: two to three pages in plain language for community groups and the public, built from the
+  same numbers: what is happening at the beach (shoreline movement in metres a year, beach width then and
+  now), the erosion warning in the indicator's own words (*low*, *moderate*, *high*, so the two versions are
+  never read as different assessments), where it is changing most, what this means and does not, and how
+  the surveys are made and by whom.
+
+### Indicator data
+
+Every location's indicators are also published as data, in its location-level `L4` folder
+(`<State>/<Location>/L4/` in the archive) and on the site's Analysis page, as one download,
+`<Location>_L4_data.zip`:
+
+| File | Contents |
+|---|---|
+| `<Location>_L4.gpkg` | GeoPackage with every layer: envelope, transects with their metrics, shoreline and backshore points and lines per date, hotspots |
+| `shapefiles/` | The same layers as shapefiles (field names cut to 10 characters, so the GeoPackage and CSVs keep the full names) |
+| `csv/transects.csv` | One row per transect: chainage, tier, long- and short-term shoreline trends, latest position, backshore trend, net elevation and volume change, r-BCD, regime |
+| `csv/shoreline_positions.csv`, `csv/backshore_positions.csv` | Transect × survey date: position and reason code |
+| `csv/survey_metrics.csv` | One row per survey: median beach width and slope, valid transects, median shoreline position |
+| `csv/hotspots.csv` | D2 hotspots, when scored |
+| `csv/site_summary.csv` | Record-wide values, the shoreline datum and its class, and the erosion warning with its status and statistics |
+| `reports/` | The technical report and the overview (PDF) |
+| `README.txt` | What each file and column is, units, datum, method, citation; and what is not included, and why |
+
+All in GDA2020 / MGA (the location's zone), heights in metres AHD.
 
 Every report credits the surveys to the organisations that flew and processed them and to the
 programs that funded them, read from each survey's metadata (`Organisation`, `Record Funded

@@ -1,6 +1,6 @@
 # NCDP Field Manual
 
-This document has been prepared by Dr Blake Allan and Dr Daniel Ierodiaconou from Deakin University, Victoria Australia, as a field manual for drone operations for the National Coastal Drone Program (NCDP). The NCDP will enhance our capability to monitor coastline change in the critical land-sea interface on a national-scale where 85% of Australian population resides. We have developed a national-scale coastline monitoring program utilising low-cost data collection methods to complement the implementation of the Coastal Reference Sites (CRSs).
+This document has been prepared by Dr Blake Allan, Dr Siegmund Nuyts and Dr Daniel Ierodiaconou from Deakin University, Victoria Australia, as a field manual for drone operations for the National Coastal Drone Program (NCDP). The NCDP will enhance our capability to monitor coastline change in the critical land-sea interface on a national-scale where 85% of Australian population resides. We have developed a national-scale coastline monitoring program utilising low-cost data collection methods to complement the implementation of the Coastal Reference Sites (CRSs).
 
 Data collection involves the use of citizen scientists and local expertise flying low-cost drones in the Civil Aviation safety Authority (CASA) RPA Excluded category (\< 2 kg) and incorporating RTK technology to build a timeseries of survey-grade data for coastlines. These data are used to produce centimetre-accurate orthomosaics and digital surface models for 3-5 km sections of coast as a time series. These outputs can then be related to data from CRSs (e.g. waves) and analysed through time to quantify volumetric change and trends. Drones also provide the ability to undertake event-based sampling following events such as storms where great magnitudes of change can occur.
 
@@ -26,6 +26,14 @@ The NCDP Field Manual outlines the equipment, set-up, mission planning technique
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td><p><strong>Dr Siegmund Nuyts</strong></p>
+<p>National Coastal Drone Program Data Scientist</p>
+<p>Deakin University </p>
+<p><a href="mailto:s.nuyts@deakin.edu.au">s.nuyts@deakin.edu.au</a></p></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
