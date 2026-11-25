@@ -8,6 +8,11 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+- **Point clouds in L3** (`data-structure.md`, `submitting-data.md`). L3 was rasters only and every
+  point cloud was kept in L2. Now every survey with a point cloud has one in L3, in GDA2020 / AHD as
+  LAZ: the cleaned point cloud where one was supplied, otherwise made by the pipeline from the L2
+  point cloud with the same shift and height correction as the DSM, cropped to the crop polygon.
+
 ## Revision 5.03 — 2026-11-16: shoreline datum by class, data access and citation, two report versions
 
 **Minor revision** (procedures changed; schema unchanged at v5.0).

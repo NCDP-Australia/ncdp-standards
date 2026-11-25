@@ -60,7 +60,7 @@ survey — L4 in particular is produced only where there is a derived product.
 | **L0** | Raw, unprocessed data (images, flight logs) and everything describing it | Contributor |
 | **L1** | Intermediate processing steps (e.g. thermal or multispectral calibration). Empty for most surveys | Contributor |
 | **L2** | Uncleaned processed data (DSM, orthomosaic, point cloud) exactly as the processing software produced it, in the **source** CRS. One file per product, at its native resolution | Contributor's processing software |
-| **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD** as Cloud-Optimised GeoTIFF. One file per product, at its native resolution | Contributor, or the Gadi pipeline from L2 |
+| **L3** | Cleaned data (manually edited L2: cropped, noise or water removed), in **GDA2020 + AHD**: orthomosaic and DSM as Cloud-Optimised GeoTIFF, the point cloud as LAZ. One file per product, at its native resolution | Contributor, or the Gadi pipeline from L2 |
 | **L4** | Model outputs derived from the data (results, indicators). Products only: a contributor's crop polygon is a processing input and lives in `L0/L0Ancillary` | Analysis |
 
 Contributors say which level their processed data is by uploading it into the
@@ -79,6 +79,14 @@ for a processed survey.
   original is there too) and writes the GDA2020 / AHD COG to L3. Only when
   nothing states the heights datum, or the heights are ellipsoidal, is the
   survey held for a person.
+- **Point clouds** — every survey that has a point cloud has one in L3. A
+  cleaned point cloud is the L3 point cloud (converted to GDA2020 / AHD where it
+  is in another system, the delivered file then staying in L2). Where no
+  cleaned one was supplied, the pipeline makes L3's from the L2 point cloud:
+  the same shift to GDA2020 and the same height correction as the survey's DSM,
+  cropped to the crop polygon where there is one. Coordinates are shifted by
+  constants, so every point keeps its attributes and its precision. An
+  uncleaned point cloud uploaded beside a cleaned one is kept in L2.
 
 ### L0 sub-folders
 
@@ -115,8 +123,8 @@ archive, not scaffolding:
 
 ## Coordinate reference systems
 
-**Keep the source CRS in L2. L3 is GDA2020 horizontally and AHD vertically,
-as Cloud-Optimised GeoTIFF.** The original is never overwritten, so a
+**Keep the source CRS in L2. L3 is GDA2020 horizontally and AHD vertically:
+rasters as Cloud-Optimised GeoTIFF, the point cloud as LAZ.** The original is never overwritten, so a
 reprojection can always be re-derived or audited. L3 filenames carry the datum
 token (see the naming convention).
 

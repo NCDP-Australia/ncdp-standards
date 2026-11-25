@@ -36,7 +36,8 @@ Upload each product once, at its native resolution. Resampled copies (e.g. a
 1 m DSM beside the full-resolution one) are not archived.
 
 If you upload only L2, NCDP produces the L3 copy (GDA2020, AHD heights,
-cloud-optimised) for you.
+cloud-optimised; the point cloud as LAZ, cropped to your crop polygon) for you.
+A cleaned point cloud goes in the L3 step, like a cleaned DSM.
 
 Upload the report **first**. The wizard parses it and pre-fills roughly a third
 of the metadata, including the processing software, the coordinate system and
