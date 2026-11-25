@@ -79,6 +79,13 @@ for a processed survey.
   original is there too) and writes the GDA2020 / AHD COG to L3. Only when
   nothing states the heights datum, or the heights are ellipsoidal, is the
   survey held for a person.
+- **One source per product** — some processing software exports each product
+  twice, in the site's own datum (GDA94 or GDA2020) and as WGS 84. Where both
+  are supplied, L3 is made from the file in the site's datum; the WGS 84 copy
+  is kept in L2 and is not converted.
+- **North-up grids** — L3 rasters are stored north-up. A product delivered on
+  a rotated grid is resampled once on its way to L3 (bilinear, same pixel
+  size); the delivered file is kept in L2.
 - **Point clouds** — every survey that has a point cloud has one in L3. A
   cleaned point cloud is the L3 point cloud (converted to GDA2020 / AHD where it
   is in another system, the delivered file then staying in L2). Where no

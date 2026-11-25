@@ -12,6 +12,10 @@ releases, whose major number the set continues.
   point cloud was kept in L2. Now every survey with a point cloud has one in L3, in GDA2020 / AHD as
   LAZ: the cleaned point cloud where one was supplied, otherwise made by the pipeline from the L2
   point cloud with the same shift and height correction as the DSM, cropped to the crop polygon.
+- **L3 rasters are north-up, from one source per product** (`data-structure.md`). A product delivered on
+  a rotated grid is resampled once onto a north-up grid of the same pixel size on its way to L3. Where a
+  product is supplied both in the site's datum and as WGS 84, L3 is made from the site-datum file. The
+  delivered files stay in L2 in both cases.
 
 ## Revision 5.03 — 2026-11-16: shoreline datum by class, data access and citation, two report versions
 
