@@ -8,6 +8,26 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.05 — 2026-11-27: parts of the beach named by how often they were surveyed; site report 2.3.0
+
+**Minor revision** (report contents and wording changed; schema unchanged at v5.0).
+
+- **Three parts of the beach** (`indicators.md`), named by how often they were surveyed and always given in that
+  order: the **frequently surveyed stretch** (was the reference stretch: transects valid on at least 60 % of the
+  surveys, for every record-wide series), the **regularly surveyed beach** (was the core tier: envelope covered by at
+  least half of the surveys, for every value per transect and the two-year window) and the **occasionally surveyed
+  beach** (was the extended tier: fewer than half, for context only). The data files keep the field values `core` and
+  `extended`; their README explains them, and `site_summary.csv` gives the frequently surveyed stretch.
+- **Site report 2.3.0** (`indicators.md`): one table of the three parts (share of the surveys, transects, length,
+  alongshore distance, area, surveys used, use) and one of the data used at each step; a map of the three parts; the
+  parts shaded in every figure along the beach; "alongshore distance" instead of chainage; the site map in Section 1
+  without behavioural regimes, which are explained in their own section.
+- **No storm threshold or storm counts** in the waves and tides section; the wave climate and the tides stay.
+- **Unit volume trend** (`indicators.md`): a straight least-squares line through the cumulative change.
+- **Transects** (`indicators.md`): DEA Coastlines' 30 m transects with two added between each pair; DEA's own keep
+  their identifier.
+- **Erosion warning**: cites McCarroll et al. (2024) only.
+
 ## Revision 5.04 — 2026-11-27: waves and tides in the site report, report layout, point clouds and north-up rasters in L3
 
 **Minor revision** (procedures and report contents changed; schema unchanged at v5.0).
