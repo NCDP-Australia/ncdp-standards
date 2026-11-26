@@ -8,6 +8,22 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.04 — 2026-11-27: waves and tides in the site report, report layout, point clouds and north-up rasters in L3
+
+**Minor revision** (procedures and report contents changed; schema unchanged at v5.0).
+
+- **Waves and tides in the site report** (`indicators.md`). Each report describes the beach's offshore wave
+  climate from the CAWCR Wave Hindcast (1979 onwards; the nearest cell at least 5 m deep, seaward of the beach):
+  wave heights, periods, directions with a wave rose, and seasons. A storm threshold is chosen for each location
+  from its own surveys (the largest wave height between surveys that best separates elevation loss from gain,
+  one-way ANOVA; the 99th percentile when no split is significant), and storms are counted over the record and in
+  the interval with the largest loss. Tides at the beach are modelled with EOT20 (via eo-tides) and checked
+  against the nearest ANCHORS tide gauge within 150 km, open-coast gauges only for an open-coast beach. A map
+  shows the beach, the wave model cell and the tide gauge.
+- **Report layout** (`indicators.md`): the technical report has one numbered section per metric, each with how it
+  is calculated, then the results; waves and tides come second, processing and parameters last.
+- **References** (`indicators.md`): the companion papers in review are no longer cited; Durrant et al. (2014),
+  Hart-Davis et al. (2021), Bishop-Taylor et al. (2025) and Hague et al. (2022) added.
 - **Point clouds in L3** (`data-structure.md`, `submitting-data.md`). L3 was rasters only and every
   point cloud was kept in L2. Now every survey with a point cloud has one in L3, in GDA2020 / AHD as
   LAZ: the cleaned point cloud where one was supplied, otherwise made by the pipeline from the L2

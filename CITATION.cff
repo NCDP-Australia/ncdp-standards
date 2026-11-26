@@ -5,8 +5,8 @@ cff-version: 1.2.0
 message: "If you use the NCDP Data Standards and Procedures, please cite the revision you followed as below."
 type: dataset
 title: "NCDP Data Standards and Procedures: metadata schema, naming conventions, data structure, QA/QC and coastal change indicators for the National Coastal Drone Program"
-version: "5.03"   # the revision (publish.yaml); metadata schema v5.0
-date-released: "2026-11-16"      # set to the date of the GitHub release
+version: "5.04"   # the revision (publish.yaml); metadata schema v5.0
+date-released: "2026-11-27"      # set to the date of the GitHub release
 license: CC-BY-4.0
 authors:
   - family-names: Nuyts

@@ -4,7 +4,7 @@ The L4 products turn every archived survey of a location into decision-ready ind
 beach is, where its shoreline and backshore sit and move, how much sand it gains or loses, how it
 behaves, and whether recent change warrants a warning. They follow the indicator framework of
 McCarroll et al. (2024), the beach classification and behavioural analysis of Pucino et al. (2021)
-and the transect methods of Nuyts et al. (2026), with **one set of settings for every NCDP location**
+and transect-based beach-profile methods, with **one set of settings for every NCDP location**
 so locations can be compared. Results are shown on the Data map at
 [ncdp.auscope.org.au/data](https://ncdp.auscope.org.au/data) and in the site reports.
 
@@ -128,12 +128,50 @@ every stretch so this can be checked.
 
 ## Site reports
 
-A site report (PDF, from the report card) presents: the site and its surveys with the coverage chart;
-the beach surface (mean profiles of three alongshore sectors, each with the years of its first
-survey); width and slope; shoreline position and trends; elevation and volume change; behavioural
-regime; the erosion warning and hotspots; and the methods and data-quality rules above. Its summary
-opens with the record-wide change on the reference stretch and the current erosion warning, so the
-first sentence is not one-sided.
+A site report (PDF, from the report card) is set out like a paper, with one numbered section per
+metric; each section gives **how it is calculated**, then the **results**, with numbers and figures and
+no interpretation:
+
+1. Site and survey record (the surveys, their contributors and the coverage chart)
+2. Waves and tides (below)
+3. Survey data and analysis domain
+4. Shoreline position and trends
+5. Beach profile, width, slope and backshore (mean profiles of three alongshore sectors)
+6. Elevation and volume change
+7. Behavioural regime
+8. Erosion warning indicator (D1)
+9. Erosion hotspots (D2)
+10. Processing and parameters (every setting used, the data-quality rules above, references)
+
+Its summary opens with the record-wide change on the reference stretch and the current erosion
+warning, so the first sentence is not one-sided.
+
+### Waves and tides
+
+Each report describes the beach's wave and tide setting, with a map of the beach, the wave model cell
+and the nearest tide gauge on a regional basemap.
+
+- **Waves** come from the CAWCR Wave Hindcast (CSIRO and the Bureau of Meteorology, WAVEWATCH III;
+  Durrant et al., 2014, extended monthly): 4 arc-minute grid (about 7 km), hourly from January 1979,
+  read every 3 hours. The cell used is the nearest wet cell at least 5 m deep within ±80° of the
+  beach's shore normal, so it lies offshore of the beach and not in an estuary behind it. The values are
+  offshore model values: no refraction, sheltering or breaking at the beach; in bays they are indicative.
+  The report gives the median, 95th and 99th percentile and maximum significant wave height (Hs), the peak
+  period, the dominant directions (a wave rose with the beach's seaward direction) and the seasons.
+- **Storm threshold**: for each interval between surveys, the largest Hs. Thresholds from 0.1 m to the
+  largest value, in 0.1 m steps, split the intervals into two groups (at least three in each); the
+  threshold that maximises the one-way ANOVA F-statistic between the groups' change in mean elevation
+  on the reference stretch is used, and the hours above it are correlated with that change. If the best
+  split is not significant (p ≥ 0.05) or there are fewer than six intervals, the record's 99th percentile
+  is used instead. Storms are runs above the threshold, merged when less than 24 h apart; the report
+  counts them over the survey record and in the interval with the largest loss.
+- **Tides** at the beach are modelled with EOT20 (Hart-Davis et al., 2021) through eo-tides
+  (Bishop-Taylor et al., 2025), hourly over 2007–2025: mean daily range (MHHW − MLLW), spring range,
+  tide type and HAT. The nearest ANCHORS tide gauge of the Bureau of Meteorology (Hague et al., 2022)
+  within 150 km shows how well the model does nearby (observed against modelled range; the modelled
+  range is called uncertain when they differ by more than 0.2 m) and gives mean sea level in m AHD. An
+  open-coast beach is compared only with open-coast gauges, not those in bays, gulfs, harbours or
+  behind entrances; if there is none within 150 km the report says so.
 
 Each report comes in two versions, chosen when it is requested:
 
@@ -176,7 +214,10 @@ contributor metadata" rather than credited to anyone.
 
 ## References
 
+- Bishop-Taylor, R., Phillips, C., Sagar, S., Newey, V., & Sutterley, T. (2025). eo-tides: Tide modelling tools for large-scale satellite Earth observation analysis. *Journal of Open Source Software*.
 - Bishop-Taylor, R., Nanson, R., Sagar, S., & Lymburner, L. (2021). Mapping Australia's dynamic coastline at mean sea level using three decades of Landsat imagery. *Remote Sensing of Environment*, 267, 112734. https://doi.org/10.1016/j.rse.2021.112734
+- Durrant, T., Greenslade, D., Hemer, M., & Trenham, C. (2014). *A global wave hindcast focussed on the Central and South Pacific*. CAWCR Technical Report No. 070. Centre for Australian Weather and Climate Research. Data: CAWCR Wave Hindcast, CSIRO, https://doi.org/10.4225/08/523168703DCC5
+- Hague, B. S., Jones, D. A., Trewin, B., Jakob, D., Murphy, B. F., Martin, D. J., & Braganza, K. (2022). ANCHORS: A multi-decadal tide gauge dataset to monitor Australian relative sea level changes. *Geoscience Data Journal*, 9(2). https://doi.org/10.1002/gdj3.136. Data: https://doi.org/10.25914/6142dff37250b
+- Hart-Davis, M. G., Piccioni, G., Dettmering, D., Schwatke, C., Passaro, M., & Seitz, F. (2021). EOT20: a global ocean tide model from multi-mission satellite altimetry. *Earth System Science Data*, 13, 3869–3884. https://doi.org/10.5194/essd-13-3869-2021
 - McCarroll, R. J., Kennedy, D. M., Liu, J., Allan, B., & Ierodiaconou, D. (2024). Design and application of coastal erosion indicators using satellite and drone data for a regional monitoring program. *Ocean & Coastal Management*, 253, 107146. https://doi.org/10.1016/j.ocecoaman.2024.107146
-- Nuyts, S., Allan, B., Kennedy, D. M., & Ierodiaconou, D. (2026). Beach morphodynamics and coastal armouring at Port Fairy, Victoria (companion papers, in review).
 - Pucino, N., Kennedy, D. M., Carvalho, R. C., Allan, B., & Ierodiaconou, D. (2021). Citizen science for monitoring seasonal-scale beach erosion and behaviour with aerial drones. *Scientific Reports*, 11, 3935. https://doi.org/10.1038/s41598-021-83477-6

@@ -5,8 +5,8 @@
 # the whole set (see README "Versioning"): MAJOR.YYx, e.g. 5.01, 5.01a, 5.02.
 # The release tag is "v" + revision (v5.01); every GitHub release is archived by
 # Zenodo under the concept DOI below and gets its own version DOI.
-revision: "5.03"
-revision_date: "2026-11-16"
+revision: "5.04"
+revision_date: "2026-11-27"
 schema_version: "5.0"            # the metadata record format; changes only with a schema change
 concept_doi: "10.5281/zenodo.23127540"
 repository: "NCDP-Australia/ncdp-standards"
@@ -64,7 +64,7 @@ pages:
     title: Data structure and processing levels
     category: Data standards
     status: adopted
-    last_revised: "5.03"
+    last_revised: "5.04"
   - source: docs/naming-convention.md
     wiki_page: Naming-Convention
     title: Naming convention
@@ -82,7 +82,7 @@ pages:
     title: Submitting a survey
     category: Contributing data
     status: adopted
-    last_revised: "5.03"
+    last_revised: "5.04"
   - source: docs/qaqc-protocol.md
     wiki_page: QAQC-Protocol
     title: QA/QC protocol
@@ -94,5 +94,5 @@ pages:
     title: Coastal change indicators (L4) and site reports
     category: Indicators and reports
     status: provisional
-    last_revised: "5.03"
+    last_revised: "5.04"
     note: "Thresholds and the reference-stretch rules may be tuned as more locations are processed."
