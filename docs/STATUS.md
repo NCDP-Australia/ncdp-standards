@@ -2,7 +2,7 @@
 
 _Generated from `publish.yaml` by `Scripts/publish_to_wiki.py` — do not edit by hand._
 
-Current revision: **5.05** (2026-11-27); metadata schema v5.0.
+Current revision: **5.06** (2026-11-27); metadata schema v5.0.
 
 | Page | Category | Status | Last revised | Source |
 |---|---|---|---|---|
@@ -12,4 +12,4 @@ Current revision: **5.05** (2026-11-27); metadata schema v5.0.
 | Metadata schema (v5.0) | Data standards | Adopted | 5.00 | `docs/metadata-schema.md` |
 | Submitting a survey | Contributing data | Adopted | 5.04 | `docs/submitting-data.md` |
 | QA/QC protocol | Quality assurance | Adopted | 5.03 | `docs/qaqc-protocol.md` |
-| Coastal change indicators (L4) and site reports | Indicators and reports | Provisional — Thresholds and the reference-stretch rules may be tuned as more locations are processed. | 5.05 | `docs/indicators.md` |
+| Coastal change indicators (L4) and site reports | Indicators and reports | Provisional — Thresholds and the reference-stretch rules may be tuned as more locations are processed. | 5.06 | `docs/indicators.md` |

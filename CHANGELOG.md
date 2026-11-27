@@ -8,6 +8,20 @@ releases, whose major number the set continues.
 
 (Add changes here; rename to the revision when it is released.)
 
+## Revision 5.06 — 2026-11-27: possible beach works; two references completed; site report 2.3.2
+
+**Minor revision** (method text and references; schema unchanged at v5.0).
+
+- **Possible beach works** (`indicators.md`, C1): where at least 5 neighbouring transects over at least 50 m change by
+  more than 1 m in the same direction between two surveys, the run is listed as possibly real change (nourishment,
+  scraping, a slip, a large natural change) instead of being dropped silently. It stays out of the values unless the
+  works are recorded for the location, and then it is kept as real change.
+- **Site pages** show, for each survey, whether it is used in the indicators, used in part or left out, and why.
+- **References**: eo-tides (Bishop-Taylor et al., 2025) with volume and DOI (JOSS 10(109), 7786,
+  https://doi.org/10.21105/joss.07786); the wave data cited as the CAWCR Wave Hindcast – Aggregated Collection (v5,
+  CSIRO, http://hdl.handle.net/102.100.100/137152), the collection the waves are read from.
+- **Site report 2.3.2**: the same references; possible and recorded works in Section 3 and the data-steps table.
+
 ## Revision 5.05 — 2026-11-27: parts of the beach named by how often they were surveyed; site report 2.3.0
 
 **Minor revision** (report contents and wording changed; schema unchanged at v5.0).
