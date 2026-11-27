@@ -227,9 +227,9 @@ contributor metadata" rather than credited to anyone.
 
 ## References
 
-- Bishop-Taylor, R., Phillips, C., Sagar, S., Newey, V., & Sutterley, T. (2025). eo-tides: Tide modelling tools for large-scale satellite Earth observation analysis. *Journal of Open Source Software*.
+- Bishop-Taylor, R., Phillips, C., Sagar, S., Newey, V., & Sutterley, T. (2025). eo-tides: Tide modelling tools for large-scale satellite Earth observation analysis. *Journal of Open Source Software*, 10(109), 7786. https://doi.org/10.21105/joss.07786
 - Bishop-Taylor, R., Nanson, R., Sagar, S., & Lymburner, L. (2021). Mapping Australia's dynamic coastline at mean sea level using three decades of Landsat imagery. *Remote Sensing of Environment*, 267, 112734. https://doi.org/10.1016/j.rse.2021.112734
-- Durrant, T., Greenslade, D., Hemer, M., & Trenham, C. (2014). *A global wave hindcast focussed on the Central and South Pacific*. CAWCR Technical Report No. 070. Centre for Australian Weather and Climate Research. Data: CAWCR Wave Hindcast, CSIRO, https://doi.org/10.4225/08/523168703DCC5
+- Durrant, T., Greenslade, D., Hemer, M., & Trenham, C. (2014). *A global wave hindcast focussed on the Central and South Pacific*. CAWCR Technical Report No. 070. Centre for Australian Weather and Climate Research. Data: Durrant, T., Hemer, M., Smith, G., Trenham, C., & Greenslade, D. (2020). *CAWCR Wave Hindcast – Aggregated Collection* (v5). CSIRO. http://hdl.handle.net/102.100.100/137152
 - Hague, B. S., Jones, D. A., Trewin, B., Jakob, D., Murphy, B. F., Martin, D. J., & Braganza, K. (2022). ANCHORS: A multi-decadal tide gauge dataset to monitor Australian relative sea level changes. *Geoscience Data Journal*, 9(2). https://doi.org/10.1002/gdj3.136. Data: https://doi.org/10.25914/6142dff37250b
 - Hart-Davis, M. G., Piccioni, G., Dettmering, D., Schwatke, C., Passaro, M., & Seitz, F. (2021). EOT20: a global ocean tide model from multi-mission satellite altimetry. *Earth System Science Data*, 13, 3869–3884. https://doi.org/10.5194/essd-13-3869-2021
 - McCarroll, R. J., Kennedy, D. M., Liu, J., Allan, B., & Ierodiaconou, D. (2024). Design and application of coastal erosion indicators using satellite and drone data for a regional monitoring program. *Ocean & Coastal Management*, 253, 107146. https://doi.org/10.1016/j.ocecoaman.2024.107146
